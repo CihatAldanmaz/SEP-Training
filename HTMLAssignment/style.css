@@ -1,0 +1,82 @@
+* {
+    margin:0px;
+    padding: 0px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.container {
+    width: 100%;
+}
+
+.small-input input {
+    width: 91%;
+    margin: 2%;
+    padding: 2%;
+}
+
+.large-input input {
+    width: 91%;
+    margin: 2%;
+    padding: 2%;
+}
+
+.reg {
+    color: white;
+    background-color: blue;
+}
+
+.terms-conditions {
+    color: blue;
+}
+
+button {
+    width: 100%;
+    border: none;
+    padding: 4% ;
+    margin-top: 1%;
+    color: white;
+}
+
+.reg-btn {
+    background-color: blue;
+}
+
+.sign-btn {
+    background-color: green;
+}
+
+@media only screen and (min-width: 768px) {
+    .small-input input {
+        width: 41%;
+    }
+
+    .terms-agree {
+        display: table;
+        width: 100%;
+    }
+    
+    .terms-agree div {
+        display: table-cell;
+        padding: 2%;
+        text-align: center;
+        
+    }
+
+    .agree-check {
+        width: 30%
+    }
+
+    .btn-container {
+        text-align: center;
+    }
+
+    button {
+        width: 40%;
+        margin: 2%;
+        border-radius: 7%;
+    }
+}
