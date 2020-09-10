@@ -15,5 +15,5 @@ console.log(element.id);
 //}
 //foo();
 // what is the differenc between blcok element and in-line element
-//
+//BEM block element modifier
 

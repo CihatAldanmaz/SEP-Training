@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- stype1
+    <style>
+        /* class */
+        .box{
+            background-color: green;
+        }
+
+        /* id */ 
+        #box1 {
+            background-color: black;
+        }
+        /* universal : for everything*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*element selector*/
+        div {
+            height: 100px;
+            background-color: brown;
+        }
+        /*attribute selecter*/
+        div[id='box2']{
+            background-color:darkblue;
+        }
+        /*combination selector*/
+        div.box[id='box1']{
+            width: 200px;
+        }
+
+        /*descedent selector*/
+        body div {
+            color: white; 
+        }
+
+        /* child selector */
+        body > div {
+            color: red; 
+        }
+
+        input[type="checkbox"]{
+            width:  10px;
+        }
+        /*regex: regular expression*/
+        div[class^="b"] /*startswith b*/{
+            margin-top: 20px;
+        }
+    </style>
+    -->
+    <style>
+        .box {
+            /*default is content size*/
+            box-sizing: content-box; /*preferred*/
+            width:100px;
+            height: 100px;
+            padding: 20px;
+            margin: 20px;
+            /*position: fixed;
+            top: 0; /*edge to top*/
+            /*right : 0; /*edge to right*/
+        }
+        .position-fix {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+        .position-absolute{
+            position:fixed;
+            top: 200;
+            right: 0;
+        }
+        .position-relative{
+            position: relative;
+        }
+    </style>
+    <!--Layout
+        flexbox
+        CSS -grid
+        bootstrap: grid system
+
+    -->
+    <title>CSS</title>
+</head>
+<body>
+    <!--
+    <div id="box1" class= "box" style="width: 100px;height: 100px; ">
+        Box
+    </div>
+    <div id="box2">box2</div>
+    <div id='box3'>box3</div>>
+    <br>
+    <input type="checkbox">
+    <input type="text">
+    <input type="button" value="botton">
+    -->
+
+    <!--css box model, your html will treat everything as a box-->
+    <!--
+    <div class="box position-fixed">BOX1</div>
+    <div class="box position-relative">BOX2
+        <div class="box position-absolute">BOX3</div>
+    </div>
+    -->
+    <!--
+        pos-relative: carousel
+        pos-fix: navigation bar 
+    
+-->
+    <!--
+    <style>
+        .container {
+            display: felx;
+            flex-wrap: wrap; /*two dimention, also supported by mobile*/
+        }
+        .box{
+            flex-grow: 1;
+            width: 30%; 
+        }
+    </style>
+    -->
+    <!--
+    <div class="container">
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+    </div>
+    -->
+    <style>
+        .row{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        [class^="col"]{
+            box-sizing: border-box;
+            color: 1px solid black;
+        }
+        .col-1{
+            width: cal(1/12 * 100);
+        }
+        .col-2{
+            width: cal(2/12 * 100);
+        }
+        .col-3{
+            width: cal(3/12 * 100);
+        }
+        .col-4{
+            width: cal(4/12 * 100);
+        }
+         .col-5{
+            width: cal(5/12 * 100);
+        }
+         .col-6{
+            width: cal(6/12 * 100);
+        }
+         .col-7{
+            width: cal(7/12 * 100);
+        }
+         .col-8{
+            width: cal(8/12 * 100);
+        }
+         .col-9{
+            width: cal(9/12 * 100);
+        }
+         .col-10{
+            width: cal(10/12 * 100);
+        }
+         .col-11{
+            width: cal(11/12 * 100);
+        }
+         .col-12{
+            width: cal(12/12 * 100);
+        }
+        @media (max-width:1000px) and (min-width: 600px) {
+            
+        }
+    
+
+    </style>
+    <div class="row">
+        <!--<div class="col-12 col-md-8">.col-12 .col-md-8</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        -->
+    </div>
+    
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    </div>
+    
+    <!-- Columns are always 50% wide, on mobile and desktop -->
+    <div class="row">
+        <div class="col-6">.col-6</div>
+        <div class="col-6">.col-6</div>
+    </div>
+</body>
+</html>
