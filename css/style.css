@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    padding: 6rem 10rem;
+}
+
+h1{
+    font-weight:normal
+}
+
+input {
+    font-size: 100%;
+}
+
+.form-container {
+    text-align: center;
+    font-family: sans-serif;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+
+}
+
+.full-width {
+    grid-column: 1 / 3;
+}
+
+form p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.form-element {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 15px;
+}
+
+.form-element:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(93, 188, 210, 1);
+    border: 1px solid rgb(93, 188, 210);    
+}
+
+.register{
+    background-color:rgb(66, 139, 202);
+    color: white;
+    border: none;
+    margin-top: 0;
+}
+
+.register:hover {
+    background-color: rgb(50, 152, 241);
+}
+
+.signin{
+    background-color:rgb(92, 183, 92);
+    color: white;
+    border: none;
+    margin-top: 0;
+
+}
+.signin:hover {
+    background-color: rgb(6, 201, 6);
+}
+
+.wrapper{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: -15px;
+    margin-left: -20px;
+}
+
+.wrapper > .flex-check {
+    /* margin: 10px; */
+    font-size: 16px;
+    flex: 1;
+    text-align: left;
+  }
+
+  .wrapper > .flex-description {
+    /* margin: 10px; */
+    font-size: 16px;
+    flex: 2.3;
+    text-align: left;
+  }
+
+  span {
+      background-color: rgb(66, 139, 202);
+      color: white;
+      padding: 3px 7px;
+      display: inline-block;
+      border-radius: 3px;
+      font-size: 90%;
+  }
+
+  
