@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    /**
+    There is still something off in the positioning, I'll try to fix it once we go through the css.
+    */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+
+    .container {
+        text-align: center;
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: lighter;
+    }
+
+    .input1,
+    .input2,
+    .input5,
+    .input6 {
+        margin: 10px;
+        width: 200px;
+    }
+
+    .input3,
+    .input4 {
+        margin: 10px;
+        width: 447px;
+    }
+
+
+    input,
+    textarea {
+        border: 1px solid lightgray;
+        padding: 10px 10px;
+        background: none;
+        border-radius: 5px;
+
+    }
+
+    input:focus {
+        outline: 0;
+        border-color: #0373fc;
+        box-shadow: .1 ease;
+        box-shadow: 0px 0px 4px #3FBFBF;
+    }
+
+    .check-box {
+        float: left;
+        margin-left: 100px;
+    }
+
+    .note {
+        margin-left: 244px;
+        font-size: small;
+        width: 350px;
+        text-align: right;
+    }
+
+    .miniBlock {
+        display: inline-block;
+        background-color: #0373fc;
+        color: white;
+    }
+
+    .reg-btn {
+        background-color: #0373fc;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 15px 32px;
+        width: 200px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+
+        margin-left: 4px;
+        margin-right: 66px;
+        
+    }
+
+    .sign-btn {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+
+        margin-left: 0px;
+        width: 200px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW1</title>
+</head>
+
+<body>
+    <h1>Sign Up</h1>
+    <form action="signUp.js">
+
+        <div class="container">
+            <div class="first-row">
+                <label for="fName"></label>
+                <input class="input1" type="text" placeholder="First Name" name="fName" required>
+
+                <label for="lName"></label>
+                <input class="input2" type="text" placeholder="Last Name" name="lName" required>
+            </div>
+
+            <div class="second-row">
+                <label for="mMumber"></label>
+                <input class="input3" type="text" placeholder="Mobile No." name="mNumber" required>
+
+            </div>
+
+            <div class="third-row">
+                <label for="email"></label>
+                <input class="input4" type="email" placeholder="Email Address" name="email" required>
+            </div>
+
+            <div class="forth-row">
+                <label for="password"></label>
+                <input class="input5" type="password" placeholder="Password" name="password" required>
+                <label for="confirmPassword"></label>
+                <input class="input6" type="password" placeholder="Confirm Passoword" name="confirmPassword" required>
+            </div>
+
+            <div class="check-box">
+                <input type="checkbox" id="agree" name="agreement"><label for="agreement">I Agree</label>
+            </div>
+            <div class="note">
+                <span>By clicking <span class="miniBlock">Register</span>, you agree to the <a
+                        href="https://www.google.com/">Terms and Conditions</a> set out by this
+                    site, including your Cookie Use.</span>
+            </div>
+
+            <button class="reg-btn">Register</button><button class="sign-btn">Sign In</button>
+        </div>
+    </form>
+</body>
+
+</html>
