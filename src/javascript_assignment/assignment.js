@@ -131,7 +131,22 @@ const secondLowestAndGreatest = (arr) => {
 
 // Question 12
 // Time O(n)
-// Space O(n)
+// Space O(1)
+
+const isPerfect = (number) => {
+  if (number === 1) {
+    return false;
+  }
+
+  let sumDivisors = 0;
+  for (let i = 0; i <= parseInt(number / 2); i++) {
+    if (number % i === 0) {
+      sumDivisors += i;
+    }
+  }
+
+  return sumDivisors === number;
+};
 
 // Question 13
 // Time O(n)
@@ -148,7 +163,44 @@ const factorial = (n) => {
 // Question 14
 // Time O(nk) n is amount and k in number of coins
 // Space O(n)
-// this question is basically coin change
+// this question is basically coin change problem
+
+const coinChange = (amount, coins) => {
+  coins.sort((a, b) => a - b);
+  let ans = [];
+  let dp = [0, ...Array(amount).fill(Infinity)];
+
+  for (let i = 1; i <= amount; i++) {
+    for (let coin of coins) {
+      if (i - coin >= 0) {
+        dp[i] = Math.min(dp[i - coin] + 1, dp[i]);
+      }
+    }
+  }
+
+  while (amount > 0) {
+    let dpMin = Infinity;
+    let targetCoin;
+
+    coins.forEach((coin) => {
+      if (amount - coin >= 0 && dp[amount - coin] < dpMin) {
+        dpMin = dp[amount - coin];
+      }
+    });
+
+    coins.forEach((coin) => {
+      if (dp[amount - coin] === dpMin) {
+        targetCoin = coin;
+      }
+    });
+
+    ans.push(targetCoin);
+
+    amount -= targetCoin;
+  }
+
+  return ans.join();
+};
 
 // Question 15
 
@@ -232,6 +284,28 @@ const stringId = (length) => {
 // Time O(nk) k is the length of subset
 // Space O(nk)
 
+const fixedLengthCombinations = (arr, length) => {
+  ans = [];
+
+  const backtrack = (curr, choice) => {
+    if (curr.length === length) {
+      ans.push(curr);
+      return;
+    }
+
+    for (let i = 0; i < choice.length; i++) {
+      backtrack(
+        [...curr, choice[i]],
+        [...choice.slice(0, i), ...choice.slice(i + 1)]
+      );
+    }
+  };
+
+  backtrack([], arr);
+
+  return ans;
+};
+
 // Question 22
 // Time O(n)
 // Space O(1)
@@ -296,12 +370,63 @@ const longestCountryName = (arr) => {
 };
 
 // Question 26
-// Time
-// Space
+// Time O(n)  typical sliding window problem :)
+// Space O(n)
+
+const longestSubstring = (str) => {
+  let map = {};
+  let start = 0;
+  let ans = { start: 0, end: 0 };
+
+  for (let end = 0; end < str.length; end++) {
+    if (str[end] in map) {
+      map[str[end]] += 1;
+    } else {
+      map[str[end]] = 1;
+    }
+
+    while (map[str[end]] > 1) {
+      map[str[start]] -= 1;
+      start += 1;
+    }
+
+    if (end - start > ans.end - ans.start) {
+      ans.start = start;
+      ans.end = end;
+    }
+  }
+
+  return str.slice(ans.start, ans.end + 1);
+};
 
 // Question 27
-// Time
-// Space
+// Time O(n^2)
+// Space O(n^2)
+
+const longestPalindrome = (str) => {
+  let s = str.split('').join('#');
+  let ans = '';
+
+  for (let i = 0; i < s.length; i++) {
+    let j = i;
+
+    while (i - j >= 0 && i + j < s.length) {
+      if (s[i - j] !== s[i + j]) {
+        break;
+      }
+      j += 1;
+    }
+
+    if (s.slice(i - j + 1, i + j).length > ans.length) {
+      ans = s.slice(i - j + 1, i + j);
+    }
+  }
+
+  return ans
+    .split('')
+    .filter((letter) => letter !== '#')
+    .join('');
+};
 
 // Question 28
 
