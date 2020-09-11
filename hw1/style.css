@@ -1,0 +1,97 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .form_container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex: wrap;
+        font-family: sans-serif;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    a {
+        text-decoration: none;
+        color: #6767f5;
+    }
+    
+    label {
+        cursor: pointer;
+    }
+    
+    input[type='checkbox'] {
+        cursor: pointer;
+    }
+    
+    div {
+        margin-top: 5px;
+    }
+    
+    .row {
+        flex-basis: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .row div {
+        width: 100%;
+        margin: 5px 10px;
+    }
+    
+    .row div input {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #e8e8e8;
+        padding-left: 10px;
+    }
+    
+    input:focus {
+        box-shadow: 0 0 2px 1px #88b8ff;
+        outline: none;
+    }
+    
+    .half input[type="submit"],
+    .half input[type="button"] {
+        border: none;
+        color: #fff;
+        outline: none;
+    }
+    
+    .half input[type="submit"] {
+        background-color: #00c851;
+    }
+    
+    .half input[type="button"] {
+        background-color: #4285f4;
+    }
+    
+    .form_container .agree {
+        display: flex;
+        position: relative;
+    }
+    
+    .agree .left {
+        flex: 1 1 40%;
+    }
+    
+    .agree p {
+        font-size: 14px;
+    }
+    
+    .agree .reg {
+        background-color: #4285f4;
+        padding: 1px 4px;
+        border-radius: 3px;
+        color: white;
+        font-weight: 700;
+        font-size: 12px;
+    }
