@@ -12,10 +12,12 @@
         display: flex;
         flex: wrap;
         font-family: sans-serif;
+        max-width: 600px;
     }
     
     h1 {
         text-align: center;
+        margin-bottom: 9px;
     }
     
     a {
@@ -31,12 +33,8 @@
         cursor: pointer;
     }
     
-    div {
-        margin-top: 5px;
-    }
-    
     .row {
-        flex-basis: 100%;
+        /* flex-basis: 100%; */
         display: flex;
         justify-content: space-between;
     }
@@ -59,28 +57,32 @@
         outline: none;
     }
     
-    .half input[type="submit"],
-    .half input[type="button"] {
+    .row input[type="submit"],
+    .row input[type="button"] {
         border: none;
         color: #fff;
         outline: none;
     }
     
-    .half input[type="submit"] {
+    .row input[type="submit"] {
         background-color: #00c851;
     }
     
-    .half input[type="button"] {
+    .row input[type="button"] {
         background-color: #4285f4;
     }
     
     .form_container .agree {
         display: flex;
         position: relative;
+        margin-top: 5px;
     }
     
     .agree .left {
         flex: 1 1 40%;
+        margin: 5px;
+        font-size: 14px;
+        font-weight: 700;
     }
     
     .agree p {
@@ -94,4 +96,19 @@
         color: white;
         font-weight: 700;
         font-size: 12px;
+    }
+    
+    @media (max-width:400px) {
+        .form_container .row {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            display: none;
+        }
+        .agree {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
