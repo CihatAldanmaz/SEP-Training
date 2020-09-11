@@ -4,36 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href='index.css'>
 </head>
 
 <body>
-    <header>
-        <h1>Sign Up</h1>
-    </header>
-    <form action="">
-        <div class="name">
-            <input type="text" placeholder="First Name">
-            <input type="text" placeholder="Last Name">
-        </div>
-        <div>
-            <input type="phone" placeholder="Mobile No.">
-        </div>
-        <div>
-            <input type="email" placeholder="Email Address">
-        </div>
-        <div class="password">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Confirm Password">
-        </div>
-        <div>
-            <input type="checkbox"> <strong>I Agree</strong>
-            By clicking <span>Register</span>, you agree to <a href="#">terms and conditions</a>
-            set by this site, including our Cookie Use.
-        </div>
-        <button>Register</button>
-        <button>Sign In</button>
-    </form>
+    <div class="form-container">
+        <form action='' class="form-signup">
+            <header>
+                <h1>Sign Up</h1>
+            </header>
+            <div class="row name-row">
+                <div class="row-item">
+                    <input type="text" placeholder="First Name">
+                </div>
+                <div class="row-item">
+                    <input type="text" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-item">
+                    <input type="phone" placeholder="Mobile No.">
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-item">
+                    <input type="email" placeholder="Email Address">
+                </div>
+            </div>
+            <div class="row name-row">
+                <div class="row-item">
+                    <input type="password" placeholder="Password">
+                </div>
+                <div class="row-item">
+                    <input type="password" placeholder="Confirm Password">
+                </div>
+            </div>
+            <div class="row check-agreement">
+                <div class="check-input">
+                    <input type="checkbox" id="check"> <label for="check">I Agree</label>
+                </div>
+                <p>By clicking <span>Register</span>, you agree to <a href="#">terms and conditions</a>
+                    set by this site, including our Cookie Use.</p>
+            </div>
+            <div class="row name-row">
+                <div class="row-item">
+                    <button class="register">Register</button>
+                </div>
+                <div class="row-item">
+                    <button class="signin">Sign In</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
