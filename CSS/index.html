@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <!-- <style>
+            /* class */
+            .box {
+                background-color: green;
+            }
+            /* id, higher priority than class*/
+            #box {
+                background-color: black;
+            }
+            /* universal */
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            /* element */
+            div {
+                height: 100px;
+                width: 100px;
+                background-color: brown;
+            }
+            /* attribute */
+            [id="box1"] {
+                background-color: darkblue;
+            }
+            /* combination */
+            div.box[id="box1"] {
+                width: 200px;
+            }
+            /* decendent */
+            body div {
+                color: white;
+            }
+            /* child */
+            body > div {
+                color: red;
+            }
+
+            input[type="checkbox"] {
+                width: 100px;
+            }
+        </style> -->
+         <style>
+            .box {
+                box-sizing: border-box;
+                /* box-sizing: content-box; */
+                width: 100px;
+                height: 100px;
+                padding: 20px;
+                margin: 20px;
+                background-color: gray;
+                /* position: static; default */
+                
+            }
+
+            .position-fixed {
+                position: fixed;
+                top: 0;
+                right: 0;
+            }
+            .position-absolute {
+                position: absolute;
+                top: 200px;
+                right: 0;
+            }
+            .position-relative {
+                position: relative;
+            }
+        </style>
+        <title>CSS</title>
+    </head>
+    <body>
+        <!-- <div id="box1" class="box" style="width: 100px;height: 100px;background-color: grey;">BOX1</div>
+        <div id="box2">BOX2
+            <div>
+                BOX3
+            </div>
+        </div>
+        <br>
+        <input type="checkbox"> -->
+
+        <!-- <div class="box position-fixed">BOX1</div>
+        <div class="box position-relative">BOX2
+           // absolute will find the first anchor tag which means that a parent tag and not static position 
+            <div class="box position-absolute">BOX3</div>
+        </div>
+        <div class="box position-absolute">BOX4</div> -->
+        <style>
+            .container {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            /* .box {
+                flex-grow: 1;
+                width: 30%;
+            } */
+        </style>
+        <div class="container">
+            <div class="box">BOX</div>
+            <div class="box">BOX</div>
+            <div class="box">BOX</div>
+            <div class="box">BOX</div>
+            <div class="box">BOX</div>
+            <div class="box">BOX</div>
+        </div>
+
+        <style>
+            .row {
+                display: flex;
+            }
+        </style>
+    </body>
+</html>
