@@ -1,0 +1,150 @@
+:root {
+    --color-primary: #0373f;
+    --color-shadow:#3FBFBF;
+    --color-border:lightgray;
+    --color-sign-btn:#4CAF50;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.25%;
+}
+
+body {
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+label {
+    cursor: pointer;
+}
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.container {
+    /*center*/
+    position: fixed;
+    width: 100%;
+    /*this max-width adds constrains of how wide 
+    the input boxes can be*/
+    max-width: 50rem;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-signup {
+    display: flex;
+    flex-direction: column;
+}
+.form-signup .form-signup__header{
+    text-align: center;
+    margin: 5px 0;
+    
+}
+.header__text {
+    font-weight: lighter;
+}
+.form-signup .form-row {
+    display: flex;
+    flex: auto;
+    margin: 1px;
+}
+
+.form-signup .form-row .form-item {
+    flex: auto;
+    margin: 0.5rem 1rem;
+}
+
+.form-item input {
+    padding: 1rem;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--color-border);
+    outline: none;
+}
+
+.form-item input:focus{
+    box-shadow: 0 0 2px 1px var(--color-shadow);
+}
+
+.form-row .agree-item {
+    display: flex;
+    margin-top: 8px;
+}
+
+.agree-item {
+    display: flex;
+    margin-top: 80px;
+}
+
+
+.form-row .check-box {
+    flex: 1 1 60%;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    min-width: 2rem;
+}
+
+.form-row .term_text {
+    font-size: 1.2rem;
+    margin-left: 100px;
+}
+.form-row .term_text a{
+    text-decoration: none;
+    
+}
+
+.form-row .term_text .badge-register {
+    background-color: blue;
+    border-radius: 3px;
+    display:inline-block;
+    color: #fff;
+    padding: 1px 4px;
+}
+
+.btn {
+    border: none;
+    background-color: var(--color-primary);
+    outline: none;
+}
+
+.primary {
+    color: #fff;
+    background-color: blue;
+}
+.primary:active {
+    background-color: blue;
+}
+.success {
+    color:#fff;
+    background-color: green;
+}
+
+.success:active {
+    background-color: #007E33;
+}
+
+
+@media (max-width: 600px) {
+    .form-signup .form-row{
+        flex-direction: column;
+    }
+    .check-box label{
+        display: none;
+    }
+    .check-box {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+    }
+}
