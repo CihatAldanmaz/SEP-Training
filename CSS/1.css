@@ -61,16 +61,12 @@ p{
 
 .third {
     display: inline-block;
-    
 }
 
 footer{
-    background-color: #0b4d14;   
-}
-.nav {
+    background-color: #0b4d14;  
     display: flex;
-    justify-content: space-between;
-
+    justify-content: space-between; 
 }
 
 
