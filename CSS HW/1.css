@@ -1,0 +1,78 @@
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 20px;
+
+  }
+  html { 
+    font-size: 90%;
+    font-family: sans-serif;
+  }
+    
+  li > a{
+    display: inline-block;
+    padding: 0.5rem 0.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+
+header{
+    background-color: black;
+    padding: 15px;
+}
+
+li {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+
+}
+.primary{
+  position: fixed;
+  top: 1%;
+  margin-top: -0.4em;
+}
+  
+h1{
+    background-color: #c6bfbf;
+    text-align: left;
+}
+
+p{
+    background-color: #c6bfbf;
+    text-align: left;
+}
+
+
+.secondary{
+
+    display: inline-block;
+    
+}
+
+.third {
+    display: inline-block;
+    
+}
+
+footer{
+    background-color: #0b4d14;   
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+   
+
