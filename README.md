@@ -12,4 +12,4 @@ HTML Assignment: https://codepen.io/pudu/pen/poyaKoR
 
 CSS Assignment:
 
-[JavaScirpt Assignment (24/29)](src/javascript/assignment.js)
+[JavaScirpt Assignment (24/29)](src/javascript_assignment/assignment.js)
