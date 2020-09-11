@@ -87,6 +87,20 @@
 // boo();
 //===============
 
+//=====================
+console.log(foo());//undefined
+console.log(foo);// [Function: foo]
+function foo() {
+
+}
+console.log(foo);// [Funciton: foo]
+console.log(boo);// undefined
+var boo = () => {
+}
+console.log(boo());// undefined
+console.log(boo);// [Function: boo]
+//===============
+
 //=============
 // class Person {
 //     constructor(name, age) {
@@ -122,14 +136,14 @@
 
 
 //==============================
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
-Person.prototype.walk = function() {
-    console.log(this.name + ' is walking');
-}
-const p = new Person('Patrick', 18);
-console.log(p.__proto__ === Person.prototype); // true
+// function Person(name, age) {
+//     this.name = name;
+//     this.age = age;
+// }
+// Person.prototype.walk = function() {
+//     console.log(this.name + ' is walking');
+// }
+// const p = new Person('Patrick', 18);
+// console.log(p.__proto__ === Person.prototype); // true
 //================================
 
