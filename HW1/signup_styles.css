@@ -1,0 +1,90 @@
+html{
+    font-size: 62.5%
+  }
+  
+  body{
+    font-size: 1.6rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+
+  .form-container{
+    position: fixed;
+    width:100%;
+    max-width: 50rem;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .primary{
+    color: #fff;
+    background-color:#4285F4;
+  }
+
+  .success{
+    color:#fff;
+    background-color:#00C851;
+  }
+
+  .form-signup{
+    display:flex;
+    flex-direction: column;
+  }
+  .form-header{
+    text-align: center;
+    margin:5px 0;
+  }
+  
+  .form-signup .form-row{
+    display: flex;
+    flex:1 1 100%;
+    margin:1px;
+  }
+  .form-signup .form-row .form-item{
+    flex:1 1 100%;
+    margin:0.5rem 1rem;
+  }
+
+  .form-item input{
+    padding:1rem;
+    width:100%;
+    border-radius: 5px;
+    border:1px solid #e0e0e0;
+    outline:none;
+  }
+  
+  .form-item input:focus{
+    box-shadow: 0 0 2px 1px #88b8ff;
+  }
+
+  .form-row .terms .register-icon{
+    background-color: #4285F4;
+    display: inline-block;
+    color:#fff;
+    padding:1px 4px;
+    border-radius: 3px;
+  }
+
+  .terms-wrapper{
+    display: flex;
+    margin-top: 8px;
+  }
+
+  .check-agree{
+    width: 60px;
+  }
+
+  @media (max-width:400px){
+    .form-signup .form-row{
+        flex-direction: column;
+    }
+    .check-agree label{
+        display: none;
+    }
+    .check-agree {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
