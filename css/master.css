@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
 }
 
 .nav {
@@ -9,16 +10,15 @@ body {
   display: flex;
 }
 
-
 .nav ul {
   display: flex;
   justify-content: space-evenly;
   position: relative;
-  left: 20%
+  left: 20%;
 }
 
 .nav li {
-    margin: 5%;
+  margin: 7%;
 }
 
 .main-header {
@@ -72,10 +72,18 @@ footer {
   justify-content: space-around;
 }
 
-footer ul {
-  width: 500px;
+footer div {
+  width: 100%;
+}
+
+footer div {
+  /* width: 500px; */
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+}
+
+footer li {
+  margin: 7%;
 }
 
 h1,
