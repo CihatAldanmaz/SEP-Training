@@ -77,7 +77,7 @@ li a {
     
     position: fixed;
     background-color: green;
-    padding: 1rem 0rem;
+    padding: 0rem 0rem;
     margin: 0;
     width: 100%;
     bottom: 0;
@@ -88,8 +88,15 @@ li a {
     padding-left: 100px;
     margin: 0;
 }
+
 .bottomNav ul li{
-    
-    display: inline;
+    display: inline-block;
     padding: 16px;
+}
+
+#fb, #tw, #vi {
+    float: right;
+}
+#fb{
+    padding-right: 100px;
 }
