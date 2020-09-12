@@ -59,4 +59,21 @@ const firstLettersCaps = (str) => {
   return strArr.join(" ");
 };
 
-console.log(firstLettersCaps("the quick brown fox"));
+//6. Write a JavaScript function that accepts a string as a parameter and find the longest wordwithin the string. Example string : 'Web Development Tutorial' Expected Output : 'Development'
+
+function longestWord(str) {
+  let currentLength = 0;
+  let currentWord;
+  let longstWord;
+  const strArr = str.split(" ");
+  for (let i = 0; i < strArr.length; i++) {
+    currentWord = strArr[i];
+    if (currentWord.length > currentLength) {
+      currentLength = currentWord.length;
+      longestWord = currentWord;
+    }
+  }
+  return longestWord;
+}
+
+console.log(longestWord("Web Development Tutorial"));
