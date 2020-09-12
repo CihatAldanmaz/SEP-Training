@@ -48,3 +48,15 @@ function sortString(str) {
   }
   return newStr;
 }
+
+//5. Write a JavaScript function that accepts a string as a parameter and converts the first letter ofeach word of the string in upper case. Example string : 'the quick brown fox' Expected Output : 'The Quick Brown Fox '
+
+const firstLettersCaps = (str) => {
+  const strArr = str.split(" ");
+  for (let i = 0; i < strArr.length; i++) {
+    strArr[i] = strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1);
+  }
+  return strArr.join(" ");
+};
+
+console.log(firstLettersCaps("the quick brown fox"));
