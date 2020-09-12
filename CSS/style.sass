@@ -1,0 +1,67 @@
+$nav-text: white
+$top-nav-bg: #000
+$bot-nav-bg: #0b4d14
+$title-bg: #c6bfbf
+$font-stack: Arial, Helvetica, sans-serif
+
+*
+    margin: 0px
+    padding: 0px
+    box-sizing: border-box
+
+header
+    background-color: $title-bg
+    padding: 4%
+
+body
+    font: 100% $font-stack
+
+nav
+    width: 100%
+    color: white
+    padding: 10px
+
+ul  
+    margin-left: 10%
+
+    li
+        display: inline-block
+        margin: 1%
+    
+
+.top-nav
+    background-color: $top-nav-bg
+    position: sticky
+    top: 0
+
+.content-wrapper
+    display: flex
+    flex-direction: row
+    justify-content: center
+    
+    div
+        padding: 2%
+        flex-basis: 28%
+        
+.bot-nav 
+    background-color: $bot-nav-bg
+    position: fixed
+    bottom: 0
+
+    .list-align
+        display: flex
+        flex-direction: row
+        align-items: center
+
+        .main-links
+            flex: 3
+
+        .social-links
+            flex: 1
+
+@media only screen and (max-width: 768px)
+    .content-wrapper
+        flex-direction: column
+        
+    ul 
+        margin-left: 1%
