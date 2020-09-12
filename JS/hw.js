@@ -9,7 +9,8 @@ console.log(reverse_a_number(32243));
 // palindrome
 
 function check_Palindrome(str_entry){
-    // Change the string into lower case and remove  all non-alphanumeric characters
+
+// Change the string into lower case and remove  all non-alphanumeric characters
        var cstr = str_entry.toLowerCase().replace(/[^a-zA-Z0-9]+/g,'');
         var ccount = 0;
         if(cstr==="") {
