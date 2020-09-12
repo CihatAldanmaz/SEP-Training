@@ -8,8 +8,12 @@ HTML Assignment: https://codepen.io/pudu/pen/poyaKoR
 
 ### Day 2 (09/09/2020)
 
+CSS Assignment: https://codepen.io/pudu/pen/RwayLYm
+
 ### Day 3 (09/10/2020)
 
-CSS Assignment:
-
 [JavaScirpt Assignment (29/29)](src/javascript_assignment/assignment.js)
+
+### Day 4 (09/11/2020)
+
+TODO list with plain HTML/CSS/JS:
