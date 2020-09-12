@@ -30,4 +30,21 @@ function substrings(s) {
   return list_of_strings;
 }
 
-console.log(substrings("dog"));
+//4. Write a JavaScript function that returns a passed string with letters in alphabetical order. Example string : 'webmaster' Expected Output : 'abeemrstw'Assume punctuation and numbers symbols are not included in the passed string.
+
+// const sortString = (str) => {
+//   return str.split('').sort().join('')
+// };
+
+function sortString(str) {
+  const codes = [];
+  for (let i = 0; i < str.length; i++) {
+    codes.push(str.charCodeAt(i));
+  }
+  codes.sort((a, b) => a - b);
+  let newStr = "";
+  for (let i = 0; i < codes.length; i++) {
+    newStr += String.fromCharCode(codes[i]);
+  }
+  return newStr;
+}
