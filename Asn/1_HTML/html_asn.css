@@ -137,7 +137,7 @@ input[type='checkbox']{
 
 
 
-.form-row > agree-wrapper > p > a{ /*removed the underscore of the hyperlink?
+.form-row a{ /*removed the underscore of the hyperlink?
     .form-row > agree-wrapper > p > a === .form-row a
     */
 
