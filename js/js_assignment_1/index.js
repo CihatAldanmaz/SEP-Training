@@ -239,3 +239,10 @@ const binarySearch = (arr, val) => {
   }
   return -1;
 };
+
+// Write a JavaScript function that returns array elements larger than a number.
+function findAllLarger(arr, num) {
+  return arr.filter((el) => {
+    return el > num;
+  });
+}
