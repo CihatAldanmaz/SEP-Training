@@ -275,3 +275,19 @@ const countLetterOccurance = (str, letter) => {
   return count;
 };
 
+//23. Write a JavaScript function to find the first not repeated character. Sample arguments : 'abacddbec' expected output: 'e'
+const firstNonRepeatingChar = (str) => {
+  let charMap = {};
+  for (let i = 0; i < str.length; i++) {
+    if (charMap[str[i]]) {
+      charMap[str[i]]++;
+    } else {
+      charMap[str[i]] = 1;
+    }
+  }
+  for (let i = 0; i < str.length; i++) {
+    if (charMap[str[i]] === 1) {
+      return str[i];
+    }
+  }
+};
