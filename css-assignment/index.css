@@ -32,6 +32,14 @@ h1 {
     margin: 0;
 }
 
+.content {
+    display: flex;
+}
+
+.content p {
+    padding: 0 32px 0 0;
+}
+
 footer {
     background-color: #0b4d14;
     color: white;
