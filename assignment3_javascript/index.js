@@ -324,6 +324,7 @@ function randomCharGenerator(id) {
 //Test
 console.log(randomCharGenerator(8));
 
+
 /**************** Question 21****************/
 // 21. Write a JavaScript function to get all possible subset with a fixed length (for example 2) combinations in an array. 
 // Sample array : [1, 2, 3] and subset length is 2 
