@@ -11,6 +11,7 @@ form.addEventListener("submit", (event) => {
     if (!error) {
       error = true;
       p.innerText = "Please enter a task";
+      p.classList.add("error");
       document.body.appendChild(p);
     }
   } else {
@@ -18,6 +19,7 @@ form.addEventListener("submit", (event) => {
       document.body.removeChild(p);
     }
     let li = document.createElement("li");
+    li.classList.add("newTask");
     li.innerText = input.value;
     list.appendChild(li);
   }
