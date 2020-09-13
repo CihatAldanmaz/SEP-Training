@@ -178,9 +178,29 @@ const factors = (num) => {
 
 const coinConverter = (amount, coins) => {};
 
-//Write a JavaScript function to compute the value of bn where n is the exponent and b is thebases. Accept b and n from the user and display the result.
+//15. Write a JavaScript function to compute the value of bn where n is the exponent and b is thebases. Accept b and n from the user and display the result.
 
 const power = (b, n) => {
   return b ** n;
+};
+
+//16. Write a JavaScript function to extract unique characters from a string. Example string : "thequickbrownfoxjumpsoverthelazydog"Expected Output : "thequickbrownfxjmpsvlazydg"
+
+const uniqueCharExtractor = (str) => {
+  let outputStr = "";
+  const charMap = {};
+  for (let i = 0; i < str.length; i++) {
+    let currentChar = str[i];
+    if (charMap[currentChar]) {
+      charMap[currentChar]++;
+    } else {
+      charMap[currentChar] = 1;
+    }
+  }
+  let keys = Object.keys(charMap);
+  for (let key of keys) {
+    outputStr += key;
+  }
+  return outputStr;
 };
 
