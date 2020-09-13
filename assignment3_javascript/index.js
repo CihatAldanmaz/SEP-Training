@@ -505,6 +505,3 @@ function getName() {
 }
 
 getName();
-
-
-
