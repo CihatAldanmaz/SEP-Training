@@ -204,3 +204,17 @@ const uniqueCharExtractor = (str) => {
   return outputStr;
 };
 
+//17. Write a JavaScript function to  get the number of occurrences of each letter in specifiedstring.
+
+function charCount(str) {
+  const charMap = {};
+  for (let i = 0; i < str.length; i++) {
+    let currentChar = str[i];
+    if (charMap[currentChar]) {
+      charMap[currentChar]++;
+    } else {
+      charMap[currentChar] = 1;
+    }
+  }
+  return charMap;
+}
