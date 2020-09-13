@@ -10,8 +10,13 @@
     
     <body>
         <div class="form-container">
-        <form action="url">
-            <h2>Sign Up</h2>
+            <!--<h2>Sign Up</h2> better to put in a form and assign a class name,
+            too general to use h2 to fromat-->
+            <form action="" class="form-signup">
+                <header class="form-signup__header">
+                    <h1>Sign Up</h1>
+                </header>
+
             <div class="form-row">
                 <div class="form-item">
                     <input type="text" placeholder="First Name" name="fname">
@@ -21,13 +26,19 @@
                     <input type="text" placeholder="Last Name" name="lname">
                 </div>
             </div>
+            
             <div class="form-row">
-                <input type="text" placeholder="Mobile No." name="mobile">
+                <div class="form-item"> <input type="text" placeholder="Mobile No." name="mobile">
+                </div>   
             </div>
             
             <div class="form-row">
-                <input type="text" placeholder="Email Address" name="email">
+                <div class="form-item"> <!--I forgot to put form-item in this form-row-->
+                    <input type="text" placeholder="Email Address" name="email">
+                </div>
+                
             </div>
+        
                         
             <div class="form-row">
                 <div class="form-item">
@@ -39,23 +50,30 @@
             </div>
             
             <div class="form-row">
-                <div class="agree-check">
-                    <input type="checkbox" id="agree"> <label for="agree">I Agree</label>
-                    
-                    <div>
-                        <p>by clicking Register, you agree to the terms and conditions set out by this site,
-                            including our cookie use.</p>
+                <div class="agree-wrapper">
+                    <div class="agree-check"> <!--I missed this div here prev-->
+                    <input type="checkbox" id="agree" class="agree"> 
+                    <label for="agree">I Agree</label>
                     </div>
+
+                    <!--<div class="agree-term"> -- deleted-->
+                        <p class="agree-term">by clicking 
+                            <sapn class="reg-badge"> Register </sapn>
+                            , you agree to the 
+                            <a class="agree-term__link" href="#">Terms and Conditions </a>
+                            set out by this site,
+                            including our cookie use.</p>
                     
                 </div>
 
             </div>
-            <div class="form-row"></div>
-            <div class="reg-btn">
-                <input type="button" value='Register'>
-            </div>
-            <div class="signup-btn">
-                <input type="button" value="Sign in">
+            <div class="form-row">
+                <div class="form-item">
+                    <input type="button" class="btn reg" value='Register'>
+                </div>
+                <div class="form-item">
+                    <input type="button" class="btn sign" value="Sign in">
+                </div>
             </div>
         </form>
     </div>  
