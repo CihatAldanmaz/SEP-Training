@@ -90,4 +90,19 @@ function countVowels(str) {
   return count;
 }
 
-console.log(countVowels("The quick brown fox"));
+//8. Write a JavaScript function that accepts a number as a parameter and check the number isprime or not. Note : A prime number (or a prime) is a natural number greater than 1 that has no positivedivisors other than 1 and itself.
+
+function isPrime(n) {
+  if (n === 1) {
+    return false;
+  } else if (n === 2) {
+    return true;
+  } else {
+    for (var x = 2; x < n; x++) {
+      if (n % x === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
