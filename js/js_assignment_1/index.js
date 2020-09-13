@@ -139,9 +139,27 @@ const findSecondLowestandSecondHighest = (arr) => {
   if (!arr.length) {
     return [];
   }
-  if(arr.length === 1){
-      return arr
+  if (arr.length === 1) {
+    return arr;
   }
   arr.sort((a, b) => a - b);
   return [arr[1], arr[arr.length - 2]];
 };
+
+//12. Write a JavaScript function which says whether a number is perfect. According to Wikipedia : In number theory, a perfect number is a positive integer that is equal tothe sum of its proper positive divisors, that is, the sum of its positive divisors excluding thenumber itself (also known as its aliquot sum). Equivalently, a perfect number is a number that ishalf the sum of all of its positive divisors (including itself).Example : The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1+ 2 + 3 = 6. Equivalently, the number 6 is equal to half the sum of all its positive divisors: ( 1 +2 + 3 + 6 ) / 2 = 6. The next perfect number is 28 = 1 + 2 + 4 + 7 + 14. This is followed by theperfect numbers 496 and 8128.
+
+const isPerfectNum = (number) => {
+  let temp = 0;
+  for (let i = 1; i <= number / 2; i++) {
+    if (number % i === 0) {
+      temp += i;
+    }
+  }
+  if (temp === number && temp > 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(isPerfectNum(6));
