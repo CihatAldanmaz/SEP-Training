@@ -407,13 +407,83 @@ console.log(bubble([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 
 function longest(arr) {
     var res = arr[0];
     for (let i = 1; i < arr.length; i++) {
-        
+
         if (arr[i].length > res.length) {
             res = arr[i];
         }
     }
-    return longest;
+    return res;
 }
 console.log(longest(["Germany", "abc", "United States of America"]))
 
 
+// 26. Write a JavaScript function to find longest substring in a 
+// given a string without repeating characters. 
+function swrc(s) {
+    if (s === null || s.length <= 0) return ''
+    let temp = ''
+    let res = ''
+    let arr = s.split('')
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = i; j < arr.length; j++) {
+            if(temp.includes(arr[j])) break
+            else temp += arr[j]
+        }
+        if(res.length < temp.length) res = temp
+        temp = ''
+    }
+    return res
+}
+console.log(swrc('abcabcbbbbbbbbshijk'))
+
+// 27. Write a JavaScript function that returns the longest palindrome in a given string. 
+// Note: According to Wikipedia "In computer science, the longest palindromic substring or 
+// longest symmetric factor problem is the problem of finding a maximum-length contiguous 
+// substring of a given string that is also a palindrome. For example, the longest palindromic 
+// substring of "bananas" is "anana". The longest palindromic substring is not guaranteed to 
+// be unique; for example, in the string "abracadabra", there is no palindromic substring with 
+// length greater than three, but there are two palindromic substrings with length three, namely, 
+// "aca" and "ada".
+// In some applications it may be necessary to return all maximal palindromic substrings (that is, 
+// all substrings that are themselves palindromes and cannot be extended to larger palindromic substrings)
+//  rather than returning only one substring or returning the maximum length of a palindromic substring.
+function lpiags(s){
+    //double pointers
+    //O(N^2)
+    if(s === null || s.length <= 0) return ''
+    if(s.length == 1) return s
+    let start = 0
+    let end = 0
+    for(let i = 0; i < s.length; i++){
+        let c = s.charAt(i);
+        let left = i
+        let right = i
+        while(left >= 0 && s.charAt(left) === c) left--
+        while(right < s.length && s.charAt(right) === c) right++
+        while(left >= 0 && right < s.length) {
+            if(s.charAt(left) !== s.charAt(right)) break
+            left--
+            right++
+        }
+        left = left + 1
+        if(end - start < right - left){
+            end = right
+            start = left
+        }
+    }
+    return s.substring(start, end)
+}
+console.log(lpiags('babad'))
+
+// 28. Write a JavaScript program to pass a 'JavaScript function' as parameter.
+function add(x, y){
+    return x + y
+}
+function compute(x, y, add){
+    return add(x, y)
+}
+console.log(compute(1,2,add))
+
+// 29. Write a JavaScript function to get the function name. 
+const AppleFunction = function() {}
+console.log(AppleFunction.name)
