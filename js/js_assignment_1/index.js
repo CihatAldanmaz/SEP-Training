@@ -240,9 +240,22 @@ const binarySearch = (arr, val) => {
   return -1;
 };
 
-// Write a JavaScript function that returns array elements larger than a number.
+//19. Write a JavaScript function that returns array elements larger than a number.
 function findAllLarger(arr, num) {
   return arr.filter((el) => {
     return el > num;
   });
 }
+
+//20. Write a JavaScript function that generates a string id (specified length) of random characters.
+
+const randomStrGenerator = (num) => {
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let randomStr = "";
+
+  for (let i = 1; i <= num; i++) {
+    randomStr += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return randomStr;
+};
