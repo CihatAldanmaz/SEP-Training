@@ -21,7 +21,7 @@ const isPalindrome = (str) => {
 //3. Write a JavaScript function that generates all combinations of a string. Example string : 'dog' Expected Output : d,do,dog,o,og,g
 
 function substrings(s) {
-  list_of_strings = [];
+  let list_of_strings = [];
   for (i = 0; i < s.length; i++) {
     for (j = i + 1; j < s.length + 1; j++) {
       list_of_strings.push(s.slice(i, j));
@@ -120,3 +120,16 @@ const typeOfChecker = (arg) => {
   }
 };
 
+//10. Write a JavaScript function which returns the n rows by n columns identity matrix.
+
+function matrix(n) {
+  const arr = [],
+  for (i = 0; i < n; i += 1) {
+    arr[i] = [];
+    for (j = 0; j < n; j += 1) {
+      arr[i][j] = { i: i, j: j };
+    }
+  }
+  return arr;
+}
+console.log(matrix(4))
