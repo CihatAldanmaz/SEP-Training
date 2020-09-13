@@ -64,7 +64,7 @@ const firstLettersCaps = (str) => {
 function longestWord(str) {
   let currentLength = 0;
   let currentWord;
-  let longstWord;
+  let longestWord;
   const strArr = str.split(" ");
   for (let i = 0; i < strArr.length; i++) {
     currentWord = strArr[i];
@@ -321,7 +321,7 @@ function swap(arr, index1, index2) {
 const findLongestName = (strArr) => {
   let currentLength = 0;
   let currentWord;
-  let longstWord;
+  let longestWord;
   for (let i = 0; i < strArr.length; i++) {
     currentWord = strArr[i];
     if (currentWord.length > currentLength) {
