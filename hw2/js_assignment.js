@@ -127,18 +127,136 @@ function secondMaxAndMin(arr) {
 function isPerfect(num) {
     let temp = 0;
     for (let i = 1; i < num; i++) {
-      // get all the divisors
-      if (num % i === 0) {
-        temp += i;
-      }
+        // get all the divisors and sum them up
+        if (num % i === 0) {
+            temp += i;
+        }
     }
     if (temp === num) {
-      return true;
+        return true;
     }
     else {
-      return false;
+        return false;
     }
-  }
+}
+
+//#13
+function factorsOfNum(num) {
+    let result = [];
+    for (let i = 0; i <= num; i++) {
+        if (num % i === 0) {
+            result.push(i);
+        }
+    }
+    console.log(result);
+}
+
+//#14
+function coinChange(money, arr) {
+    let remain = money;
+    let i = 0;
+    result = [];
+    let num = 0;
+    while (remain > 0 && i < arr.length) {
+        num = 0;
+        if (remain >= arr[i]) {
+            num += arr[i];
+            remain -= arr[i];
+        }
+        else {
+            i++;
+        }
+        if (num != 0) {
+            result.push(num);
+        }
+    }
+    console.log(result);
+}
+
+//#15
+function mathPower(base, exponent) {
+    let result = 1;
+    for (let i = 0; i < exponent; i++) {
+        result = result * base;
+    }
+    console.log(result);
+}
+
+//#16
+function extractUnique(str) {
+    var set = new Set();
+    let result = "";
+    for (let letter of str) {
+        set.add(letter);
+    }
+    for (let each of set) {
+
+        result = result + each;
+    }
+    console.log(result);
+}
+
+//#17
+function countOccurrence(str) {
+    freq = {};
+    for (var i = 0; i < str.length; i++) {
+        var element = str[i];
+        if (!freq[element]) {
+            freq[element] = 1
+        }
+        else {
+            freq[element] += 1;
+        }
+    }
+    console.log(freq);
+}
+
+//#18
+// it returns the position of the element 
+function binarySearch(arr, element) {
+    let left = 0;
+    let right = arr.length;
+    while (left <= right) {
+
+        let middle = Math.floor((left + right) / 2);
+        //console.log(middle);
+        if (arr[middle] === element) {
+            return middle;
+        }
+        else if (element <= arr[middle]) {
+            right--;
+        }
+        else {
+            left++;
+        }
+    }
+    console.log('element not found');
+}
+
+//#19
+function largerThanElement(arr, num) {
+    let result = [];
+    for(each of arr){
+        if (each > num){
+            result.push(each);
+        }
+    }
+    return result;
+ }
+
+//#20 
+function generateStringID(length) {
+    let password = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let code = [];
+    while (length > 0) {
+        let cur = password.charAt(Math.random() * password.length);
+        code.push(cur);
+        length--;
+    }
+    return code.join('');
+}
+
+
 
 
 
