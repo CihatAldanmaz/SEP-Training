@@ -15,19 +15,19 @@
   box-sizing: inherit
 }
 
+
 html{
-  font-size: 62.25%
+  font-size: 10px;
 }
 
 body{
-  font-size: 1.6rem;
+  font-size: 15px;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
-
+/* 
 label{
   cursor:pointer;
-}
+} */
 
 input[type='checkbox']{
   cursor:pointer;
@@ -43,31 +43,39 @@ input[type='checkbox']{
   left:50%;
   transform: translate(-50%, -50%);
 }
+/* .form-container {
+  position:absolute; 
+  top:50%; 
+  left:50%;
+  margin:-250px 0 0 -250px; 
+  transform: translate(-50%, -50%);
+  width:500px; 
+  height:500px; 
+  } */
 
-
-.hide{
+/* .hide{
   display:none;
-}
+} */
 
 .btn{
   border:none;
-  background-color: var(--color-grey-dark);
-  outline: none;
+  background-color: blue;
 }
 
 .primary{
   color: #fff;
-  background-color:var(--color-primary);
 }
+
 .primary:active{
-  background-color: var(--color-primary-dark);
+  background-color: lightblue;
 }
+
 .success{
   color:#fff;
-  background-color:var(--color-success);
+  background-color: green;
 }
 .success:active{
-  background-color: var(--color-success-dark);
+  background-color: lightgreen;
 }
 
 .form-signup{
@@ -77,43 +85,35 @@ input[type='checkbox']{
 
 .form-signup .form-signup__header{
   text-align: center;
-  margin:5px 0;
 }
 
 .form-signup .form-row{
   display: flex;
-  flex:1 1 100%;
   margin:1px;
 }
 .form-signup .form-row .form-item{
-  flex:1 1 100%;
+  flex: 1;
   margin:0.5rem 1rem;
 }
 .form-item input{
   padding:1rem;
   width:100%;
   border-radius: 5px;
-  border:1px solid var(--color-grey);
-  outline:none;
+  border:1px solid grey;
 }
 
 .form-item input:focus{
-  box-shadow: 0 0 2px 1px #88b8ff;
+  box-shadow: 0 0 2px 1px lightblue;
 }
 
 .form-row .agree-wrapper{
   display: flex;
   margin-top: 8px;
 }
-.agree-wrapper{
-  display: flex;
-  margin-top: 80px;
-}
-
 
 .form-row .check-agree{
  
-  flex:1 1 40%;
+  flex:1 1 30%;
   font-weight: bold;
   font-size: 1.4rem;
   line-height: 2.5rem; 
@@ -128,9 +128,9 @@ input[type='checkbox']{
   text-decoration: none;
 }
 .form-row .terms .badge-register{
-  background-color: var(--color-primary);
-  display: inline-block;
-  color:#fff;
+  background-color: blue;
+  display: inline;
+  color: white;
   padding:1px 4px;
   border-radius: 3px;
 }
