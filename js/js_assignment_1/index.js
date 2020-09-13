@@ -368,5 +368,3 @@ const func = (cb) => {
 function nameOfFunc() {
   return arguments.callee.name;
 }
-
-console.log(nameOfFunc());
