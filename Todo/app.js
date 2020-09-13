@@ -2,6 +2,7 @@
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
+const errorContainer = document.querySelector('.error-container')
 
 //EVENT LISTENER
 todoButton.addEventListener('click', addTodo);
@@ -9,7 +10,22 @@ todoList.addEventListener('click', checkDelete);
 
 //FUNCTIONS
 function addTodo(event) {
+    const currentErr = document.querySelector('.error-msg');
+    if(todoInput.value === '') {
+        event.preventDefault();
+        if(currentErr) {
+            return;
+        }
+        const errorMsg = document.createElement('p');
+        errorMsg.classList.add('error-msg')
+        errorMsg.innerText = "Input some text to submit a new Todo";
+        errorContainer.appendChild(errorMsg);
+        return;
+    }
     event.preventDefault();
+    if(currentErr) {
+        currentErr.remove();
+    }
     //TODO DIV
     const todoDiv = document.createElement('div');
     todoDiv.classList.add('todo');
@@ -31,6 +47,7 @@ function addTodo(event) {
     //ADD TO LIST
     todoList.appendChild(todoDiv);
     todoInput.value = '';
+
 }
 
 //DELETE CURRENT TODO OR CHECK OFF TODO
