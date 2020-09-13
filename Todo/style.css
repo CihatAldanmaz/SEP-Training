@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+header, form {
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input, form button {
+    padding: 0.5rem;
+
+}
+
+form button {
+    cursor: pointer;
+}
+
+form button:hover {
+    color: white;
+    background: rgb(11, 167, 230);
+    border-color: white;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.todo-list {
+    min-width: 30vw;
+    list-style: none;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    color: black;
+}
+
+.todo li {
+    flex: 1;
+}
+
+.complete-btn, .delete-btn {
+    color: white;
+    padding: 0.5rem;
+}
+
+.complete-btn, .delete-btn:hover{
+    cursor: pointer;
+}
+
+.complete-btn {
+    background: green;
+    
+}
+
+.delete-btn {
+    background: red;
+}
+
+.fa-trash, .fa-check {
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    
+}
