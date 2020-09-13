@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+    background-color: #000;
+    color: white;
+}
+
+.caption {
+    background-color: #c6bfbf;
+}
+
+footer {
+    background-color: #0b4d14;
+    color: white;
+}
