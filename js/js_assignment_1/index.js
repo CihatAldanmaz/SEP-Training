@@ -155,11 +155,23 @@ const isPerfectNum = (number) => {
       temp += i;
     }
   }
-  if (temp === number && temp > 0) {
+  if (temp === number) {
     return true;
   } else {
     return false;
   }
 };
 
-console.log(isPerfectNum(6));
+//13. Write a JavaScript function to compute the factors of a positive integer.
+
+const factors = (num) => {
+  const output = [];
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) {
+      output.push(i);
+    }
+  }
+  return output;
+};
+
+console.log(factors(8));
