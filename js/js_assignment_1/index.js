@@ -259,3 +259,19 @@ const randomStrGenerator = (num) => {
   }
   return randomStr;
 };
+
+//21. Write a JavaScript function to get all possible subset with a fixed length (for example 2)combinations in an array.
+
+//22. Write a JavaScript function that accepts two arguments, a string and a letter and the functionwill count the number of occurrences of the specified letter within the string.
+
+const countLetterOccurance = (str, letter) => {
+  str = str.toLowerCase();
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === letter) {
+      count++;
+    }
+  }
+  return count;
+};
+
