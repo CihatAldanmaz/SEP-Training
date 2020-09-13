@@ -316,3 +316,18 @@ function swap(arr, index1, index2) {
   return arr;
 }
 
+//25. Write a JavaScript function that accept a list of country names as input and returns thelongest country name as output.
+
+const findLongestName = (strArr) => {
+  let currentLength = 0;
+  let currentWord;
+  let longstWord;
+  for (let i = 0; i < strArr.length; i++) {
+    currentWord = strArr[i];
+    if (currentWord.length > currentLength) {
+      currentLength = currentWord.length;
+      longestWord = currentWord;
+    }
+  }
+  return longestWord;
+};
