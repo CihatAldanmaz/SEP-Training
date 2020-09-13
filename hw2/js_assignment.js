@@ -256,6 +256,59 @@ function generateStringID(length) {
     return code.join('');
 }
 
+//#21
+const subsets = (nums,k) => {
+    const ans = [];
+    subsetsDFS(k,nums, ans);
+    return ans;
+};
+
+const subsetsDFS = (k,nums, ans, i = 0, path = []) => {
+  
+    if(path.length === k){
+        ans.push(path);
+    } 
+
+    for (; i < nums.length; i++)
+        subsetsDFS(k,nums, ans, i + 1, path.concat(nums[i]));
+    return;
+}
+
+//#22 
+function findOccurrence(str, letter) {
+    freq = {};
+    for (var i = 0; i < str.length; i++) {
+        var element = str[i];
+        if (!freq[element]) {
+            freq[element] = 1
+        }
+        else {
+            freq[element] += 1;
+        }
+    }
+    console.log(freq[letter]);
+}
+
+//#23 
+function findFirstUnique(str) {
+    freq = {};
+    for (var i = 0; i < str.length; i++) {
+        var element = str[i];
+        if (!freq[element]) {
+            freq[element] = 1
+        }
+        else {
+            freq[element] += 1;
+        }
+    }
+    for (var i = 0; i < str.length; i++) {
+        if (freq[str[i]] === 1) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 
 
 
