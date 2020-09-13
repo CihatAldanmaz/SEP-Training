@@ -106,3 +106,17 @@ function isPrime(n) {
     return true;
   }
 }
+
+//9. Write a JavaScript function which accepts an argument and returns the type. Note : There are six possible values that typeof returns: object, boolean, function, number, string,and undefined.
+
+const typeOfChecker = (arg) => {
+  if (Array.isArray(arg)) {
+    return "Array";
+  }
+  if (arg === null) {
+    return null;
+  } else {
+    return typeof arg;
+  }
+};
+
