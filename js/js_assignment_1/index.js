@@ -76,4 +76,18 @@ function longestWord(str) {
   return longestWord;
 }
 
-console.log(longestWord("Web Development Tutorial"));
+//7. Write a JavaScript function that accepts a string as a parameter and counts the number ofvowels within the string. Note : As the letter 'y' can be regarded as both a vowel and a consonant, we do not count 'y' asvowel here. Example string : 'The quick brown fox' Expected Output : 5
+
+function countVowels(str) {
+  str = str.toLowerCase();
+  let count = 0;
+  let vowels = ["a", "e", "i", "o", "u"];
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countVowels("The quick brown fox"));
