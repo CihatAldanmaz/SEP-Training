@@ -123,13 +123,25 @@ const typeOfChecker = (arg) => {
 //10. Write a JavaScript function which returns the n rows by n columns identity matrix.
 
 function matrix(n) {
-  const arr = [],
-  for (i = 0; i < n; i += 1) {
+  const arr = [];
+  for (let i = 0; i < n; i++) {
     arr[i] = [];
-    for (j = 0; j < n; j += 1) {
+    for (let j = 0; j < n; j++) {
       arr[i][j] = { i: i, j: j };
     }
   }
   return arr;
 }
-console.log(matrix(4))
+
+//11. Write a JavaScript function which will take an array of numbers stored and find the secondlowest and second greatest numbers, respectively. Sample array : [1,2,3,4,5]Expected Output : 2,4
+
+const findSecondLowestandSecondHighest = (arr) => {
+  if (!arr.length) {
+    return [];
+  }
+  if(arr.length === 1){
+      return arr
+  }
+  arr.sort((a, b) => a - b);
+  return [arr[1], arr[arr.length - 2]];
+};
