@@ -174,4 +174,13 @@ const factors = (num) => {
   return output;
 };
 
-console.log(factors(8));
+//14. Write a JavaScript function to convert an amount to coins. Sample function : amountTocoins(46, [25, 10, 5, 2, 1])Here 46 is the amount. and 25, 10, 5, 2, 1 are coins. Output : 25, 10, 10, 1
+
+const coinConverter = (amount, coins) => {};
+
+//Write a JavaScript function to compute the value of bn where n is the exponent and b is thebases. Accept b and n from the user and display the result.
+
+const power = (b, n) => {
+  return b ** n;
+};
+
