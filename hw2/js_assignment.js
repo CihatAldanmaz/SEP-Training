@@ -236,13 +236,13 @@ function binarySearch(arr, element) {
 //#19
 function largerThanElement(arr, num) {
     let result = [];
-    for(each of arr){
-        if (each > num){
+    for (each of arr) {
+        if (each > num) {
             result.push(each);
         }
     }
     return result;
- }
+}
 
 //#20 
 function generateStringID(length) {
@@ -257,20 +257,20 @@ function generateStringID(length) {
 }
 
 //#21
-const subsets = (nums,k) => {
+const subsets = (nums, k) => {
     const ans = [];
-    subsetsDFS(k,nums, ans);
+    subsetsDFS(k, nums, ans);
     return ans;
 };
 
-const subsetsDFS = (k,nums, ans, i = 0, path = []) => {
-  
-    if(path.length === k){
+const subsetsDFS = (k, nums, ans, i = 0, path = []) => {
+
+    if (path.length === k) {
         ans.push(path);
-    } 
+    }
 
     for (; i < nums.length; i++)
-        subsetsDFS(k,nums, ans, i + 1, path.concat(nums[i]));
+        subsetsDFS(k, nums, ans, i + 1, path.concat(nums[i]));
     return;
 }
 
@@ -309,6 +309,76 @@ function findFirstUnique(str) {
     return -1;
 }
 
+//#24
+function bubbleSort(arr) {
+    let len = arr.length;
+    for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+//#25
+function longestCountryName(arr) {
+    let len = arr.length;
+    let index = [];
+    let max = -1;
+    for (let i = 0; i < len; i++) {
+        // length of country
+        let countryLength = arr[i].length;
+        if (countryLength > max) {
+            index = [i, countryLength];
+        }
+    }
+    return index[0];
+}
+
+//#26
+function longestSubstring(str) {
+    // use hashset to indicate if there is a duplicate character
+    let set = new Set();
+    let output = "";
+    for (let i = 0; i < str.length; i++) {
+        if (!set.has(str[i])) {
+            set.add(str[i]);
+            output += str[i];
+        }
+        else {
+            return output;
+        }
+    }
+    return "";
+}
+
+//#27
+
+//#28
+function add(x, y) {
+    return x + y;
+}
+
+function handleData(func) {
+    let x = 5;
+    let y = 6;
+    return func(x, y);
+}
+console.log(handleData(add));
+
+//#29
+function findFunctionName(f) {
+    console.log(f.name);
+}
+
+function RandomName() {
+
+}
+findFunctionName(RandomName);
 
 
 
