@@ -91,3 +91,17 @@ getIdentityMatrix = (n) => {
     return matrixString;
 }
 // console.log(getIdentityMatrix(5));
+
+// 11. Find second lowest and second highest in array.
+findSecondLowestHighest = (arr) => {
+    let min = arr.reduce((a, b) => Math.min(a, b)), max = arr.reduce((a, b) => Math.max(a, b));
+    let minSecond = Infinity, maxSecond = -Infinity;
+
+    for (num of arr) {
+        minSecond = (num < minSecond && num != min) ? num : minSecond;
+        maxSecond = (num > maxSecond && num != max) ? num : maxSecond;
+    }
+
+    console.log(minSecond + ", " + maxSecond);
+}
+// findSecondLowestHighest([7,6,1,9,5]);
