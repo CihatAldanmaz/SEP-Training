@@ -1,13 +1,25 @@
+html, body {
+    height: 100%;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
 }
 
-body > * {
+body > *, .head > * {
     padding: 0 10%;
 }
 
-.menu {
+.head {
+    padding: 0;
+    position: sticky;
+    top: 0;
+}
+
+.head-menu {
     background-color: #000;
     color: white;
 }
@@ -22,7 +34,7 @@ li {
     padding: 16px;
 }
 
-.caption {
+.head-caption {
     background-color: #c6bfbf;
     padding-top: 32px;
     padding-bottom: 16px;
@@ -34,6 +46,7 @@ h1 {
 
 .content {
     display: flex;
+    flex: 1;
 }
 
 .content p {
@@ -42,7 +55,9 @@ h1 {
 
 footer {
     background-color: #0b4d14;
+    bottom: 0;
     color: white;
     display: flex;
     justify-content: space-between;
+    position: sticky;
 }
