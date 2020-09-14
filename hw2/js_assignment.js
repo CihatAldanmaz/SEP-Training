@@ -357,6 +357,28 @@ function longestSubstring(str) {
 }
 
 //#27
+function longestSubString(str) {
+    for(let i = 0; i < str.length; i++){
+        expand(str,i,i);
+        expand(str,i,i+1);
+    }
+    return str.substring(max_begin_index, max_begin_index+max);
+}
+let max =0;
+let max_begin_index=0;
+
+function expand(str,left,right){    
+    while(left >=0 && right < str.length && str[left] === str[right]){
+        left--;
+        right++; 
+        // update the current max indices
+        if( right - left > max){
+            max_begin_index = left+1;
+            max = right - left-1;
+        }
+    }
+
+}
 
 //#28
 function add(x, y) {
