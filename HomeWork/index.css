@@ -1,0 +1,88 @@
+.container{
+  position: fixed; 
+  width: 100%;
+  max-width: 35rem;
+  top: 50%;
+  left: 50%;
+  transform: translate( -50% , -50%);
+  padding: 20px 20px 40px 20px;
+}
+
+.signup{
+  display: flex;
+  flex-direction: column;
+}
+
+h1{
+  text-align: center;
+}
+
+input{
+  padding: 10px;
+  margin: 10px 5px;
+  align-items: center;
+  border: 0.5;
+  border-radius: 5px;
+  outline:none;
+}
+
+input:focus{
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+input[type="checkbox"], label{
+  cursor: pointer;
+}
+
+.row{
+  display: flex;
+  flex: 1 1 100%;
+  align-items: center;
+}
+
+.item{
+  display: flex;
+  flex: 1 1 100%;
+}
+a{
+  text-decoration: none;
+}
+
+button{
+  display: flex;
+  justify-content: center;
+  margin: 15px 5px 10px 5px;
+  padding: 10px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+}
+
+.register{
+  color: #fff;
+  background-color: #4285F4;
+}
+
+.register:hover{
+  background-color: #0d47a1;
+}
+
+.signin{
+  background-color: #00C851;
+}
+
+.signin:hover{
+  background-color: #007E33;
+}
+
+@media screen and (max-width:400px){
+  *{
+    color: red;
+  }
+  button{
+    color: red;
+  }
+  .signup{
+    flex-direction:column;
+  }
+}
