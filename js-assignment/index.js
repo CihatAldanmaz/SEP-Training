@@ -10,6 +10,8 @@ reverseNum = (num) => {
     return reverse;
 }
 
+// console.log(reverseNum(32243));
+
 // 2. Check if string is palindrome or not.
 isPalindrome = (str) => {
     let reverse = "";
@@ -21,10 +23,16 @@ isPalindrome = (str) => {
     return (reverse === str);
 }
 
+// console.log(isPalindrome("madam"));
+
 // 4. Sort letters in string alphabetically.
 sortLetters = (str) => str.split("").sort().join("");
+
+// console.log(sortLetters("webmaster"));
 
 // 5. Convert first letter of each word in a string to upper case.
 convertFirstLetterUpper = (str) => str.split(" ")
                                     .map(word => word[0].toUpperCase() + word.slice(1))
                                     .join(" ");
+
+// console.log(convertFirstLetterUpper("the quick brown fox"));
