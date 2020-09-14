@@ -72,3 +72,7 @@ isPrime = (num) => {
     return true;
 }
 // console.log(isPrime(103));
+
+// 9. Return type of argument.
+returnType = (arg) => typeof(arg);
+// console.log(returnType(false));
