@@ -23,3 +23,8 @@ isPalindrome = (str) => {
 
 // 4. Sort letters in string alphabetically.
 sortLetters = (str) => str.split("").sort().join("");
+
+// 5. Convert first letter of each word in a string to upper case.
+convertFirstLetterUpper = (str) => str.split(" ")
+                                    .map(word => word[0].toUpperCase() + word.slice(1))
+                                    .join(" ");
