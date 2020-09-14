@@ -117,3 +117,7 @@ computeFactors = (num) => {
     console.log(factorString);
 }
 // computeFactors(48);
+
+// 15. Compute b^n.
+computePow = (b, n) => Math.pow(b, n);
+// console.log(computePow(3, 4));
