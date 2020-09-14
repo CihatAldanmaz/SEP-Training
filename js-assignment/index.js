@@ -105,3 +105,15 @@ findSecondLowestHighest = (arr) => {
     console.log(minSecond + ", " + maxSecond);
 }
 // findSecondLowestHighest([7,6,1,9,5]);
+
+// 13. Compute factors of positive integer.
+computeFactors = (num) => {
+    let factorString = "1";
+
+    for (let i = 2; i <= num; i++) {
+        factorString += (num % i == 0) ? ", " + i : "";
+    }
+
+    console.log(factorString);
+}
+// computeFactors(48);
