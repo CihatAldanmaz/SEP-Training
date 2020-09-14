@@ -76,3 +76,18 @@ isPrime = (num) => {
 // 9. Return type of argument.
 returnType = (arg) => typeof(arg);
 // console.log(returnType(false));
+
+// 10. Return n x n identity matrix.
+getIdentityMatrix = (n) => {
+    let matrixString = "";
+
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            matrixString += (i === j) ? "1 " : "0 ";
+        }
+        matrixString += "\n";
+    }
+
+    return matrixString;
+}
+// console.log(getIdentityMatrix(5));
