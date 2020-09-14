@@ -139,3 +139,18 @@ bubbleSort = (arr) => {
     console.log(arr);
 }
 // bubbleSort([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]);
+
+// 25. Get longest country name from list of country names.
+getLongestCountryName = (countries) => {
+    let longestCountry = "", maxLength = 0;
+
+    for (country of countries) {
+        if (country.length > maxLength) {
+            maxLength = country.length;
+            longestCountry = country;
+        }
+    }
+
+    return longestCountry;
+}
+// console.log(getLongestCountryName(["Australia", "Germany", "United States of America"]));
