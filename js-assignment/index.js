@@ -1,3 +1,4 @@
+// 1. Reverse a number.
 reverseNum = (num) => {
     let i = num, reverse = 0;
 
@@ -9,6 +10,7 @@ reverseNum = (num) => {
     return reverse;
 }
 
+// 2. Check if string is palindrome or not.
 isPalindrome = (str) => {
     let reverse = "";
 
@@ -19,4 +21,5 @@ isPalindrome = (str) => {
     return (reverse === str);
 }
 
+// 4. Sort letters in string alphabetically.
 sortLetters = (str) => str.split("").sort().join("");
