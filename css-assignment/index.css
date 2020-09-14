@@ -34,6 +34,11 @@ li {
     padding: 16px;
 }
 
+li a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .head-caption {
     background-color: #c6bfbf;
     padding-top: 32px;
