@@ -154,3 +154,9 @@ getLongestCountryName = (countries) => {
     return longestCountry;
 }
 // console.log(getLongestCountryName(["Australia", "Germany", "United States of America"]));
+
+// 29. Get function name.
+getFunctionName = (func) => {
+    console.log(func.name);
+}
+// getFunctionName(add = (a, b) => a + b);
