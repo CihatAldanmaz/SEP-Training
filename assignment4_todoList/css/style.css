@@ -1,0 +1,113 @@
+:root {
+    --color-primary: #f6abb6;
+    --color-primary-light: #ead5dc;
+    --color-primary-med: #eec9d2;
+}
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    background-color: var(--color-primary-light);
+    background-image: -webkit-linear-gradient(75deg,var(--color-primary) 50%, var(--color-primary-light) 50%);
+    min-height: 80rem;
+    font-size: 62.25%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    max-width: 50rem;
+    margin: 5rem auto;
+    background-color: white;
+    border-radius: 0.8rem;
+    box-shadow: 0.5rem 0.5rem 1.5rem -0.5rem grey;
+    text-align: center;
+}
+
+header {
+    padding: 3rem 0 1.5rem;
+}
+
+header > h1 {
+    color: var(--color-primary);
+    font-size: 4rem;
+}
+
+hr {
+    border-style: none;
+    border-top: 1rem dotted var(--color-primary-light);
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+article {
+    padding: 1.5rem 0 0rem;
+}
+
+.item {
+    display: flex;
+    min-height: 5rem;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+    text-align: center;
+    margin-left: 2rem;
+}
+
+input[type="checkbox"] {
+    margin: 20px;
+}
+
+input[type="checkbox"]:checked + p {
+    text-decoration: line-through;
+    text-decoration-color: var(--color-primary);
+}
+
+p {
+    font-size: 2rem;
+    padding: 2rem;
+    font-weight: 200;
+}
+
+.newLine {
+    min-height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="text"] {
+    text-align: center;
+    height: 4rem;
+    top: 1rem;
+    border: none;
+    background: transparent;
+    font-size: 2rem;
+    font-weight: 200;
+    width: 31rem;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+button {
+    text-align: center;
+    height: 4rem;
+    width: 4rem;
+    background-color: var(--color-primary-light);
+    border-radius: 50%;
+    border-color: transparent;
+    color: var(--color-primary);
+    font-size: 3.2rem;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background-color: var(--color-primary-med);
+}
