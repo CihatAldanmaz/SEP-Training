@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <script src="https://kit.fontawesome.com/d2b8c2b972.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,20 +14,23 @@
         </header>
         <hr>
         <article>
-            <form action="">
+            <div class="items">
+                <!-- <div id="divCheckbox" style="display: none;"></div> -->
                 <div class="item">
-                    <input type="checkbox" name="checkbox" value="item_id">
+                    <input type="checkbox">
                     <p>Buy Dinner</p>
+                    <div class="delete" onclick="deleteItem(this)"><i class="far fa-trash-alt"></i></div>
                 </div>
                 <div class="item">
-                    <input type="checkbox" name="checkbox" value="item_id">
+                    <input type="checkbox">
                     <p>Buy Lunch</p>
+                    <div class="delete" onclick="deleteItem(this)"><i class="far fa-trash-alt"></i></div>
                 </div>
-            </form>
-            <form action="" class="newLine">
-                <input type="text" name="newItem" placeholder="Please enter your todo item." autocomplete="off">
-                <button type="submit" name="list">+</button>
-            </form>        
+            </div>
+            <div class="newLine">
+                <input type="text" id="newInput" placeholder="Please enter your todo item." autocomplete="off">
+                <button type="button" name="add" onclick="newItem()">+</button>
+            </div>        
         </article>
     </div>
 
