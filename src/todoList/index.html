@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h4>Pu's Todo List</h4>
+      </header>
+
+      <form>
+        <input id="input" type="text" placeholder="What do you want to do?" />
+        <i id="add" class="fas fa-plus fa-2x"></i>
+      </form>
+
+      <div class="lines"></div>
+
+      <ul class="list">
+        <li>Get married<i class="close fas fa-times"></i></li>
+        <li class="checked">Get PhD<i class="close fas fa-times"></i></li>
+        <li>Get a job<i class="close fas fa-times"></i></li>
+        <li class="checked">
+          Save the world<i class="close fas fa-times"></i>
+        </li>
+      </ul>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/b109cf26b7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
