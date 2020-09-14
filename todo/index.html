@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Todo List</title>
+</head>
+
+<body>
+    <div class="todo-container">
+        <div class="todo-title">
+            <form class="todo-header">
+                <input type="text" placeholder="Please add to do" id="todo-input">
+                <button id='submit'>Submit</button>
+            </form>
+            <div class="todo-body">
+                <ul id='todo-list'>
+                    <li class="todo-item">
+                        <input type="checkbox" class="check">
+                        <label>Laundry</label>
+                        <!-- <input type="text" value="Laundry"> -->
+                        <button class="delete">x</button>
+                    </li>
+                    <li class="todo-item">
+                        <input type="checkbox" class="check">
+                        <label>Shopping</label>
+                        <!-- <input type="text" value="Shopping"> -->
+                        <button class="delete">x</button>
+                    </li>
+                    <li class="todo-item">
+                        <input type="checkbox" class="check">
+                        <label>Reading</label>
+                        <!-- <input type="text" value="Reading"> -->
+                        <button class="delete">x</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='./index.js'></script>
+
+</html>
