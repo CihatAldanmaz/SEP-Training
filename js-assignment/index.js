@@ -18,3 +18,5 @@ isPalindrome = (str) => {
 
     return (reverse === str);
 }
+
+sortLetters = (str) => str.split("").sort().join("");
