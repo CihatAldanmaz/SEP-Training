@@ -48,3 +48,15 @@ findLongestWord = (str) => {
     return longestWord;
 }
 // console.log(findLongestWord("Web Development Tutorial"));
+
+// 7. Count vowels in string.
+countVowels = (str) => {
+    let vowelCount = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        vowelCount += (/[aeiouAEIOU]/.test(str[i])) ? 1 : 0;
+    }
+
+    return vowelCount;
+}
+// console.log(countVowels("The quick brown fox"));
