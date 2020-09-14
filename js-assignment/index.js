@@ -60,3 +60,15 @@ countVowels = (str) => {
     return vowelCount;
 }
 // console.log(countVowels("The quick brown fox"));
+
+// 8. Check if number is prime or not.
+isPrime = (num) => {
+    for (let i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+// console.log(isPrime(103));
