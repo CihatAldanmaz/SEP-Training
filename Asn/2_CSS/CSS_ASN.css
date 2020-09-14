@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+ height: 100%;
+ position: relative;
+}
+
+.wrapper-footer__l {
+ position: absolute;
+ bottom: 0;
+ width: 33.3%;
+}
+
+.wrapper-footer__m {
+position: absolute;
+ bottom: 0;
+ width: 33.4%;
+ margin-left: 33.3%;
+}
+
+.wrapper-footer__r {
+position: absolute;
+ bottom: 0;
+ width: 33.3%;
+ margin-left: 66.7%;
+}
+
+
+.wrapper {
+}
+
+
+.wrapper-nav{
+    grid-area: nav; 
+    background-color: black;
+    height: 40px;
+}
+
+.wrapper-header {
+    grid-area: header; 
+    background-color: #c6bfbf;
+    height: 120px
+}
+
+
+.wrapper-main__1, .wrapper-main__2, .wrapper-main__3 {
+    height: 300px; 
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.wrapper-main__1 {
+    grid-area: main1;
+    margin-left: 100px;
+    margin-right: 20px;
+    /*column-count: 3;
+    column-gap: 1cm;*/
+}
+
+.wrapper-main__2 {
+    grid-area: main2;
+    margin-right: 0px;
+}
+
+.wrapper-main__3 {
+    grid-area: main3;
+    margin-left: 0cm;
+    margin-right: 100px;
+}
+
+
+.wrapper-main__1, .wrapper-main__2, .wrapper-main__3 {
+    /*height: 300px; */
+    width: 350px;
+}
+
+
+
+.wrapper-footer__l {
+    grid-area: l_footer;
+    background-color: #0b4d14;
+    height: 40px;
+}
+
+.wrapper-footer__m {
+    grid-area: m_footer;
+    background-color: #0b4d14;
+    height: 40px;
+}
+
+.wrapper-footer__r {
+    grid-area: r_footer;
+    background-color:#0b4d14;
+    text-align: right;
+    height: 40px;
+}
+
+.wrapper-nav a, .wrapper-footer__l a, .wrapper-footer__r a {
+    color: white;
+    text-decoration: none;
+}
+
+.wrapper-header p, .wrapper-header h2 {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.wrapper-footer__r :last-child{
+    margin-right: 100px;
+}
+
+.wrapper-footer__l :first-child,
+.wrapper-nav :first-child{
+    margin-left: 140px;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-areas: 
+    "nav"
+    "header"
+    "main1"
+    "main2"
+    "main3"
+    "l_footer"
+    "m_footer"
+    "r_footer"
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+      "nav  nav nav"
+      "header header header"
+      "main1 main2 main3"
+      "l_footer m_footer r_footer"
+   }
+   nav ul {
+     flex-direction: column;
+   }
+}
+
