@@ -122,20 +122,25 @@
 //     }
 // }
 
-function Person(name,age){
-    // let obj = {}
-    // obj.name = name;
-    // obj.age = age;
-    // obj.__proto__.constructor = Person;
-    // return obj
-    this.name = name;
-    this.age = age;
-}
-Person.prototype.walk = function(){
-    console.log(this.name + " is walking");
-}
+// function Person(name,age){
+//     // let obj = {}
+//     // obj.name = name;
+//     // obj.age = age;
+//     // obj.__proto__.constructor = Person;
+//     // return obj
+//     this.name = name;
+//     this.age = age;
+//     this.walk = function(){
+//         console.log(this.name+ " is walking");
+//     }
+// }
 
-const p = new Person('Patrick',18);
+// Person.prototype.walk = function(){
+//     console.log(this.name + " is walking");
+// }
+
+// const p = new Person('Patrick',18);
+
 // console.log(p.__proto__ === Person.prototype) // true
 
 // const obj = {name:'hello'};
@@ -144,11 +149,11 @@ const p = new Person('Patrick',18);
 // }
 // obj.walk = p.walk;
 
-p.walk(); // log Person_name is walking
-console.log(p);
+// p.walk(); // log Person_name is walking
+// console.log(p);
 
-const p2 = new Person('Jane',18);
-p2.walk();
+// const p2 = new Person('Jane',18);
+// p2.walk();
 
 
 
@@ -162,6 +167,113 @@ p2.walk();
 
 // foo();
 // console.log(x);
+
+
+// OOP
+
+// class Person{
+//     constructor(name,age){
+//         this._name = name;
+//         this._age = age;
+//         this.speed = 0;
+//         this.salary = 0;
+//     }
+//     get name(){
+//         console.log('get name')
+//         return this._name;
+//     }
+//     set name(newName){
+//         console.log('set name');
+//         this._name = newName;
+//     }
+//     walk(){
+//         this.speed = 10;
+//         console.log(this._name + " is walking");
+//     }
+
+//     getSalary(){
+//         return this.salary;
+//     }
+// }
+
+// function Person(name,age){
+//     this.name = name;
+//     this.age  = age;
+// }
+// Person.prototype.walk = function(){
+
+// }
+
+// class Employee extends Person{
+//     constructor(name,age,company){
+//         super(name,age);
+//         this.company = company;
+//     }
+
+//     getSalary(baseSalary){
+//         console.log('with param')
+//         console.log(this.salary, baseSalary);
+//         return this.salary + baseSalary;
+//     }
+
+// }
+
+// function Employee (name,age,company){
+//     Person.prototype.constructor.call(this, name, age);
+//     this.company = company
+// }
+// Employee.prototype = Object.create(Person.prototype);
+// Employee.prototype.constructor = Employee;
+
+
+// const p = new Person('patrick',18);
+// console.log(p.name);
+// p.name = 'New Name';
+
+// const e  = new Employee('patrick',18,'Antra');
+// console.log(e);
+
+// console.log("=============")
+// function foo(){
+//     console.log("hello");
+// }
+
+const arr  = [1,2,3];
+console.log(arr);
+
+// console.log(arr.forEach((value, index , array)=>{
+//     console.log(value,index,array)
+//     return value * 2;
+// }))
+
+// const obj = {};
+// console.log(obj.name);
+// console.log(arr.myForEach);
+Array.prototype.myForEach = function(cb){
+    console.log(this);
+    console.log(cb(5));
+    return 'hello'
+}
+console.log(arr.myForEach((value, index , array)=>{
+    console.log(value,index,array)//
+    return value * 2;
+}))
+
+// console.log(arr.map((item)=>{
+//     return item * 2;
+// }))
+
+
+// const obj = {name:'patrick'};
+// var name = 'name';
+// console.log(obj.name, obj[name]);
+
+// console.log(arr);
+// for(let i = 0;i<arr.length;i++){
+//     console.log(arr[i]);
+// }
+
+
 
 
 
