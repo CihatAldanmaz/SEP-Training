@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 20px auto;
+    background-color: olive;
+    width: 400px;
+}
+
+li {
+    list-style: none;
+}
+
+.top {
+    background-color: orange;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.add {
+    width: 260px;
+    margin: 8px auto;
+}
+
+.add input {
+    height: 30px;
+    width: 200px;
+    border: none;
+}
+
+.add button {
+    height: 30px;
+    width: 60px;
+    border: none;
+}
+
+ul li {
+    position: relative;
+    display: block;
+    height: 50px;
+    border: 1px solid black;
+    padding-left: 30px;
+    font-size: 30px;
+    line-height: 50px;
+}
+
+.mylist span {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    display: block;
+    height: 30px;
+    width: 30;
+    line-height: 30px;
+}
+
+.checked {
+    text-decoration: line-through;
+}
+
+.unchecked {
+    text-decoration: none;
+}
