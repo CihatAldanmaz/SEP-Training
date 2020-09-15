@@ -275,7 +275,7 @@ getLongestCountryName = (countries) => {
 higherOrderFunc = (callback) => {
     console.log(callback(3, 5));
 }
-higherOrderFunc((a, b) => a + b);
+// higherOrderFunc((a, b) => a + b);
 
 // 29. Get function name.
 getFunctionName = (func) => {
