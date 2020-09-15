@@ -10,11 +10,25 @@ Array.prototype.myMap = function (cb) {
 
 const arr = [1, 2, 3];
 
-console.log(
-  arr.myMap((val, index, array) => {
-    return val * 2;
-  })
-);
+// console.log(
+//   arr.myMap((val, index, array) => {
+//     return val * 2;
+//   })
+// );
 
+//----myFilter----
+Array.prototype.myFilter = function (cb) {
+  const output = [];
+  for (let i = 0; i < this.length; i++) {
+    if (cb(this[i], i, this) === true) {
+      output.push(this[i]);
+    }
+  }
+  return output;
+};
 
-//---
+// console.log(
+//   arr.myFilter((val, index, array) => {
+//     return val < 3;
+//   })
+// );
