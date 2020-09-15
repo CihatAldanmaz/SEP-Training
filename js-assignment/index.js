@@ -202,6 +202,10 @@ binarySearch = (arr, num) => {
 }
 // console.log(binarySearch([2,4,6,7,9], 5));
 
+// 19. Get array elements larger than a number.
+getLarger = (arr, num) => arr.filter(item => item > num);
+// console.log(getLarger([2,5,7,3,8], 4));
+
 // 24. Apply bubble sort (descending).
 bubbleSort = (arr) => {
     let n = arr.length;
