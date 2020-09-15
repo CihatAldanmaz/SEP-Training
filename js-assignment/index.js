@@ -166,6 +166,22 @@ extractUnique = (str) => {
 }
 // extractUnique("thequickbrownfoxjumpsoverthelazydog");
 
+// 17. Get number of occurrences of each letter in string.
+getLetterCount = (str) => {
+    let charCount = new Map();
+
+    for (let i = 0; i < str.length; i++) {
+        if (charCount.has(str[i])) {
+            charCount.set(str[i], charCount.get(str[i]) + 1);
+        } else {
+            charCount.set(str[i], 1);
+        }
+    }
+
+    return charCount;
+}
+// console.log(getLetterCount("thequickbrownfoxjumpsoverthelazydog"));
+
 // 24. Apply bubble sort (descending).
 bubbleSort = (arr) => {
     let n = arr.length;
