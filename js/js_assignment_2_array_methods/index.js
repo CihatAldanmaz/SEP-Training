@@ -50,3 +50,21 @@ Array.prototype.myFind = function (cb) {
 //     return val === 2;
 //   })
 // );
+
+//-----myReduce-----
+Array.prototype.myReduce = function (cb, initalVal) {
+  let acc;
+  let firstIdx;
+
+  if (arguments.lenght === 1) {
+    acc = this[0];
+    fistIndex = 1;
+  } else {
+    acc = initalVal;
+    firstIdx = 0;
+  }
+  for (let i = firstIdx; i < this.length; i++) {
+    acc = cb(acc, this[i], i, this);
+  }
+  return acc;
+};
