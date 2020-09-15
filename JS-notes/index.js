@@ -238,8 +238,17 @@
 //     console.log("hello");
 // }
 
-const arr  = [1,2,3];
-console.log(arr);
+// const arr  = [1,2,3];
+// console.log(sum(arr));
+
+
+// function sum(arr){
+//     return arr.reduce((acc,cur)=>{
+//         console.log(acc , cur)
+//     },0)
+// }
+// map, filter, reduce 
+
 
 // console.log(arr.forEach((value, index , array)=>{
 //     console.log(value,index,array)
@@ -249,18 +258,37 @@ console.log(arr);
 // const obj = {};
 // console.log(obj.name);
 // console.log(arr.myForEach);
-Array.prototype.myForEach = function(cb){
-    console.log(this);
-    console.log(cb(5));
-    return 'hello'
-}
-console.log(arr.myForEach((value, index , array)=>{
-    console.log(value,index,array)//
-    return value * 2;
-}))
+// Array.prototype.myForEach = function(cb){
+//     for(let i =0;i<this.length;i++){
+//        cb(this[i],i,this);
+//     }
+// }
+// console.log(arr.forEach((value, index , array)=>{
+//     console.log(value,index,array)
+//     return value * 2;
+// }))
+
+// Array.prototype.myMap = function(cb){
+//     const result = [];
+//     for(let i =0;i<this.length;i++){
+//         const newValue = cb(this[i],i,this);
+//         result.push(newValue)
+//     }
+//     return result
+// }
+
+// const callBackFn = (item)=>{
+//     console.log(item);
+//     return item * 3;
+// }
+
+// console.log(arr.myMap((item)=>{
+//     console.log(item);
+//     return item * 3;
+// }))
 
 // console.log(arr.map((item)=>{
-//     return item * 2;
+//     return item * 3;
 // }))
 
 
@@ -273,4 +301,69 @@ console.log(arr.myForEach((value, index , array)=>{
 //     console.log(arr[i]);
 // }
 
+// const obj = {name:'patrick',age:18};
+// console.log(obj)
 
+// Object.prototype.forEach = function(cb){
+//     const keys = Object.keys(this);
+//     console.log(keys);//["name","age"];
+//     for (let i = 0; i < keys.length; i++){
+//      cb(keys[i],this[keys[i]])
+//     }
+// }
+
+// obj.forEach((key, value)=>{
+//     console.log(key, value)
+// });
+
+// const arr = ['hi','hey'];
+// console.log(arr);
+// arr.forEach((key, value)=>{
+//     console.log(key, value)
+// });
+// const obj2 = {0:'hi',1:'hey',length:2};
+// obj2.forEach((key,value)=>{
+//     console.log(key,value)
+// })
+
+
+/// name, patrick
+/// age, 18
+
+/// rest operator vs spread operator
+// function foo(num1,num2,...hello){
+//     // console.log(val1,val4);
+//     // console.log(arguments,arguments[3])
+//     // arguments.forEach((item)=>{
+//     //     console.log(item)
+//     // })
+//     console.log(hello);
+// }
+// foo(1,2,3,4,5,6,7);
+// const arr = [1,2,3];
+// const arr2 = [...arr];
+// const obj = {name:'patrick'};
+// const obj2 = {name:'patrick'};
+// console.log(obj === obj2);
+// console.log(obj == obj2);
+// console.log(arr,arr2);
+// console.log(arr === arr2);
+// console.log(arr == arr2);
+
+// shadow copy
+// const a = {name:'patrick'};
+// const b = a;
+// const c = {...a};
+const d = {name:{value:'patrick'}};
+const e = {...d}
+// b.name = 'newName';
+// console.log(a === b);
+// console.log(a,b);
+// console.log(c === a);
+// c.name = 'newName';
+// console.log(a,c);
+e.name.value = 'newName';
+console.log(e,d)
+console.log([]);
+// Employeee => Person : employee.getSalary
+// Array => Object : array.forEach

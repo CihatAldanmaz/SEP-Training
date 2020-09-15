@@ -8,12 +8,11 @@ Array.prototype.myMap = function(callback) {
     return output;
   }
  const arr = [5, 12, 3];
-  
-// console.log(
-// arr.myMap((val, index, array) => {
-// return val * 2;
-// })
-// );
+   console.log(
+      arr.myMap((val, index, array) => {
+ return val * 2;
+ })
+ );
 
   
 //Filter
