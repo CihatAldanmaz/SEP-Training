@@ -130,6 +130,21 @@ computeFactors = (num) => {
 }
 // computeFactors(48);
 
+// 14. Convert amount to coins.
+amountToCoins = (amount, coins) => {
+    let ans = "";
+
+    for (let i = 0; i < coins.length; i++) {
+        while (Math.floor(amount / coins[i]) > 0) {
+            ans += coins[i] + ", ";
+            amount -= coins[i];
+        }
+    }
+    
+    return ans.slice(0, ans.length - 2);
+}
+// console.log(amountToCoins(46, [25, 10, 5, 2, 1]));
+
 // 15. Compute b^n.
 computePow = (b, n) => Math.pow(b, n);
 // console.log(computePow(3, 4));
