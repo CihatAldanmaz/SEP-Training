@@ -32,3 +32,21 @@ Array.prototype.myFilter = function (cb) {
 //     return val < 3;
 //   })
 // );
+
+//----myFind----
+Array.prototype.myFind = function (cb) {
+  let foundItem;
+  for (let i = 0; i < this.length; i++) {
+    if (cb(this[i], i, this)) {
+      foundItem = this[i];
+      break;
+    }
+  }
+  return foundItem;
+};
+
+// console.log(
+//   arr.myFind((val, index, array) => {
+//     return val === 2;
+//   })
+// );
