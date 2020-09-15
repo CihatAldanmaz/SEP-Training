@@ -60,11 +60,3 @@ ul li {
     width: 30;
     line-height: 30px;
 }
-
-.checked {
-    text-decoration: line-through;
-}
-
-.unchecked {
-    text-decoration: none;
-}

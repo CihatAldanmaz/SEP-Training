@@ -40,10 +40,10 @@ window.onload = function() {
     }
 
     function checked() {
-        if (this.className === "checked") {
-            this.className = "unchecked";
+        if (this.style.textDecoration !== "line-through") {
+            this.style.textDecoration = "line-through";
         } else {
-            this.className = "checked";
+            this.style.textDecoration = "none";
         }
     }
 
