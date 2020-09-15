@@ -7,7 +7,8 @@ window.onload = function() {
     init();
 
     function init() {
-        update();
+        spans = document.querySelectorAll("span");
+        lis = document.querySelectorAll("li");
         btn.onclick = addList;
         for (let i = 0; i < spans.length; i++) {
             lis[i].index = i;
@@ -26,11 +27,6 @@ window.onload = function() {
         }
     }
 
-    function update() {
-        spans = document.querySelectorAll("span");
-        lis = document.querySelectorAll("li");
-    }
-
     function removeList(e) {
         e.stopPropagation();
         var index = this.parentNode.index;
@@ -46,5 +42,4 @@ window.onload = function() {
             this.style.textDecoration = "none";
         }
     }
-
 };
