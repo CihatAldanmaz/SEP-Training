@@ -182,6 +182,26 @@ getLetterCount = (str) => {
 }
 // console.log(getLetterCount("thequickbrownfoxjumpsoverthelazydog"));
 
+// 18. Perform binary search on array.
+binarySearch = (arr, num) => {
+    let start = 0, end = arr.length - 1;
+
+    while (start <= end) {
+        let mid = Math.floor((start + end) / 2);
+
+        if (num === arr[mid]) {
+            return true;
+        } else if (num > arr[mid]) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+
+    return false;
+}
+// console.log(binarySearch([2,4,6,7,9], 5));
+
 // 24. Apply bubble sort (descending).
 bubbleSort = (arr) => {
     let n = arr.length;
