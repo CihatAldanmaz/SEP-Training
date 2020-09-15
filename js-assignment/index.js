@@ -271,6 +271,12 @@ getLongestCountryName = (countries) => {
 }
 // console.log(getLongestCountryName(["Australia", "Germany", "United States of America"]));
 
+// 28. Pass function as parameter.
+higherOrderFunc = (callback) => {
+    console.log(callback(3, 5));
+}
+higherOrderFunc((a, b) => a + b);
+
 // 29. Get function name.
 getFunctionName = (func) => {
     console.log(func.name);
