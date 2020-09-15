@@ -106,6 +106,18 @@ findSecondLowestHighest = (arr) => {
 }
 // findSecondLowestHighest([7,6,1,9,5]);
 
+// 12. Check if number is perfect or not.
+isPerfect = (num) => {
+    let factorSum = 0;
+
+    for(let i = 1; i < num; i++) {
+        factorSum += (num % i === 0) ? i : 0;
+    }
+
+    return (factorSum === num);
+}
+// console.log(isPerfect(8128));
+
 // 13. Compute factors of positive integer.
 computeFactors = (num) => {
     let factorString = "1";
