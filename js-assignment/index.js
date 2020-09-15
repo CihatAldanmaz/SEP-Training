@@ -149,6 +149,23 @@ amountToCoins = (amount, coins) => {
 computePow = (b, n) => Math.pow(b, n);
 // console.log(computePow(3, 4));
 
+// 16. Extract unique characters from string.
+extractUnique = (str) => {
+    let charCount = new Map();
+    let ans = "";
+
+    for (let i = 0; i < str.length; i++) {
+        charCount.set(str[i], 1);
+    }
+
+    for (key of charCount.keys()) {
+        ans += key;
+    }
+
+    console.log(ans);
+}
+// extractUnique("thequickbrownfoxjumpsoverthelazydog");
+
 // 24. Apply bubble sort (descending).
 bubbleSort = (arr) => {
     let n = arr.length;
