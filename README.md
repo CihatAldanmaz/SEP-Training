@@ -19,3 +19,7 @@ CSS Assignment: https://codepen.io/pudu/pen/RwayLYm
 [Todolist with plain HTML/CSS/JS](https://todo.appcodebox.com)
 
 [source code](src/todoList)
+
+### Day 5 (09/14/2020)
+
+[Implementation of Reduce, Filter](src/jsMethods/jsMethods.js)
