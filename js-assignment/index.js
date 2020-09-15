@@ -206,6 +206,18 @@ binarySearch = (arr, num) => {
 getLarger = (arr, num) => arr.filter(item => item > num);
 // console.log(getLarger([2,5,7,3,8], 4));
 
+// 22. Count occurrences of letter in string.
+getLetterCountInString = (str, letter) => {
+    let count = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        count += (letter === str[i]) ? 1 : 0;
+    }
+
+    return count;
+}
+// console.log(getLetterCountInString("hello world", "o"));
+
 // 24. Apply bubble sort (descending).
 bubbleSort = (arr) => {
     let n = arr.length;
