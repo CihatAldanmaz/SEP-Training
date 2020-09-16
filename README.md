@@ -23,3 +23,11 @@ CSS Assignment: https://codepen.io/pudu/pen/RwayLYm
 ### Day 5 (09/14/2020)
 
 [Implementation of Reduce, Filter](src/jsMethods/jsMethods.js)
+
+### Day 6 (09/15/2020)
+
+[Implementation of Promise](src/Promise/MyPromise.js)
+
+### Day 7 (09/16/2020)
+
+Implementation of [Promise.all](src/Promise/MyPromise.js), Promise.catch, fetch
