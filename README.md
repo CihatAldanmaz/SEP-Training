@@ -30,4 +30,4 @@ CSS Assignment: https://codepen.io/pudu/pen/RwayLYm
 
 ### Day 7 (09/16/2020)
 
-Implementation of [Promise.all](src/Promise/MyPromise.js), Promise.catch, fetch
+Implementation of [Promise.all](src/Promise/MyPromise.js), [Promise.catch](src/Promise/MyPromise.js), [fetch](src/fetch/myFetch.js)
