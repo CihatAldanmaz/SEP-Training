@@ -105,6 +105,6 @@ function myfetch(url, data) {
   });
 }
 
-myfetch('https://jsonplaceholder.typicode.com/posts')
+myfetch('https://jsonplaceholder.typicode.com/posts/1')
   .then((response) => response.json())
   .then((json) => console.log(json));
