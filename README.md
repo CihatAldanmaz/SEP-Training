@@ -31,3 +31,7 @@ CSS Assignment: https://codepen.io/pudu/pen/RwayLYm
 ### Day 7 (09/16/2020)
 
 Implementation of [Promise.all](src/Promise/MyPromise.js), [Promise.catch](src/Promise/MyPromise.js), [fetch](src/fetch/myFetch.js)
+
+### Day 8 (09/17/2020)
+
+Fetch todo lists and show them in a table: https://codepen.io/pudu/pen/BaKOOKL
