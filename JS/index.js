@@ -610,72 +610,72 @@ function randomTimer() {
 
 // this : bind | apply | call
 
-class MyPromise {
-  constructor(executorFn) {
-    this.promiseState = 'pending';
-    this.resolve = function (data) {
-      setTimeout(() => {
-        this.promiseState = 'fulfilled';
-        this.currentData = data;
-        while (this.thenCallbackQueue.length > 0) {
-          const curThenCallbackFn = this.thenCallbackQueue.shift();
-          if (this.currentData instanceof MyPromise) {
-            console.log('this is a promise');
-            this.currentData.then((thenData) => {
-              console.log('test');
-              this.currentData = curThenCallbackFn(thenData);
-            });
-          } else {
-            console.log('test');
-            this.currentData = curThenCallbackFn(this.currentData);
-          }
-        }
-      }, 0);
-    };
-    this.reject = function (error) {
-      setTimeout(() => {
-        this.promiseState = 'failed';
-        this.currentError = error;
-        while (this.catchCallbackQueue.length > 0) {
-          const curCatchCallbackFn = this.catchCallbackQueue.shift();
-          this.currentError = curCatchCallbackFn(this.currentError);
-        }
-      }, 0);
-    };
-    this.thenCallbackQueue = [];
-    this.catchCallbackQueue = [];
-    executorFn(this.resolve.bind(this), this.reject.bind(this));
-  }
+// class MyPromise {
+//   constructor(executorFn) {
+//     this.promiseState = 'pending';
+//     this.resolve = function (data) {
+//       setTimeout(() => {
+//         this.promiseState = 'fulfilled';
+//         this.currentData = data;
+//         while (this.thenCallbackQueue.length > 0) {
+//           const curThenCallbackFn = this.thenCallbackQueue.shift();
+//           if (this.currentData instanceof MyPromise) {
+//             console.log('this is a promise');
+//             this.currentData.then((thenData) => {
+//               console.log('test');
+//               this.currentData = curThenCallbackFn(thenData);
+//             });
+//           } else {
+//             console.log('test');
+//             this.currentData = curThenCallbackFn(this.currentData);
+//           }
+//         }
+//       }, 0);
+//     };
+//     this.reject = function (error) {
+//       setTimeout(() => {
+//         this.promiseState = 'failed';
+//         this.currentError = error;
+//         while (this.catchCallbackQueue.length > 0) {
+//           const curCatchCallbackFn = this.catchCallbackQueue.shift();
+//           this.currentError = curCatchCallbackFn(this.currentError);
+//         }
+//       }, 0);
+//     };
+//     this.thenCallbackQueue = [];
+//     this.catchCallbackQueue = [];
+//     executorFn(this.resolve.bind(this), this.reject.bind(this));
+//   }
 
-  then(thenCallbackFn, catchCallbackFn) {
-    this.thenCallbackQueue.push(thenCallbackFn);
-    if (catchCallbackFn) {
-      this.catchCallbackQueue.push(catchCallbackFn);
-    }
-    return this;
-  }
-  catch(catchCallbackFn) {
-    this.catchCallbackQueue.push(catchCallbackFn);
-    return this;
-  }
+//   then(thenCallbackFn, catchCallbackFn) {
+//     this.thenCallbackQueue.push(thenCallbackFn);
+//     if (catchCallbackFn) {
+//       this.catchCallbackQueue.push(catchCallbackFn);
+//     }
+//     return this;
+//   }
+//   catch(catchCallbackFn) {
+//     this.catchCallbackQueue.push(catchCallbackFn);
+//     return this;
+//   }
 
-  static all(promiseArr) {
-    let promiseCompletedNum = 0;
-    const promiseCompletedNumMax = promiseArr.length;
-    const resovleData = new Array(promiseCompletedNumMax);
-    return new MyPromise((res, rej) => {
-      promiseArr.forEach((promise, index) => {
-        promise.then((data) => {
-          promiseCompletedNum++;
-          resovleData[index] = data;
-          if (promiseCompletedNum === promiseCompletedNumMax) {
-            res(resovleData);
-          }
-        });
-      });
-    });
-  }
-}
+//   static all(promiseArr) {
+//     let promiseCompletedNum = 0;
+//     const promiseCompletedNumMax = promiseArr.length;
+//     const resovleData = new Array(promiseCompletedNumMax);
+//     return new MyPromise((res, rej) => {
+//       promiseArr.forEach((promise, index) => {
+//         promise.then((data) => {
+//           promiseCompletedNum++;
+//           resovleData[index] = data;
+//           if (promiseCompletedNum === promiseCompletedNumMax) {
+//             res(resovleData);
+//           }
+//         });
+//       });
+//     });
+//   }
+// }
 
 // Promise.all([promise1, promise2, promise3]).then((values) => {
 //   console.log(values);
@@ -764,41 +764,66 @@ class MyPromise {
 //     console.log('=== fetch Get ====');
 //     console.log(json);
 //   });
-myfetch('https://jsonplaceholder.typicode.com/posts', {
-  method: 'POST',
-  body: JSON.stringify({
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => {
-    console.log('=== fetch Post ====');
-    console.log(json);
-  });
+// fetch('https://jsonplaceholder.typicode.com/postsdfdsfdsfs', {
+//   method: 'POST',
+//   body: JSON.stringify({
+//     title: 'foo',
+//     body: 'bar',
+//     userId: 1,
+//   }),
+//   headers: {
+//     'Content-type': 'application/json; charset=UTF-8',
+//   },
+// })
+//   .then((response) => {
+//     if (response.status >= 400) {
+//       return Promise.reject(
+//         new Error('Error - status code:' + response.status)
+//       );
+//     } else {
+//       return response.json();
+//     }
+//   })
+//   .then((json) => {
+//     console.log('=== fetch Post ====');
+//     console.log(json);
+//   })
+//   .catch((err) => {
+//     console.log('Error');
+//     console.warn(err);
+//   });
 
-function myfetch(url) {
-  return new Promise((res, rej) => {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        // Typical action to be performed when the document is ready:
-        const response = {
-          json: function () {
-            return JSON.parse(xhttp.responseText);
-          },
-        };
-        res(response);
-      }
-    };
-    xhttp.open('GET', url, true);
-    xhttp.send();
-  });
-}
+// function myfetch(url, options) {
+//   console.log('myfetch has been called');
+//   return new Promise((res, rej) => {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function () {
+//       console.log(
+//         'onreadystatechange: readyState:',
+//         this.readyState,
+//         this.status
+//       );
+//       if (this.readyState == 4 && ) {
+//         console.log('onreadystatechange : status 200');
+
+//         // Typical action to be performed when the document is ready:
+//         const response = {
+//           json: function () {
+//             return JSON.parse(xhttp.responseText);
+//           },
+//         };
+//         res(response);
+//       }
+//     };
+//     xhttp.open(options.method, url, true);
+//     if (options.headers) {
+//       Object.keys(options.headers).forEach((key) => {
+//         xhttp.setRequestHeader(key, options.headers[key]);
+//       });
+//     }
+//     xhttp.send(options.body);
+//   });
+// }
 
 // myfetch('https://jsonplaceholder.typicode.com/todos/1')
 //   .then((response) => response.json())
@@ -839,25 +864,27 @@ function myfetch(url) {
 //     }
 //   });
 
-function logUsers(user1, user2, user3) {
-  console.log(user1, user2, user3);
-}
+// function logUsers(user1, user2, user3) {
+//   console.log(user1, user2, user3);
+// }
 
-// Promise catch, Promise.all, fetch
+// // Promise catch, Promise.all, fetch
 
-const promise1 = fetch(
-  'https://jsonplaceholder.typicode.com/todos/1'
-).then((res) => res.json());
+// const promise1 = fetch(
+//   'https://jsonplaceholder.typicode.com/todos/1'
+// ).then((res) => res.json());
 
-const promise2 = fetch(
-  'https://jsonplaceholder.typicode.com/todos/2'
-).then((res) => res.json());
+// const promise2 = fetch(
+//   'https://jsonplaceholder.typicode.com/todos/2'
+// ).then((res) => res.json());
 
-const promise3 = fetch(
-  'https://jsonplaceholder.typicode.com/todos/3'
-).then((res) => res.json());
+// const promise3 = fetch(
+//   'https://jsonplaceholder.typicode.com/todos/3'
+// ).then((res) => res.json());
 
-MyPromise.all([promise1, promise2, promise3]).then((values) => {
-  console.log('this is promise all');
-  console.log(values);
-});
+// MyPromise.all([promise1, promise2, promise3]).then((values) => {
+//   console.log('this is promise all');
+//   console.log(values);
+// });
+
+// async await
