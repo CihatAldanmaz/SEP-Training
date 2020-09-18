@@ -62,4 +62,5 @@ const Controller = ((view, model) => {
 
 taskAdder.lastElementChild.addEventListener("click", () => {
     Controller.init();
+    taskAdder.firstElementChild.value = "";
 });
