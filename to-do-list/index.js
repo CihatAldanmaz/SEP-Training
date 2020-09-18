@@ -20,3 +20,26 @@ const Model = ((input) => {
 
     return new Task(taskCount++, input.value);
   })(taskAdder.firstElementChild);
+
+  const View = (() => {
+    const domString = {
+      tableElement: "tbody",
+    };
+    let tableTmp = "";
+  
+    const initTableTasksTmp = (task) => {
+      tableTmp += `
+      <tr>
+        <td>${task.id}</td>
+        <td>${task.body}</td>
+      </tr>
+      `;
+  
+      return tableTmp;
+    };
+    
+    return {
+      domString,
+      initTableTasksTmp
+    };
+  })();
