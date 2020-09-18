@@ -69,6 +69,50 @@ class View {
     const element = document.querySelector(selector);
     return element;
   }
+
+  get _todoText() {
+    return this.input.value;
+  }
+
+  _resetInput() {
+    this.input.value = "";
+  }
+
+  displayTodo(todos) {
+    while (this.todoList.firstChild) {
+      this.todoList.removeChild(this.todoList.firstChild);
+    }
+
+    if (todos.length === 0) {
+      const p = this.createElement("p");
+      p.textContent = "Nothing to do! Add a task";
+      this.todoList.append(p);
+    } else {
+      todos.forEach((todo) => {
+        const li = this.createElement("li");
+        li.id = todo.id;
+
+        const checkBox = this.createElement("input");
+        checkBox.type = "checkbox";
+        checkBox.checked = todo.complete;
+
+        const span = this.createElement("span");
+        span.contentEditable = true;
+        if (todo.complete) {
+          const strike = this.createElement("s");
+          strike.textContent = todo.text;
+          span.append(strike);
+        } else {
+          span.textContent = todo.text;
+        }
+
+        const deleteButton = this.createElement("button", "delete");
+        deleteButton.textContent = "Delete";
+        li.append(checkBox, span, deleteButton);
+        this.todoList.append(li);
+      });
+    }
+  }
 }
 
 //Controller links user to system by handling user inputs
