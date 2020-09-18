@@ -18,7 +18,7 @@ class Model {
   }
 
   deleteTodo(id) {
-    this.todos = this.todos.filter((todo) => todo.id !== di);
+    this.todos = this.todos.filter((todo) => todo.id !== id);
   }
 
   toggleComplete(id) {
@@ -32,7 +32,43 @@ class Model {
 
 //View visually represents the model
 class View {
-  constructor() {}
+  constructor() {
+    //the root element
+    this.app = this.getElement("#root");
+
+    //the title of the app
+    this.title = this.createElement("h1");
+    this.title.textContent = "Todos";
+
+    //the form, with type=text input and a submit button
+    this.form = this.createElement("form");
+    this.input = this.createElement("input");
+    this.input.type = "text";
+    this.input.name = "todo";
+
+    this.submitButton = this.createElement("button");
+    this.submitButton.textContent = "Submit";
+
+    //todo list representation
+    this.todoList = this.createElement("ul", "todo-list");
+
+    //append the input and submit button to the form
+    this.form.append(this.input, this.submitButton);
+
+    //appent the title, form, and todo list to app
+    this.app.append(this.title, this.form, this.todoList);
+  }
+
+  createElement(tag, className) {
+    const element = document.createElement(tag);
+    if (className) element.classList.add(className);
+    return element;
+  }
+
+  getElement(selector) {
+    const element = document.querySelector(selector);
+    return element;
+  }
 }
 
 //Controller links user to system by handling user inputs
