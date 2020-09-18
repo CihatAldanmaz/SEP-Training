@@ -1,3 +1,7 @@
+body {
+    font-family: sans-serif;
+}
+
 .task-adder {
     display: flex;
     margin: 10px;
