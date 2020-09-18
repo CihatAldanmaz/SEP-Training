@@ -25,10 +25,9 @@ const View = (() => {
     const domString = {
         tableElement: "tbody",
     };
-    let tableTmp = "";
 
     const initTableTasksTmp = (task) => {
-        tableTmp += `
+        const tableTmp = `
         <tr>
             <td>${task.id}</td>
             <td>${task.body}</td>
@@ -43,3 +42,24 @@ const View = (() => {
         initTableTasksTmp
     };
 })();
+
+const Controller = ((view, model) => {
+    const render = (element, htmlTemplate) => {
+        element.innerHTML += htmlTemplate;
+    }
+
+    const initTableTasks = () => {
+        const tableElement = document.querySelector(view.domString.tableElement);
+        const tmp = view.initTableTasksTmp(model);
+
+        render(tableElement, tmp);
+    };
+
+    const init = () => {
+        initTableTasks();
+    }
+
+    return {
+        init
+    };
+})(View, Model);
