@@ -6,6 +6,7 @@
 // });
 
 /// MVC
+
 const postsAPIs = (() => {
   const baseUrl = 'https://jsonplaceholder.typicode.com';
   const postsPath = 'posts';

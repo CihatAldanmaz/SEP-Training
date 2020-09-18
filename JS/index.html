@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="html" onclick="alertClassName()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS</title>
-</head>
-<body>
-    <script src="index.js"></script>
-</body>
+  </head>
+  <body class="body" onclick="alertClassName()">
+    <div class="0" onclick="alertClassName()">
+      <h1 class="1" onclick="alertClassName()">1</h1>
+    </div>
+
+    <script>
+      function alertClassName() {
+        console.log(event);
+
+        console.log('=====');
+        //alert(event.target.className);
+      }
+    </script>
+
+    <!-- <script src="index.js"></script> -->
+  </body>
 </html>
