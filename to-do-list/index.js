@@ -19,7 +19,7 @@ const Model = ((input) => {
 
 const View = (() => {
     const domString = {
-        tableElement: "tbody",
+        tableElement: ".to-do-list-view",
     };
 
     const initTableTasksTmp = (task) => {
