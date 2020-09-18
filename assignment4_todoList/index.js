@@ -1,27 +1,43 @@
 /**************Add new item to the list by clicking on the "+" button***********/
-function newItem() {
+// function newItem() {
     
-    //Add the DOM structure for new input
+//     //Add the DOM structure for new input
+//     let div = document.createElement("div");
+//     div.setAttribute("class", "item");
+//     let checkbox = document.createElement("input");
+//     checkbox.setAttribute("type", "checkbox");
+
+//     let deleteicon = document.createElement("div");
+//     deleteicon.setAttribute("class", "delete");
+//     deleteicon.setAttribute("onclick", "deleteItem(this)");
+//     deleteicon.innerHTML ='<i class="far fa-trash-alt"></i>';
+
+//     let newInput = document.querySelector("#newInput").value;
+//     let p = document.createElement("p");
+//     let text = document.createTextNode(newInput);
+//     p.appendChild(text);
+    
+//     div.appendChild(checkbox);
+//     div.appendChild(p);
+//     div.appendChild(deleteicon);
+
+//     //
+//     if (newInput === "") {
+//         alert("Please enter a new item to add to the list.");
+//     } else {
+//         document.querySelector(".items").appendChild(div);
+//         document.querySelector("#newInput").value = "";
+//     }
+// }
+function newItem() {
     let div = document.createElement("div");
     div.setAttribute("class", "item");
-    let checkbox = document.createElement("input");
-    checkbox.setAttribute("type", "checkbox");
-
-    let deleteicon = document.createElement("div");
-    deleteicon.setAttribute("class", "delete");
-    deleteicon.setAttribute("onclick", "deleteItem(this)");
-    deleteicon.innerHTML ='<i class="far fa-trash-alt"></i>';
-
     let newInput = document.querySelector("#newInput").value;
-    let p = document.createElement("p");
-    let text = document.createTextNode(newInput);
-    p.appendChild(text);
-    
-    div.appendChild(checkbox);
-    div.appendChild(p);
-    div.appendChild(deleteicon);
+    div.innerHTML = `<input type="checkbox">
+    <p>${newInput}</p>
+    <div class="delete" onclick="deleteItem(this)"><i class="far fa-trash-alt"></i></div>
+    `;
 
-    //
     if (newInput === "") {
         alert("Please enter a new item to add to the list.");
     } else {

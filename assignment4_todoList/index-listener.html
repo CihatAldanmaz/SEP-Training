@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <script src="https://kit.fontawesome.com/d2b8c2b972.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Todo List</h1>
+        </header>
+        <hr>
+        <article>
+            <div class="items">
+                <!-- <div id="divCheckbox" style="display: none;"></div> -->
+                <div class="item">
+                    <input type="checkbox">
+                    <p>Buy Dinner</p>
+                    <div class="delete"><i class="far fa-trash-alt"></i></div>
+                </div>
+                <div class="item">
+                    <input type="checkbox">
+                    <p>Buy Lunch</p>
+                    <div class="delete"><i class="far fa-trash-alt"></i></div>
+                </div>
+            </div>
+            <div class="newLine">
+                <input type="text" id="newInput" placeholder="Please enter your todo item." autocomplete="off">
+                <button type="button" name="add">+</button>
+            </div>        
+        </article>
+    </div>
+
+    <script src="index-listener.js"></script>
+</body>
+</html>
