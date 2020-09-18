@@ -1,25 +1,21 @@
 const taskAdder = document.querySelector(".task-adder");
-let taskCount = 1;
-
-taskAdder.lastElementChild.addEventListener("click", () => {
-    document.querySelector("tbody").innerHTML += `
-    <tr>
-        <td>${taskCount++}</td>
-        <td>${taskAdder.firstElementChild.value}</td>
-    </tr>
-    `;
-});
 
 const Model = ((input) => {
+    let taskCount = 1;
+
     class Task {
-      constructor(id, body) {
-        this.id = id;
-        this.body = body;
-      }
+        constructor(id, body) {
+            this.id = id;
+            this.body = body;
+        }
     }
 
-    return new Task(taskCount++, input.value);
-  })(taskAdder.firstElementChild);
+    const getTask = () => new Task(taskCount++, input.value);
+
+    return {
+        getTask
+    };
+})(taskAdder.firstElementChild);
 
 const View = (() => {
     const domString = {
@@ -50,7 +46,7 @@ const Controller = ((view, model) => {
 
     const initTableTasks = () => {
         const tableElement = document.querySelector(view.domString.tableElement);
-        const tmp = view.initTableTasksTmp(model);
+        const tmp = view.initTableTasksTmp(model.getTask());
 
         render(tableElement, tmp);
     };
@@ -63,3 +59,7 @@ const Controller = ((view, model) => {
         init
     };
 })(View, Model);
+
+taskAdder.lastElementChild.addEventListener("click", () => {
+    Controller.init();
+});
