@@ -521,76 +521,76 @@
 
 // let data;
 
-function getUserDataPromise(userId) {
-    return new Promise((resolve, reject) => {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          // Typical action to be performed when the document is ready:
-          data = JSON.parse(xhttp.responseText);
-          resolve(data);
-        }
-      };
-      xhttp.open(
-        'GET',
-        'https://jsonplaceholder.typicode.com/todos/' + userId,
-        true
-      );
-      xhttp.send();
-    });
-  }
-  
-  // getUserDataPromise(1)
-  //   .then((data1) => {
-  //     console.log('data1');
-  //     logMessage(data1);
-  //     return getUserDataPromise(2);
-  //   })
-  //   .then((data2) => {
-  //     console.log('data2');
-  //     logMessage(data2);
-  //     return getUserDataPromise(3);
-  //     // return 'hello';
-  //   })
-  //   .then((data3) => {
-  //     console.log('data3');
-  //     logMessage(data3);
-  //   });
-  
-  // function getUserData(userId, callbackFn) {
-  //   var xhttp = new XMLHttpRequest();
-  //   xhttp.onreadystatechange = function () {
-  //     if (this.readyState == 4 && this.status == 200) {
-  //       // Typical action to be performed when the document is ready:
-  //       data = JSON.parse(xhttp.responseText);
-  //       callbackFn(data);
-  //     }
-  //   };
-  //   xhttp.open(
-  //     'GET',
-  //     'https://jsonplaceholder.typicode.com/todos/' + userId,
-  //     true
-  //   );
-  //   xhttp.send();
-  // }
-  // getUserData(2,logMessage);
-  // get userData 1 => log it => get userData 2 => log it = > getUerData3 => log it;
-  
-  // getUserData(1, (data1) => {
-  //   logMessage(data1),
-  //     getUserData(2, (data2) => {
-  //       logMessage(data2);
-  //       getUserData(3, (data3) => {
-  //         logMessage(data3);
-  //       });
-  //     });
-  // });
-  
-  // function logMessage(msg) {
-  //   console.log(msg);
-  // }
-  
-  function randomTimer() {
+// function getUserDataPromise(userId) {
+//   return new Promise((resolve, reject) => {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function () {
+//       if (this.readyState == 4 && this.status == 200) {
+//         // Typical action to be performed when the document is ready:
+//         data = JSON.parse(xhttp.responseText);
+//         resolve(data);
+//       }
+//     };
+//     xhttp.open(
+//       'GET',
+//       'https://jsonplaceholder.typicode.com/todos/' + userId,
+//       true
+//     );
+//     xhttp.send();
+//   });
+// }
+
+// getUserDataPromise(1)
+//   .then((data1) => {
+//     console.log('data1');
+//     logMessage(data1);
+//     return getUserDataPromise(2);
+//   })
+//   .then((data2) => {
+//     console.log('data2');
+//     logMessage(data2);
+//     return getUserDataPromise(3);
+//     // return 'hello';
+//   })
+//   .then((data3) => {
+//     console.log('data3');
+//     logMessage(data3);
+//   });
+
+// function getUserData(userId, callbackFn) {
+//   var xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function () {
+//     if (this.readyState == 4 && this.status == 200) {
+//       // Typical action to be performed when the document is ready:
+//       data = JSON.parse(xhttp.responseText);
+//       callbackFn(data);
+//     }
+//   };
+//   xhttp.open(
+//     'GET',
+//     'https://jsonplaceholder.typicode.com/todos/' + userId,
+//     true
+//   );
+//   xhttp.send();
+// }
+// getUserData(2,logMessage);
+// get userData 1 => log it => get userData 2 => log it = > getUerData3 => log it;
+
+// getUserData(1, (data1) => {
+//   logMessage(data1),
+//     getUserData(2, (data2) => {
+//       logMessage(data2);
+//       getUserData(3, (data3) => {
+//         logMessage(data3);
+//       });
+//     });
+// });
+
+// function logMessage(msg) {
+//   console.log(msg);
+// }
+
+function randomTimer() {
     return Math.random() * 5000;
   }
   
@@ -609,6 +609,7 @@ function getUserDataPromise(userId) {
   // [] unshift to enqueue, pop to dequeue;
   
   // this : bind | apply | call
+  
   class MyPromise {
     constructor(executorFn) {
       this.promiseState = 'pending';
@@ -616,7 +617,6 @@ function getUserDataPromise(userId) {
         setTimeout(() => {
           this.promiseState = 'fulfilled';
           this.currentData = data;
-          console.log('resolve');
           while (this.thenCallbackQueue.length > 0) {
             const curThenCallbackFn = this.thenCallbackQueue.shift();
             if (this.currentData instanceof MyPromise) {
@@ -632,50 +632,113 @@ function getUserDataPromise(userId) {
           }
         }, 0);
       };
-      this.reject = function () {};
+      this.reject = function (error) {
+        setTimeout(() => {
+          this.promiseState = 'failed';
+          this.currentError = error;
+          while (this.catchCallbackQueue.length > 0) {
+            const curCatchCallbackFn = this.catchCallbackQueue.shift();
+            this.currentError = curCatchCallbackFn(this.currentError);
+          }
+        }, 0);
+      };
       this.thenCallbackQueue = [];
+      this.catchCallbackQueue = [];
       executorFn(this.resolve.bind(this), this.reject.bind(this));
     }
   
-    then(thenCallbackFn) {
+    then(thenCallbackFn, catchCallbackFn) {
       this.thenCallbackQueue.push(thenCallbackFn);
+      if (catchCallbackFn) {
+        this.catchCallbackQueue.push(catchCallbackFn);
+      }
       return this;
+    }
+    catch(catchCallbackFn) {
+      this.catchCallbackQueue.push(catchCallbackFn);
+      return this;
+    }
+  
+    static all(promiseArr) {
+      let promiseCompletedNum = 0;
+      const promiseCompletedNumMax = promiseArr.length;
+      const resovleData = new Array(promiseCompletedNumMax);
+      return new MyPromise((res, rej) => {
+        promiseArr.forEach((promise, index) => {
+          promise.then((data) => {
+            promiseCompletedNum++;
+            resovleData[index] = data;
+            if (promiseCompletedNum === promiseCompletedNumMax) {
+              res(resovleData);
+            }
+          });
+        });
+      });
     }
   }
   
-  const p = new MyPromise((resolve, reject) => {
-    let timer = randomTimer();
-    console.log('delayTimer:', timer);
-    setTimeout(() => {
-      resolve('hello');
-    }, timer);
-  })
-    .then((data1) => {
-      console.log('data1', data1);
-      return new MyPromise((resolve, reject) => {
-        setTimeout(() => {
-          resolve('Hey Patrick');
-        }, 1000);
-      });
-    })
-    .then((data2) => {
-      console.log('data2', data2);
-    });
-  const p2 = new Promise((resolve, reject) => {
-    let timer = randomTimer();
-    console.log('delayTimer:', timer);
-    setTimeout(() => {
-      resolve('hello');
-    }, timer);
-  })
-    .then((data1) => {
-      console.log('data1', data1);
-      console.log(p2);
-      return 'data2 hello';
-    })
-    .then((data2) => {
-      console.log(data2);
-    });
+  // Promise.all([promise1, promise2, promise3]).then((values) => {
+  //   console.log(values);
+  // });
+  
+  //function foo() {}
+  // var foo = [1, 2, 3];
+  // foo.all = function () {
+  //   console.log('foo.all');
+  // };
+  // foo.all();
+  
+  // console.log('typeof Class');
+  // console.log(typeof MyPromise);
+  
+  // const p = new Promise((resolve, reject) => {
+  //   let timer = randomTimer(); // 0 - 5000
+  //   console.log('delayTimer:', timer);
+  //   setTimeout(() => {
+  //     if (timer > 5000) {
+  //       reject('too slow Error');
+  //     } else {
+  //       resolve('resolve data');
+  //     }
+  //   }, timer);
+  // })
+  //   .then(
+  //     (data1) => {
+  //       console.log('data1', data1);
+  //       return new Promise((res, rej) => {
+  //         rej('error1');
+  //       });
+  //     },
+  //     (err) => {
+  //       console.log('then Error cb');
+  //       console.log(err);
+  //     }
+  //   )
+  //   .catch((err1) => {
+  //     console.log('error1', err1);
+  //   })
+  //   .then((data2) => {
+  //     console.log('data2', data2);
+  //   })
+  //   .catch((err2) => {
+  //     console.log('error2', err2);
+  //   });
+  
+  // const p2 = new Promise((resolve, reject) => {
+  //   let timer = randomTimer();
+  //   console.log('delayTimer:', timer);
+  //   setTimeout(() => {
+  //     resolve('hello');
+  //   }, timer);
+  // })
+  //   .then((data1) => {
+  //     console.log('data1', data1);
+  //     console.log(p2);
+  //     return 'data2 hello';
+  //   })
+  //   .then((data2) => {
+  //     console.log(data2);
+  //   });
   
   // const p = new MyPromise((res, rej) => {
   //   res('hello');
@@ -701,58 +764,100 @@ function getUserDataPromise(userId) {
   //     console.log('=== fetch Get ====');
   //     console.log(json);
   //   });
-  // fetch('https://jsonplaceholder.typicode.com/posts', {
-  //   method: 'POST',
-  //   body: JSON.stringify({
-  //     title: 'foo',
-  //     body: 'bar',
-  //     userId: 1,
-  //   }),
-  //   headers: {
-  //     'Content-type': 'application/json; charset=UTF-8',
-  //   },
-  // })
-  //   .then((response) => response.json())
-  //   .then((json) => {
-  //     console.log('=== fetch Post ====');
-  //     console.log(json);
-  //   });
+  myfetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: 'foo',
+      body: 'bar',
+      userId: 1,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log('=== fetch Post ====');
+      console.log(json);
+    });
   
-  // function myfetch(url) {
-  //   return new Promise((res, rej) => {
-  //     var xhttp = new XMLHttpRequest();
-  //     xhttp.onreadystatechange = function () {
-  //       if (this.readyState == 4 && this.status == 200) {
-  //         // Typical action to be performed when the document is ready:
-  //         const response = {
-  //           json: function () {
-  //             return JSON.parse(xhttp.responseText);
-  //           },
-  //         };
-  //         res(response);
-  //       }
-  //     };
-  //     xhttp.open('GET', url, true);
-  //     xhttp.send();
-  //   });
-  // }
+  function myfetch(url) {
+    return new Promise((res, rej) => {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          // Typical action to be performed when the document is ready:
+          const response = {
+            json: function () {
+              return JSON.parse(xhttp.responseText);
+            },
+          };
+          res(response);
+        }
+      };
+      xhttp.open('GET', url, true);
+      xhttp.send();
+    });
+  }
   
   // myfetch('https://jsonplaceholder.typicode.com/todos/1')
   //   .then((response) => response.json())
   //   .then((json) => console.log(json));
   
-  fetch('https://jsonplaceholder.typicode.com/todos/1')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-  fetch('https://jsonplaceholder.typicode.com/todos/2')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-  fetch('https://jsonplaceholder.typicode.com/todos/3')
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+  // let completeAll = 0;
+  // let resultArry = new Array(3);
+  
+  // fetch('https://jsonplaceholder.typicode.com/todos/1')
+  //   .then((response) => response.json())
+  //   .then((json) => {
+  //     console.log('get User 1');
+  //     completeAll++;
+  //     resultArry[0] = json;
+  //     if (completeAll === 3) {
+  //       logUsers(resultArry[0], resultArry[1], resultArry[2]);
+  //     }
+  //   });
+  // fetch('https://jsonplaceholder.typicode.com/todos/2')
+  //   .then((response) => response.json())
+  //   .then((json) => {
+  //     console.log('get User 2');
+  
+  //     completeAll++;
+  //     resultArry[1] = json;
+  //     if (completeAll === 3) {
+  //       logUsers(resultArry[0], resultArry[1], resultArry[2]);
+  //     }
+  //   });
+  // fetch('https://jsonplaceholder.typicode.com/todos/3')
+  //   .then((response) => response.json())
+  //   .then((json) => {
+  //     console.log('get User 3');
+  //     completeAll++;
+  //     resultArry[2] = json;
+  //     if (completeAll === 3) {
+  //       logUsers(resultArry[0], resultArry[1], resultArry[2]);
+  //     }
+  //   });
   
   function logUsers(user1, user2, user3) {
     console.log(user1, user2, user3);
   }
   
   // Promise catch, Promise.all, fetch
+  
+  const promise1 = fetch(
+    'https://jsonplaceholder.typicode.com/todos/1'
+  ).then((res) => res.json());
+  
+  const promise2 = fetch(
+    'https://jsonplaceholder.typicode.com/todos/2'
+  ).then((res) => res.json());
+  
+  const promise3 = fetch(
+    'https://jsonplaceholder.typicode.com/todos/3'
+  ).then((res) => res.json());
+  
+  MyPromise.all([promise1, promise2, promise3]).then((values) => {
+    console.log('this is promise all');
+    console.log(values);
+  });
