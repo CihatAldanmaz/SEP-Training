@@ -67,3 +67,13 @@ myPromiseAll(promises).then((response) => {
     console.log('promise all');
     console.log(response);
 })
+
+//implementation of catch method
+class myPromise {
+    constructor(executorFn) {
+        this.promiseState = 'Pending';
+    }
+    this.reject = function () {
+
+}
+}
