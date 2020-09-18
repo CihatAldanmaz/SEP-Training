@@ -1,36 +1,55 @@
 "use strict";
 
-function newItem() {
-  var div = document.createElement("div");
-  div.setAttribute("class", "item");
-  var newInput = document.querySelector("#newInput").value;
-  div.innerHTML = "<input type=\"checkbox\">\n    <p>".concat(newInput, "</p>\n    <div class=\"delete\"><i class=\"far fa-trash-alt\"></i></div>\n    ");
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
 
-  if (newInput === "") {
-    alert("Please enter a new item to add to the list.");
-  } else {
-    document.querySelector(".items").appendChild(div);
-    document.querySelector("#newInput").value = "";
-    div.querySelector(".delete").addEventListener("click", function () {
-      deleteItem(this);
-    });
-  }
-}
+var View = function () {}();
 
-var add = document.querySelector("button");
-add.addEventListener("click", function () {
-  newItem();
-});
-/**************Delete finished item from the list***********/
+var Model = function () {
+  var todos = [{
+    id: 1,
+    text: "Buy dinner",
+    complete: false
+  }, {
+    id: 2,
+    text: "Buy lunch",
+    complete: false
+  }];
 
-function deleteItem(element) {
-  item = element.parentNode;
-  item.parentNode.removeChild(item);
-}
+  var addTodo = function addTodo(todoText) {
+    var todo = {
+      id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
+      text: todoText,
+      complete: false
+    };
+    todos.push(todo);
+  };
 
-var toDeleteItems = document.querySelectorAll(".delete");
-toDeleteItems.forEach(function (item) {
-  item.addEventListener("click", function () {
-    deleteItem(this);
-  });
+  var deleteTodo = function deleteTodo(id) {
+    todos = (_readOnlyError("todos"), todos.filter(function (todo) {
+      return todo.id !== id;
+    }));
+  };
+
+  var toggleTodo = function toggleTodo(id) {
+    todos = (_readOnlyError("todos"), todos.map(function (todo) {
+      return todo.id === id ? {
+        id: todo.id,
+        text: todo.text,
+        complete: !todo.complete
+      } : todo;
+    }));
+  };
+
+  return {
+    todos: todos,
+    addTodo: addTodo,
+    deleteTodo: deleteTodo,
+    toggleTodo: toggleTodo
+  };
+}();
+
+var Controller = function (view, model) {}(View, Model);
+
+document.addEventListener('DOMContentLoaded', function () {
+  Controller.init();
 });
