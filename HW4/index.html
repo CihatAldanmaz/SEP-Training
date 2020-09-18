@@ -12,23 +12,24 @@
 
 </body>
 <script>
-    let p = new HD((resolve, reject) => {
-        setTimeout(() => {
-            resolve('解决');
-            // reject('拒绝');
-            console.log('程咬金');
-        }, 1000);
-
-    }).then(value => {
-        console.log(value);
-    });
-    console.log('baishuhao')
-
+        let p1 = new MyPromise(resolve => {
+            resolve('success');
+        });
+        let p2 = new MyPromise((resolve, reject) => {
+            reject('fail');
+        });
+        MyPromise.all([p1,p2]).then(
+            value => {
+                console.log(value);
+            },
+            reason => {
+                console.log(reason);
+            }
+        );
 </script>
 
 </html>
-
+<!-- 
 then是异步执行，所以先走同步执行的console.log('baishuhao'),
 然后resolve()改变状态，然后在task queue中产生这个console.log(value)这个task，
-但是这个task是在下一次轮询的时候执行。
-输出是: baishuhao 隔1秒 解决 程咬金
+但是这个task是在下一次轮询的时候执行。 -->
