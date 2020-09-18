@@ -1,0 +1,9 @@
+.task-adder {
+    display: flex;
+    margin: 10px;
+}
+
+.task-adder input[type="text"] {
+    flex: 1;
+    margin-right: 8px;
+}
