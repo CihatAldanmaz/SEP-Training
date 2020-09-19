@@ -61,6 +61,7 @@ const todoAPIs = (() => {
 const View = (() => {
     const domString = {
         todolist: '.todolist__content',
+        todoinput: '.todolist_input'
     };
     const renderInnerHTML = (htmlTemplate, element, arr) => {
         element.innerHTML = htmlTemplate;
@@ -191,13 +192,12 @@ const AppController = ((view, model) => {
                 }
             })
 
-            const inputValue = document.getElementsByTagName('input')[0];
-            inputValue.addEventListener('keyup', (event) => {
+            todolistContent.addEventListener('keypress', (event) => {
                 state.text = event.target.value;
                 console.log(state.text);
             })
 
-            inputValue.addEventListener('keypress', (event) => {
+            todolistContent.addEventListener('keypress', (event) => {
                 console.log(event);
                 if (event.key === 'Enter') {
                     const todo = new model.Todo('1', '1', state.text, false);
