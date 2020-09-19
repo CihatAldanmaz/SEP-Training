@@ -171,46 +171,96 @@ const AppController = ((view, model) => {
             //         // );
             //     }
             // });
-            const todolistContent = document.querySelector(view.domString.todolist);
-            todolistContent.addEventListener('click', (event) => {
-                if (event.target.className === 'btn-remove') {
-                    state.todolist = state.todolist.filter(
-                        (todo) => +todo.id !== +event.target.id
-                    );
-                }
-            });
+            //     const todolistContent = document.querySelector(view.domString.todolist);
+            //     todolistContent.addEventListener('click', (event) => {
+            //         if (event.target.className === 'btn-remove') {
+            //             state.todolist = state.todolist.filter(
+            //                 (todo) => +todo.id !== +event.target.id
+            //             );
+            //         }
+            //     }, false);
 
-            todolistContent.addEventListener('click', (event) => {
-                if (event.target.className === 'todo-title') {
-                    const nextTodoList = [...state.todolist];
-                    nextTodoList.forEach((todo) => {
-                        if (todo.id === parseInt(event.target.id)) {
-                            todo.completed = !todo.completed;
-                        }
-                    })
-                    state.todolist = nextTodoList;
-                }
-            })
+            //     todolistContent.addEventListener('click', (event) => {
+            //         if (event.target.className === 'todo-title') {
+            //             const nextTodoList = [...state.todolist];
+            //             nextTodoList.forEach((todo) => {
+            //                 if (todo.id === parseInt(event.target.id)) {
+            //                     todo.completed = !todo.completed;
+            //                 }
+            //             })
+            //             state.todolist = nextTodoList;
+            //         }
+            //     }, false)
 
-            todolistContent.addEventListener('keypress', (event) => {
-                state.text = event.target.value;
-                console.log(state.text);
-                if (event.key === 'Enter') {
-                    const todo = new model.Todo('1', '1', state.text, false);
-                    const nextState = [...state.todolist];
-                    nextState.push(todo);
-                    state.text = '';
-                    state.todolist = nextState;
-                    console.log(state.todolist);
-                }
-            })
-        });
+            //     todolistContent.addEventListener('keypress', (event) => {
+            //         state.text = event.target.value;
+            //         console.log(state.text);
+            //         if (event.key === 'Enter') {
+            //             const todo = new model.Todo('1', '1', state.text, false);
+            //             const nextState = [...state.todolist];
+            //             nextState.push(todo);
+            //             state.text = '';
+            //             state.todolist = nextState;
+            //             console.log(state.todolist);
+            //         }
+            //     })
+            // }, false);
+            handleCompleteTodo();
+            handleDeleteTodo();
+            handleAddTodo();
+        })
     };
 
     const init = () => {
         console.log('init');
         initTodoList();
     };
+
+    const handleCompleteTodo = () => {
+        const todolistContent = document.querySelector(view.domString.todolist);
+        todolistContent.addEventListener('click', (event) => {
+            console.log(event);
+            if (event.target.className === 'todo-title') {
+                const nextTodoList = [...state.todolist];
+                nextTodoList.forEach((todo) => {
+                    if (todo.id === parseInt(event.target.id)) {
+                        todo.completed = !todo.completed;
+                        model.completeTodo(todo.id).then((data) => console.log('complete to do'));
+                    }
+                })
+                state.todolist = nextTodoList;
+            }
+        }, false)
+    }
+
+    const handleDeleteTodo = () => {
+        const todolistContent = document.querySelector(view.domString.todolist);
+        todolistContent.addEventListener('click', (event) => {
+            if (event.target.className === 'btn-remove') {
+                state.todolist = state.todolist.filter(
+                    (todo) => +todo.id !== +event.target.id
+                );
+                model.deleteTodo(parseInt(event.target.id)).then((data) => console.log('delete to do'));
+            }
+        }, false);
+    }
+
+    const handleAddTodo = () => {
+        const todolistContent = document.querySelector(view.domString.todolist);
+        todolistContent.addEventListener('keypress', (event) => {
+            state.text = event.target.value;
+            console.log(state.text);
+            if (event.key === 'Enter') {
+                const todo = new model.Todo('1', '1', state.text, false);
+                const nextState = [...state.todolist];
+                nextState.push(todo);
+                state.text = '';
+                state.todolist = nextState;
+                model.addTodo(todo).then((data) => console.log('add to do'));
+            }
+        }, false);
+    }
+
     return {
         init,
     };
