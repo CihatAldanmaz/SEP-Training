@@ -195,19 +195,15 @@ const AppController = ((view, model) => {
             todolistContent.addEventListener('keypress', (event) => {
                 state.text = event.target.value;
                 console.log(state.text);
-            })
-
-            todolistContent.addEventListener('keypress', (event) => {
-                console.log(event);
                 if (event.key === 'Enter') {
                     const todo = new model.Todo('1', '1', state.text, false);
                     const nextState = [...state.todolist];
                     nextState.push(todo);
-                    state.todolist = nextState;
                     state.text = '';
+                    state.todolist = nextState;
                     console.log(state.todolist);
                 }
-            }, false)
+            })
         });
     };
 
