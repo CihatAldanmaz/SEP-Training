@@ -219,7 +219,6 @@ const AppController = ((view, model) => {
     const handleCompleteTodo = () => {
         const todolistContent = document.querySelector(view.domString.todolist);
         todolistContent.addEventListener('click', (event) => {
-            console.log(event);
             if (event.target.className === 'todo-title') {
                 const nextTodoList = [...state.todolist];
                 nextTodoList.forEach((todo) => {
@@ -251,7 +250,7 @@ const AppController = ((view, model) => {
             state.text = event.target.value;
             console.log(state.text);
             if (event.key === 'Enter') {
-                const todo = new model.Todo('1', '1', state.text, false);
+                const todo = new model.Todo('1', state.todolist.length + 1, state.text, false);
                 const nextState = [...state.todolist];
                 nextState.push(todo);
                 state.text = '';
