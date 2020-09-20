@@ -46,6 +46,23 @@ const View = (() => {
   };
 })();
 
-const Model = () => {};
+const Model = ((api) => {
+  class Todo {
+    constructor(userId, id, title, completed) {
+      this.userId = userId;
+      this.id = id;
+      this.title = title;
+      this.completed = completed;
+    }
+  }
 
-const Controller = () => {};
+  const fetchTodos = api.getAllTodos;
+  const deleteTodos = api.deleteTodos;
+
+  return {
+    fetchTodos,
+    deleteTodos,
+  };
+})(todoAPIs);
+
+const Controller = (() => {})();
