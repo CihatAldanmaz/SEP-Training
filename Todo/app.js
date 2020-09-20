@@ -10,7 +10,7 @@ todoList.addEventListener('click', checkDelete);
 
 //FUNCTIONS
 function addTodo(event) {
-    const currentErr = document.querySelector('.error-msg');
+     const currentErr = document.querySelector('.error-msg');
     if(todoInput.value === '') {
         event.preventDefault();
         if(currentErr) {
@@ -63,6 +63,4 @@ function checkDelete(event) {
         const currentTodo = item.parentElement;
         currentTodo.remove();
     }
-
-
 }

@@ -314,7 +314,9 @@ function longestName(list) {
 
 
 // 27. Write a JavaScript function that returns the longest palindrome in a given string. 
-
+function longestPalindrome(str) {
+     
+}
 
 // 28. Write a JavaScript program to pass a 'JavaScript function' as parameter. 
 function functionParam(cb){
