@@ -3,14 +3,13 @@ const todoAPIs = (() => {
   const baseUrl = "https://jsonplaceholder.typicode.com";
   const todoPath = "todos";
 
-  const getAllTodos = () => {
-    return fetch([baseUrl, todoPath].join("/")).then((res) => {
-      return res.json();
-    });
+  const getAllTodos = async () => {
+    const res = await fetch([baseUrl, todoPath].join("/"));
+    return res.json();
   };
 
-  const deleteTodo = (id) => {
-    fetch([baseUrl, todoPath, id].join("/"), {
+  const deleteTodo = async (id) => {
+    return await fetch([baseUrl, todoPath, id].join("/"), {
       method: "DELETE",
     }).then((res) => {
       return res.json();
@@ -22,28 +21,31 @@ const todoAPIs = (() => {
   };
 })();
 
-// const getAllPosts = () =>
-// fetch([baseUrl, postsPath].join('/')).then((res) => res.json());
+//View handles the DOM rendering.
+const View = (() => {
+  const domString = {
+    todoList: ".todoList__content",
+  };
 
-// return {
-// getAllPosts,
-// };
-// })();
-// const todoAPIs = (() => {
-// const baseUrl = 'https://jsonplaceholder.typicode.com';
-// const todoPath = 'todos';
+  const renderInnerHTML = (htmlTemplate, element) => {
+    element.innerHTML = htmlTemplate;
+  };
 
-// const getAllTodos = () =>
-// fetch([baseUrl, todoPath].join('/')).then((res) => res.json());
+  const generateTodoListTmpt = function (todoArr) {
+    let todoListTmpt = "";
+    todoArr.forEach((todo) => {
+      todoListTmpt += `<li class='todolist__content-item'><span>${todo.title}</span><button class='btn-remove'>X</button></li>`;
+    });
+    return todoListTmpt;
+  };
 
-// const deleteTodo = (id) =>
-// fetch([baseUrl, todoPath, id].join('/'), {
-//   method: 'DELETE',
-// }).then((res) => res.json());
+  return {
+    domString,
+    renderInnerHTML,
+    generateTodoListTmpt,
+  };
+})();
 
-// return {
-// getAllTodos,
-// deleteTodo,
-// };
+const Model = () => {};
 
-console.log(todoAPIs.getAllTodos);
+const Controller = () => {};
