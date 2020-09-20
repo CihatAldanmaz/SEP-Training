@@ -4,7 +4,7 @@ const todoAPIs = (() => {
   const todoPath = "todos";
 
   const getAllTodos = () => {
-    fetch([baseUrl, todoPath].join("/")).then((res) => {
+    return fetch([baseUrl, todoPath].join("/")).then((res) => {
       return res.json();
     });
   };
