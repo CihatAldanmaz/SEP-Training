@@ -34,7 +34,7 @@ const View = (() => {
   const generateTodoListTmpt = function (todoArr) {
     let todoListTmpt = "";
     todoArr.forEach((todo) => {
-      todoListTmpt += `<li class='todolist__content-item'><span>${todo.title}</span><button class='btn-remove'>X</button></li>`;
+      todoListTmpt += `<li id=${todo.id}class='todolist__content-item'><span>${todo.title}</span><button class='btn-remove'>X</button></li>`;
     });
     return todoListTmpt;
   };
@@ -65,4 +65,54 @@ const Model = ((api) => {
   };
 })(todoAPIs);
 
-const Controller = (() => {})();
+const Controller = ((view, model) => {
+  class State {
+    constructor() {
+      this._todolist = [];
+    }
+    get todoList() {
+      return this._todolist;
+    }
+
+    set todoList(newList) {
+      this._todolist = newList;
+      //rerender
+      //regenerate template with updated list
+      const tmpt = view.generateTodoListTmpt(this._todolist);
+
+      //find the element
+      const todoListElement = document.querySelector(view.domString.todoList);
+
+      //render
+      view.renderInnerHTML(tmpt, todoListElement);
+    }
+  }
+
+  const state = new State();
+
+  const initTodoList = () => {
+    //fetch data
+    model.fetchTodos().then((data) => {
+      state.todoList = data;
+
+      const todoListContent = document.querySelector(view.domString.todoList);
+
+      todoListContent.addEventListener("click", (event) => {
+        if (event.target.className === "btn-remove") {
+          state.todoList = state.todoList.splice(event.target.id - 1, 1);
+        }
+      });
+    });
+  };
+
+  const init = () => {
+    initTodoList();
+  };
+  return {
+    init,
+  };
+})(View, Model);
+
+document.addEventListener("DOMContentLoaded", () => {
+  Controller.init();
+});
