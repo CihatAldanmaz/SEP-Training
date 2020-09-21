@@ -99,19 +99,7 @@ const todoAPIs = (() => {
         // render
         view.renderInnerHTML(tmp, todoListElement);
         
-        //adding new todo item
-        const addBtn = document.querySelector(view.domString.addBtn);
-        const todoInput = document.querySelector(view.domString.todoInput);
-        addBtn.addEventListener('click', () => {
-            model.addTodo(todoInput.value).then((data) => {
-                console.log('added todo');
-                console.log('data: ' + data)
-                let currList = state.todolist;
-                currList.push(data);
-                state.todolist = currList;
-                console.log('updated list: ' + state.todolist);
-            })
-        }); 
+        
 
         // event bubbling
         const btnRemoves = document.querySelectorAll('.btn-remove');
@@ -132,6 +120,20 @@ const todoAPIs = (() => {
     }
   
     const state = new State();
+
+    //adding new todo item
+    const addBtn = document.querySelector(view.domString.addBtn);
+    const todoInput = document.querySelector(view.domString.todoInput);
+    addBtn.addEventListener('click', () => {
+        model.addTodo(todoInput.value).then((data) => {
+            console.log('added todo');
+            console.log('data: ' + JSON.stringify(data))
+            let currList = state.todolist;
+            currList.unshift(data);
+            state.todolist = currList;
+            console.log('updated list: ' + state.todolist);
+        })
+    }); 
   
     const initTodoList = () => {
       // fetch Data
