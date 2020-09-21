@@ -2,7 +2,14 @@
 
 function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
 
-var View = function () {}();
+var View = function () {
+  var initListTmp = function initListTmp(currentTodos) {
+    var listTmp = "";
+    currentTodos.forEach(function (todo) {
+      listTmp += "<div class=\"item ".concat(todo.id, "\">\n            <input type=\"checkbox\">\n            <p>").concat(todo.text, "</p>\n            <div class=\"delete\"><i class=\"far fa-trash-alt\"></i></div>\n            </div>");
+    });
+  };
+}();
 
 var Model = function () {
   var todos = [{

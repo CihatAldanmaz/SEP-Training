@@ -1,5 +1,15 @@
 
 const View = (()=>{
+    const initListTmp = function(currentTodos){
+        let listTmp = "";
+        currentTodos.forEach((todo)=>{
+            listTmp += `<div class="item ${todo.id}">
+            <input type="checkbox">
+            <p>${todo.text}</p>
+            <div class="delete"><i class="far fa-trash-alt"></i></div>
+            </div>`
+        })
+    }
 
 })();
 
