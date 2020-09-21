@@ -393,6 +393,24 @@ console.log(longestSubstr("abcabcbb")); */
 }
 console.log(longestPalindome("bananas"));  */
 //#28 
+/* const calculate = (calback, a, b) => {
+    return calback(a,b);
+}
 
- //#29 
- 
+const add = (a, b) => {
+    return a + b;
+}
+
+const divide = (a, b) => {
+    return a/b;
+}
+
+console.log(calculate(add, 3, 4)); 
+console.log(calculate(divide, 3, 4)); */ 
+
+ //#29 ???? 
+ /* const getName = () => {
+    console.log(arguments.callee.name);
+ }
+
+ getName(); */
