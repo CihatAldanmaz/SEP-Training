@@ -157,11 +157,11 @@ console.log(isPerfect(8128)); */
 
 //#13 same solution as #12 
 
-//#14 
-const toCoin = (amt)=> {
+//#14 I did not understand this question
+/* const toCoin = (amt)=> {
 
 }
-
+ */
 
 
 //#15 ?? should we condider decimal exponent?
@@ -256,3 +256,143 @@ console.log(biggerThan([1,2,3,5], 4)); */
 }
 
 console.log(randomId(6)); */
+
+//#21 ?? min subset length? 
+/* const subsetK = (arr, k) => {
+    arr.sort(); 
+    let subsets = [[]]; 
+    let i = 0;
+    while (i < subsets.length){
+        subset = subsets[i]; 
+        arr.forEach((element) => {
+            if (!(subset && subset[subset.length - 1] >= element)){
+                subsets.push(subset.concat(element));
+            }
+        }) 
+        i += 1;  
+    };
+    let ans = subsets.filter((e) => {
+        return e.length >= k; 
+    });
+    return ans; 
+    }
+console.log(subsetK([1,2,3], 2)) */
+
+//#22 
+/* const letterFrequencyInString = (s, ch) => {
+    let count = [...s].filter( (e) => {
+        return e === ch
+    }).length;
+    return count; 
+}
+console.log(letterFrequencyInString('microsoft.com', 'o' )); */
+
+//#23 first non-repeated character
+/* const firstNonRepeated = (s) => {
+    let countMap = {}; 
+    for (let i = 0; i < s.length; i++){
+        if (Object.keys(countMap).includes(s[i])){
+            countMap[s[i]] += 1;
+        }
+        else {
+            countMap[s[i]] = 1;
+        }
+        
+    }
+    for (let i = 0; i < s.length; i++){
+        if (countMap[s[i]] === 1){
+            return s[i];
+        }
+    }
+}
+console.log(firstNonRepeated("abacddbec")); */
+
+//#24 Bubble sort algorithm 
+/* const bubbleSort = (arr) => {
+    let isSorted = false;
+    while (!isSorted) {
+        isSorted = true; 
+        for (let i=0; i< arr.length - 1; i++){
+            if (arr[i] > arr[i + 1]){
+                let temp = arr[i];
+                arr[i] = arr[i+1]; 
+                arr[i+1] = temp;
+                isSorted = false;
+            }
+        }
+    }
+    return arr;
+}
+console.log(bubbleSort([4,2,3,1])); */
+
+//#25 
+/* const longestName = (arr) => {
+    let index = 0;
+    let max_length = 0;
+    arr.forEach((e, i) => {
+        if (e.length > max_length){
+            index = i; 
+            max_length = e.length;
+        }
+    });
+    return arr[index];
+}
+console.log(longestName(["Australia", "Germany", "United States of America"]));
+
+ */
+
+ //#26 longest substring in a string without repeating characters
+ /* const longestSubstr = (s) => {
+     let ans = [0, '']; 
+     let unique_char = new Set();
+     let j = 0;
+     let n = s.length; 
+     for (i = 0; i < n; i++){
+         while (j < n && !(unique_char.has(s[j]))){
+             unique_char.add(s[j]); 
+             j += 1; 
+         }
+         if (j - i > ans[0]){
+         ans[0] = j - i;
+         ans[1] = s.substring(i,j); 
+        } 
+         unique_char.delete(s[i]);
+     }
+     return ans[1];
+ }
+console.log(longestSubstr("abcabcbb")); */
+ 
+//#27 
+/* const longestPalindome = (s) => {
+    const end = s.length;
+    const start = 0; 
+    let ans = [0, '']; 
+    const findPalindrome = (left, right) => {
+        while (left >= start && right < end && s[left] == s[right]){
+            left -= 1;
+            right += 1;
+        }
+        //console.log(right, left);
+        return [right - left - 1, s.substring(left + 1, right)]; 
+    }
+    for (let i = 0; i < end - 1; i ++){
+        p1 = findPalindrome(i, i); 
+        p2 = findPalindrome(i, i + 1);
+        let ans1; 
+        if (p1[0] > p2[0]){
+            ans1 = p1;
+        }
+        else {
+            ans1 = p2
+        }
+        if (ans1[0] > ans[0]){
+            ans = ans1; 
+        }
+    }
+    return ans[1];
+}
+console.log(longestPalindome("bananas"));  */
+//#28 
+
+ //#29 
+ 
