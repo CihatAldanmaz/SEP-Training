@@ -5,7 +5,8 @@
 //   console.log(data);
 // });
 
-/// MVC
+/// MVC : backbone, angularJS | angular 1.x
+// MVVM : React , Angular 2+, Vue , https://knockoutjs.com/
 
 const postsAPIs = (() => {
   const baseUrl = 'https://jsonplaceholder.typicode.com';
