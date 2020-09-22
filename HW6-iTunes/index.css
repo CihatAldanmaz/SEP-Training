@@ -1,0 +1,24 @@
+:root {
+    --color-primary: #106c0f;
+}
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    background-color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBar {
+    border-radius: 1rem;
+    
+}
