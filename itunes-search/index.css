@@ -3,6 +3,13 @@
     --search-color: #007474;
 }
 
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 .search-bar {
     align-items: center;
     background-color:var(--search-color);
