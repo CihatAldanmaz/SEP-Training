@@ -1,15 +1,16 @@
 :root {
+    --default-spacing: 20px;
     --search-color: #007474;
-    --default-padding: 20px;
 }
 
 .search-bar {
     align-items: center;
     background-color:var(--search-color);
     display: flex;
+    height: 75px;
     justify-content: center;
     left: 0;
-    padding: var(--default-padding);
+    padding: var(--default-spacing);
     position: fixed;
     right: 0;
     top: 0;
@@ -20,10 +21,6 @@
     border-radius: 20px;
     line-height: 2;
     outline: none;
-    padding-left: var(--default-padding);
+    padding-left: var(--default-spacing);
     width: 40%;
-}
-
-.search-bar__input::after {
-    content: icon('search.png');
 }
