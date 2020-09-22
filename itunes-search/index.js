@@ -20,3 +20,37 @@ const Model = ((api) => {
         fetchResults
     };
 })(api);
+
+const View = (() => {
+    let template = "";
+
+    const domString = {
+        searchBarInput: ".search-bar__input",
+        content: ".content"
+    };
+
+    const addToTemplate = (albumTitle, thumbnail) => {
+        template += `
+        <div class="card">
+            <img src=${thumbnail}>
+            <p>${albumTitle}</p>
+        </div>
+        `;
+    }
+
+    const render = (element) => {
+        element.innerHTML = template;
+    }
+
+    const reset = (element) => {
+        element.innerHTML = "";
+        template = "";
+    }
+
+    return {
+        domString,
+        addToTemplate,
+        render,
+        reset
+    }
+})();
