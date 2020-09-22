@@ -1,10 +1,11 @@
-
+var artistName;
 function start_search() {
 
     let rawInput = document.getElementById('search');
     let input;
     if (rawInput) {
         input = rawInput.value.toLowerCase();
+        artistName = input;
         let inputArr = input.split(' ');
         var searchTerms = '';
         for (let i = 0; i < inputArr.length; i++) {
@@ -49,9 +50,10 @@ function renderPage(json){
         <div class="album-name">${albumName}</div>
         </div>`
     });
+    // console.log(htmlString)
 
-    const section = document.getElementsByTagName("section");
+    const section = document.querySelector("section");
     section.innerHTML = htmlString;
     const resultTitle = document.querySelector(".result");
-    resultTitle.innerHTML = `${resultCount} Results for "${artisticName}"`;
+    resultTitle.innerHTML = `${resultCount} Results for "${artistName}"`;
 }
