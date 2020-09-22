@@ -13,21 +13,15 @@ function start_search() {
             } else {
                 searchTerms += inputArr[i] + '+';
             }
-
         }
 
         let modifiedURL = 'https://itunes.apple.com/search?term=' + searchTerms + '&media=music&entity=album&attribute=artistTerm&limit=50';
+        
+        fetch(modifiedURL)
+            .then(response => response.json())
+            .then(json => console.log(json))
+        
         // console.log(modifiedURL)
-        // fetch(modifiedURL)
-        //     .then(response => response.json())
-        //     .then(json => console.log(json))
-
-        // let input = document.getElementById('search');
-        // input.addEventListener('keyup', (e) => {
-
-        // })
-        // return modifiedURL;
-        console.log(modifiedURL)
     } 
     else {
         alert('Please enter a artist name...');
