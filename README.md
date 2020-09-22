@@ -35,3 +35,11 @@ Implementation of [Promise.all](src/Promise/MyPromise.js), [Promise.catch](src/P
 ### Day 8 (09/17/2020)
 
 Fetch todo lists and show them in a table: https://codepen.io/pudu/pen/BaKOOKL
+
+### Day 9 (09/18/2020)
+
+MCV todo lists
+
+### Day 10 (09/21/2020)
+
+[Search albums by artist name](https://frontend.appcodebox.com/albums/) [source code](src/albums)

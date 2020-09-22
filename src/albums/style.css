@@ -1,0 +1,91 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+h1 {
+  margin-top: 20px;
+  color: #393e46;
+}
+
+.albumSearch__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color: #00adb5;
+  position: sticky;
+  top: 0;
+}
+
+.albumSearch__searchbar input {
+  outline: none;
+  height: 30px;
+  width: 40vw;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.albumSearch__searchbar button {
+  height: 25px;
+  margin-left: -25px;
+  font-size: 12px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.albumSearch__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.albumSearch__info hr {
+  width: 60vw;
+  margin: 20px;
+  border: none;
+  height: 1.5px;
+  background-color: #00adb5;
+}
+
+.albumSearch__results {
+  margin: 0 10%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.albumSearch__resultSingle {
+  flex: 1 0 17%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 5px;
+  margin: 1%;
+  max-width: 17%;
+}
+
+.albumSearch__resultSingle:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.albumSearch__resultSingle img {
+  margin: 20px;
+}
+
+.albumSearch__resultSingle p {
+  margin: 5px;
+  text-align: center;
+  color: #393e46;
+}
