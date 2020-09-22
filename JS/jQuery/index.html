@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<body>
+    <button class="continue">BUTTON</button>
+    
+</body>
+<script>
+    class MyJQuery {
+        constructor(selector) {
+            this.selectElement = document.querySelector(selector);
+        }
+        html(template) {
+            this.selectElement.innerHTML = template;
+        }
+        on(eventType, cb) {
+
+        }
+        show(){}
+    }
+    const $$ = function(selector) {
+        return new MyJQuery(selector);
+    }
+    $$('button.continue').html('Next Step...');
+</script>
+
+</html>
