@@ -6,7 +6,7 @@ function start_search() {
     if (rawInput) {
         input = rawInput.value.toLowerCase();
         let inputArr = input.split(' ');
-        let searchTerms = '';
+        var searchTerms = '';
         for (let i = 0; i < inputArr.length; i++) {
             if (i === inputArr.length - 1) {
                 searchTerms += inputArr[i];
@@ -15,16 +15,26 @@ function start_search() {
             }
         }
 
-        let modifiedURL = 'https://itunes.apple.com/search?term=' + searchTerms + '&media=music&entity=album&attribute=artistTerm&limit=50';
-        
-        fetch(modifiedURL)
-            .then(response => response.json())
-            .then(json => console.log(json))
-        
-        // console.log(modifiedURL)
-    } 
+        // var modifiedURL = 'https://itunes.apple.com/search?term=' + searchTerms + '&media=music&entity=album&attribute=artistTerm&limit=50';
+    }
     else {
         alert('Please enter a artist name...');
     }
+
+    const cors = `https://cors-anywhere.herokuapp.com/`;
+    const URL =
+        cors +
+        `https://itunes.apple.com/search?term=${searchTerms}&media=music&entity=album&attribute=artistTerm&limit=50`;
+
+    fetch(URL)
+        .then(response => response.json())
+        .then(json =>
+            console.log(json)
+        )
 }
-// console.log(start_search());
+
+
+
+function handleResponse() {
+
+}
