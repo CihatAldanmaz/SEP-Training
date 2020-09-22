@@ -1,5 +1,6 @@
 :root {
     --default-spacing: 20px;
+    --search-bar-height: 75px;
     --search-color: #007474;
 }
 
@@ -14,7 +15,7 @@
     align-items: center;
     background-color:var(--search-color);
     display: flex;
-    height: 75px;
+    height: var(--search-bar-height);
     justify-content: center;
     left: 0;
     padding: var(--default-spacing);
@@ -30,4 +31,27 @@
     outline: none;
     padding-left: var(--default-spacing);
     width: 40%;
+}
+
+.content {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--search-bar-height);
+}
+
+.card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin: var(--default-spacing);
+    width: 100px;
+}
+
+.card p {
+    font-weight: bold;
+    margin-top: var(--default-spacing);
+    text-align: center;
 }
