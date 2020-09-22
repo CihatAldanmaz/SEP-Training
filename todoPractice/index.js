@@ -68,7 +68,8 @@ const View = (() => {
         arr.forEach((todo) => {
             if (todo.completed) {
                 const toToggle = document.getElementById(`list_${todo.id}`);
-                toToggle.style.color = 'red';
+                toToggle.style.color = "red";
+                // toToggle.style.textDecoration = 'line-through';
             }
         })
     };
