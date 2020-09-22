@@ -26,7 +26,8 @@ const View = (() => {
 
     const domString = {
         searchBarInput: ".search-bar__input",
-        content: ".content"
+        content: ".content",
+        heading: "h2"
     };
 
     const addToTemplate = (albumTitle, thumbnail) => {
@@ -38,12 +39,13 @@ const View = (() => {
         `;
     }
 
-    const render = (element) => {
-        element.innerHTML = template;
+    const render = (content, heading, resultCount, input) => {
+        content.innerHTML = template;
+        heading.innerHTML = `${resultCount} results for "${input}"`;
     }
 
-    const reset = (element) => {
-        element.innerHTML = "";
+    const reset = (content) => {
+        content.innerHTML = "";
         template = "";
     }
 
@@ -59,15 +61,23 @@ const Controller = ((model, view) => {
     
     document.querySelector(view.domString.searchBarInput).addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-            view.reset(document.querySelector(view.domString.content));
             const input = e.target.value;
+
+            if (input === "") {
+                return;
+            }
+
+            view.reset(document.querySelector(view.domString.content));
 
             model.fetchResults(input).then((data) => {
                 data.results.forEach((album) => {
                     view.addToTemplate(album.collectionName, album.artworkUrl100);
                 })
 
-                view.render(document.querySelector(view.domString.content));
+                view.render(document.querySelector(view.domString.content), 
+                document.querySelector(view.domString.heading), 
+                data.resultCount, 
+                input);
             })
 
             e.target.value = "";
