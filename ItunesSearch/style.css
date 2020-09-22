@@ -1,0 +1,46 @@
+:root {
+    --height-header: 60px;
+
+    --color-primary: black;
+    --color-secondary: gray;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    background-color: var(--color-primary);
+    height: var(--height-header);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    margin-top: var(--height-header);
+
+}
+
+.albumlist__header {
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+.heading {
+    border-bottom: solid;
+}
