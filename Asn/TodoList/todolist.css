@@ -1,0 +1,96 @@
+:root {
+    --height-header: 60px;
+    --color-primary:#ff69b4;
+    --color-secondary: #fff7bc;
+    --size-item: 60px;
+    --box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --grad1: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+    --grad2: linear-gradient(140deg,  #EADEDB 0%, #BFD641 75%);
+    --height-todo__item: 40px; 
+    --height-todo__input: 30px; 
+    --height-todoContainer: 500px; 
+    --width-todoContainer: 400px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /*background-image: var(--grad1);*/
+}
+
+.header {
+    position: fixed;
+    width: 100%; 
+    background-image: var(--grad2);
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header h1 {
+    /*color: var(--color-primary);*/
+    color: #BC70A4 ;
+    font-size: 40px;
+    text-align: center; 
+}
+
+.content {
+    padding-top: var(--height-header);
+    /*background-color: var(--color-primary);*/
+    /*background-image: linear-gradient(red, yellow);*/
+    background-image: var(--grad1);
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*overflow: auto;*/
+    min-height: 500px;
+}
+
+.todoContainer {
+    /*text-align: center;*/
+    height: var(--height-todoContainer);
+    width: var(--width-todoContainer);
+    box-shadow: var(--box-shadow);
+
+}
+
+
+.todo__input{
+    height: var(--height-todo__input);
+    width: 100%; 
+    padding: 5px;
+    font-size: 22px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.todo__content {
+    list-style-type: none;
+    height: calc(var(--height-todoContainer) - var(--height-todo__input));
+    overflow: auto;
+}
+
+.todo__item {
+    color: var(--color-secondary);
+    font-size: 25px;
+    height: var(--height-todo__item);
+    text-align: center;
+    line-height: var(--height-todo__item);
+}
+
+/*::-webkit-input-placeholder {
+    text-align: center;
+}*/
+input{
+   text-align:center;
+}
+
