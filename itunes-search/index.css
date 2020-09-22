@@ -35,12 +35,21 @@
     width: 40%;
 }
 
+h2 {
+    margin: calc(var(--search-bar-height) + var(--default-spacing)) 0 var(--default-spacing);
+    text-align: center;
+}
+
+hr {
+    margin: 0 20%;
+}
+
 .content {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: var(--search-bar-height) 10% 0;
+    margin: 0 10%;
 }
 
 .card {
