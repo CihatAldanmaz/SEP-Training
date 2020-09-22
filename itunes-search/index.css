@@ -1,0 +1,29 @@
+:root {
+    --search-color: #007474;
+    --default-padding: 20px;
+}
+
+.search-bar {
+    align-items: center;
+    background-color:var(--search-color);
+    display: flex;
+    justify-content: center;
+    left: 0;
+    padding: var(--default-padding);
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.search-bar__input {
+    border: none;
+    border-radius: 20px;
+    line-height: 2;
+    outline: none;
+    padding-left: var(--default-padding);
+    width: 40%;
+}
+
+.search-bar__input::after {
+    content: icon('search.png');
+}
