@@ -39,8 +39,8 @@ function handleResponse(URL) {
         .then(json => renderPage(json))
 }
 
-function renderPage(json){
-    const{resultCount, results} = json;
+function renderPage(json) {
+    const { resultCount, results } = json;
     let htmlString = "";
     results.forEach(i => {
         const albumName = i.collectionName;
@@ -50,10 +50,9 @@ function renderPage(json){
         <div class="album-name">${albumName}</div>
         </div>`
     });
-    // console.log(htmlString)
 
     const section = document.querySelector("section");
     section.innerHTML = htmlString;
-    const resultTitle = document.querySelector(".result");
-    resultTitle.innerHTML = `${resultCount} Results for "${artistName}"`;
+    let s = resultCount + " results for " + artistName;
+    document.getElementById('resultNum').innerHTML = s;
 }
