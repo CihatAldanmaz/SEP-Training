@@ -1,6 +1,7 @@
 const domString = {
     albumContent: '.album_content',
-    albumInput: '.album_input'
+    albumInput: '.album_input',
+    albumHeader: 'album_header'
 }
 
 const CORS = 'https://cors-anywhere.herokuapp.com/';
@@ -50,14 +51,24 @@ class State {
 
 state = new State();
 const inputElement = document.querySelector(domString.albumInput);
+const headerElement = document.getElementById(domString.albumHeader);
 inputElement.addEventListener('keyup', (e) => {
     console.log(e.target.value);
     if (e.key === 'Enter') {
         console.log('fetch data');
         state.inputText = e.target.value;
+        headerElement.classList.add('album_header_display');
         fetch(`${CORS}${baseUrl}=${state.inputText}${appendix}`).then((res) => res.json()).then((data) => {
             console.log(data);
             state.albums = data.results;
+            headerElement.innerHTML = `${data.resultCount} results by ${state.inputText}`;
         })
     }
-})
+    if (e.target.value === '') {
+        headerElement.innerHTML = 'Search Albums By Artist Name';
+        state.albums = [];
+    }
+}
+)
+
+console.log(state.inputValue);
