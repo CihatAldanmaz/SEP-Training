@@ -11,14 +11,14 @@
 main {
     position: fixed;
     width: 100%;
-    height: 30px;
+    height: 50px;
     background-color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.searchBar {
-    border-radius: 1rem;
-    
+.search{
+    padding: 4px;
+    border-radius: 5px;
 }
