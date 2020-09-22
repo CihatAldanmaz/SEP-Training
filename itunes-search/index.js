@@ -11,3 +11,12 @@ const api = (() => {
         getResults
     };
 })();
+
+const Model = ((api) => {
+
+    const fetchResults = api.getResults;
+
+    return {
+        fetchResults
+    };
+})(api);
