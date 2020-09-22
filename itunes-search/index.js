@@ -54,3 +54,23 @@ const View = (() => {
         reset
     }
 })();
+
+const Controller = ((model, view) => {
+    
+    document.querySelector(view.domString.searchBarInput).addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            view.reset(document.querySelector(view.domString.content));
+            const input = e.target.value;
+
+            model.fetchResults(input).then((data) => {
+                data.results.forEach((album) => {
+                    view.addToTemplate(album.collectionName, album.artworkUrl100);
+                })
+
+                view.render(document.querySelector(view.domString.content));
+            })
+
+            e.target.value = "";
+        }
+    });
+})(Model, View);
