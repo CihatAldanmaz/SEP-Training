@@ -7,48 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<script>
-    window.onload = function() {
-        const btn = document.querySelector(".btn");
-        const searcharea = document.querySelector(".searcharea");
-        const h1 = document.querySelector("h1");
-        const result = document.querySelector(".result")
-        searcharea.value = "hafkdhfa"
 
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            console.log(this)
-
-        })
-
-        function getResult() {
-            const ARTIST_NAME = searcharea.value;
-            const cors = `https://cors-anywhere.herokuapp.com/`;
-            const Url = cors + `https://itunes.apple.com/search?term=${ARTIST_NAME}&media=music&entity=album&attribute=artistTerm&limit=50`;
-            const data = fetch(Url)
-                .then(res => res.json())
-                .then(data => {
-                    h1.innerHTML = `${data.length} results for "${ARTIST_NAME}"`;
-                });
-
-        }
-        getResult();
-
-
-
-
-
-
-
-
-    }
-</script>
-<script scr="script.js"></script>
+<script src="script.js"></script>
 
 <body>
     <nav class="navigator">
         <form class="searchbar" action="">
-            <input type="text" placeholder="Search..." class="searcharea"><input type="submit" value="&#x1F50D" class="btn">
+            <input type="text" placeholder="Search..." class="searcharea"><input type="submit" value="&#x1F50D" id="btn">
         </form>
     </nav>
     <section class="Album_details">
