@@ -38,8 +38,10 @@ Fetch todo lists and show them in a table: https://codepen.io/pudu/pen/BaKOOKL
 
 ### Day 9 (09/18/2020)
 
-MCV todo lists
+MVC todo lists: https://todo.appcodebox.com
 
 ### Day 10 (09/21/2020)
 
-[Search albums by artist name](https://frontend.appcodebox.com/albums/) [source code](src/albums)
+Search albums by artist name: https://frontend.appcodebox.com/albums/
+
+[source code](src/albums)
