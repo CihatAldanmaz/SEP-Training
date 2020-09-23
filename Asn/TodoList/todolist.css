@@ -87,6 +87,12 @@ html, body {
     line-height: var(--height-todo__item);
 }
 
+.todo__item:hover {
+    box-shadow:var(--box-shadow);
+}
+
+
+
 /*::-webkit-input-placeholder {
     text-align: center;
 }*/
