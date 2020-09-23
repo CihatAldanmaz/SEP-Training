@@ -46,7 +46,8 @@ var HelloMessage = /*#__PURE__*/function (_React$Component) {
   _createClass(HelloMessage, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react["default"].createElement(_Home["default"], null); // return React.createElement('div', null, 'Hello ', this.props.name);
+      return /*#__PURE__*/_react["default"].createElement(_Home["default"], null);
+      return /*#__PURE__*/_react["default"].createElement('div', null, 'Hello ', this.props.name);
     }
   }]);
 
