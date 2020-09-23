@@ -5,7 +5,7 @@ import 'index.scss';
 class HelloMessage extends React.Component {
   render() {
     return <Home />;
-    // return React.createElement('div', null, 'Hello ', this.props.name);
+    return React.createElement('div', null, 'Hello ', this.props.name);
   }
 }
 
