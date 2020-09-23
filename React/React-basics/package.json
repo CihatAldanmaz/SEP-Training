@@ -17,11 +17,14 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.10.4",
+    "dart-sass": "^1.25.0",
+    "node-sass": "npm:dart-sass@^1.25.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "dart-sass": "^1.25.0"
   }
 }
