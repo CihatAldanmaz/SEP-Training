@@ -6,9 +6,10 @@
  * Js modulize: Import Export(ES 6) | common JS | SystemJS | AMD
  * bundle
  * bolierplate
- *
- *
- *
- *
+ * npx
+ * PWA
+ * tree shaking | Rollup.js
+ * sourceMap
+ * imutableJs
  *
  */
