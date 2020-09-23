@@ -33,14 +33,50 @@ body {
 
 .content {
     margin-top: var(--height-header);
+    
+}
 
+.albumlist {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* text-align: center; */
 }
 
 .albumlist__header {
     text-align: center;
     color: var(--color-secondary);
+    /* width: 75%; */
+    text-decoration: underline;
+}
+
+.heading-wrapper {
+
 }
 
 .heading {
     border-bottom: solid;
+    
+}
+
+.albumlist__content {
+    /* width: 75%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.albumlist__content-item {
+    /* flex-grow: 1; */
+    width: 19%;
+    line-height: 20px;
+    margin: 5px;
+    text-align: center;
+    background-color: lightgray;
+}
+
+.albumlist__content-item img {
+    width: 100%;
 }

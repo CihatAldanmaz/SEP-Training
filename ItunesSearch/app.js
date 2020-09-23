@@ -30,7 +30,7 @@ const View = (() => {
         const albumObjToArr = Object.entries(albumArr);
         console.log(albumObjToArr);
         albumObjToArr[1][1].forEach((album) => {
-            albumListTmp += `<div class="albumlist__content-item"><img src=${album.artworkUrl100} alt="artist cover"><div><h4>${album.collectionName}</h4></div></div>`
+            albumListTmp += `<div class="albumlist__content-item"><img src=${album.artworkUrl100} alt="album cover"><div><h4>${album.collectionName}</h4></div></div>`
         });
         return albumListTmp;
     }
@@ -62,7 +62,7 @@ const AppController = ((view, model) => {
     class State {
         constructor() {
             this._albumList = [];
-            this._artistInput = '';
+            this._artistInput = ''; 
             this._heading = ''
         } 
         
