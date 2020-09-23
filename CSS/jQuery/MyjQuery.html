@@ -1,2 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>MyjQuery</title>
+</head>
+<body>
+    <!-- <button class="continue">Button</button>
+    <button class="continue">Button</button> -->
 
+    <p id="banner-message">Hidden Message</p>
+    <div id="button-container">
+      <button>Show banner message</button>
+    </div>
+  <script>
+      // selector // html // on // show // hide // ajax
+    class MyjQuery{
+      constructor(selector){
+        this.element = document.querySelectorAll(selector);
+      }
+
+      html(string){
+        this.element.forEach(element => {
+          element.innerHTML = string;
+        }); 
+      }
+
+      hide(){
+        this.element.forEach(element => {
+          element.style.display = "none";
+        });
+      }
+
+      show(){
+        this.element.forEach(element=> {
+          element.style.display = "block"
+        });
+      }
+
+      on(event, cb){
+          this.element.forEach(element=> {
+            element.addEventListener(event, cb)
+        })
+      }
+
+    }
+
+    const $$ = function(selector){
+      return new MyjQuery(selector);
+    };
+    var hiddenBox = $$('#banner-message').html('New hidden message').hide();
+    
+    
+    $$.ajax = options => {
+      fetch(options.url)
+      .then(data => data.json())
+      .then(data => options.success(data))
+    };
+    
+    const options = {
+        url: 'https://jsonplaceholder.typicode.com/todos/1',
+        success: function (result) {
+          hiddenBox.html('<strong>' + result.title + '</strong>');
+        },
+      };
+      
+    $$.ajax(options);
+    // $$('button.continue').html('Next Step...');
+    // $$('#banner-message').hide();
+    // $$('#button-container').on('click',() => {
+    //   $$('#banner-message').show();
+    // });
+  </script>
+  
+</body>
+</html>
 
