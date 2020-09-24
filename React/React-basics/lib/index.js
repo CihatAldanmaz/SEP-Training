@@ -6,7 +6,7 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _Home = _interopRequireDefault(require("./Home/Home"));
 
-require("index.scss");
+require("./index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

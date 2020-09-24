@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Home from './Home/Home';
-import 'index.scss';
+import './index.scss';
 class HelloMessage extends React.Component {
   render() {
     return <Home />;
