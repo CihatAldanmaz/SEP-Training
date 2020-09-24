@@ -8,3 +8,15 @@ body {
   background-color: coral;
   height: 100px;
 }
+
+.artist-list div{
+    background-color:white;
+    max-width: 150px;
+    height: 200px;
+}
+
+img{
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}

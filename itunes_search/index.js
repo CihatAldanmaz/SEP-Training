@@ -33,15 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('h2').innerHTML = `${data.results.length} results for "${state.searchTerm}"`
       data.results.forEach((el) => {
         console.log(el);
-
+        const albumCard = document.createElement("div");
+    div.classList.add('album-card')
         const p = document.createElement("p");
         const img = document.createElement("IMG");
 
         img.src = el.artworkUrl100;
-        p.innerHTML = el.artistName;
+        p.innerHTML = el.collectionName;
         document.querySelector("body").appendChild(div);
-        div.appendChild(p);
-        div.appendChild(img);
+        div.appendChild(albumCard)
+        albumCard.appendChild(p);
+        albumCard.appendChild(img);
       });
     });
     if(state.isSubmitted === true){
