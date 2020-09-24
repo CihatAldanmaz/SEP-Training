@@ -45,3 +45,15 @@ MVC todo lists: https://todo.appcodebox.com
 Search albums by artist name: https://frontend.appcodebox.com/albums/
 
 [source code](src/albums)
+
+### Day 11 (09/22/2020)
+
+configure SCSS for Webpack
+
+### Day 12 (09/23/2020)
+
+Todo list with vanilla React: https://codesandbox.io/s/react-todolist-nrze6
+
+### Day 13 (09/24/2020)
+
+Todo list with React and Redux:
