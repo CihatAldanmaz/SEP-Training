@@ -18,6 +18,14 @@ h1 {
   color: #eee;
   margin-bottom: 20px;
 }
+h2{
+  align-content: center;
+}
+hr {
+  border: 2px solid gray;
+  width: 80%;
+  margin: 0 auto;
+}
 
 .container {
   padding: 40px;
