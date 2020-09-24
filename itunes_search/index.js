@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const div = document.createElement("div");
     div.classList.add('artist-list')
     getArtist(state.searchTerm).then((data) => {
+        document.querySelector('h2').innerHTML = `${data.results.length} results for "${state.searchTerm}"`
       data.results.forEach((el) => {
         console.log(el);
 
