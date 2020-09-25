@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button class="continue"></button>
+    <div class="button-continar">
+        <button class="continue"></button>
+    </div>
+    <button class="continue"></button>
+    <script>
+        class MyJQuery {
+            eleArr = []
+            constructor(s) {
+                this.eleArr = document.querySelectorAll(s);
+            }
+            html(t) {
+                this.eleArr.forEach(element => {
+                    element.innerHTML = t;
+                });
+            }
+            on(action, cb) {
+                if (action == "click") {
+                    this.eleArr.forEach(element => {
+                        element.addEventListener("click", cb);
+                    });
+                }
+            }
+        }
+        var $$ = function (s) {
+            return new MyJQuery(s);
+        }
+        $$("button.continue").html("Next Step...");
+        $$ = function (s) {
+            return new MyJQuery(s);
+        }
+        $$("div.button-continar").on("click", (e) => {
+            console.log(e);
+            e.target.style.visibility = 'hidden';
+        });
+        $.ajax({
+            url: "/api/getWeather",
+            data: {
+                zipcode: 97201
+            },
+            success: function (result) {
+                $("#weather-temp").html("<strong>" + result + "</strong> degrees");
+            }
+        });
+    </script>
+</body>
+
+</html>
