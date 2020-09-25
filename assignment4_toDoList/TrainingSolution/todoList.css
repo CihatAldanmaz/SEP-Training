@@ -1,0 +1,71 @@
+:root {
+  --height-header: 60px;
+  --height-todolist-header: 50px;
+  --height-todolist: 300px;
+  --height-todolist-item: 40px;
+
+  --width-todolist: 400px;
+  --width-todolist-item-title: 380px;
+
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  --color-primary: darkgreen;
+  --color-secondary: lightgray;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--color-primary);
+  height: var(--height-header);
+}
+
+.content {
+  /* padding-top: var(--height-header);S */
+  height: 100%;
+  margin-top: var(--height-header);
+  height: calc(100% - var(--height-header));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: var(--height-todolist);
+}
+
+
+.todolist__header {
+  height: var(--height-todolist);
+  text-align: center;
+  line-height: var(--height-todolist-header);
+}
+
+.heading {
+  color: var(--color-primary);
+  font-size: 30px;
+}
+
+.todolist__input {
+  width: 100%;
+  height: var(--height-todolist-item);
+  padding: 5px;
+  font-size: 25px;
+  outline: none;
+  color: var(--color-secondary);
+  border: none;
+  border-bottom: 1px solid var(--color-secondary);
+  text-align: center;
+}

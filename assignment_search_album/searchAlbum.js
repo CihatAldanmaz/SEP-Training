@@ -103,7 +103,10 @@ const Controller = ((view, model) => {
     });
   };
 
-  
+  const initAlbumList = () => {
+    searchAlbumInputEvent();
+    model. 
+  }
 })
 // const Model = ((api) => {
 //   class Search {
