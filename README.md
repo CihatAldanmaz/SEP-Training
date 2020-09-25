@@ -56,4 +56,4 @@ Todo list with vanilla React: https://codesandbox.io/s/react-todolist-nrze6
 
 ### Day 13 (09/24/2020)
 
-Todo list with React and Redux:
+Todo list with React and Redux: https://codesandbox.io/s/redux-todo-sihqv
