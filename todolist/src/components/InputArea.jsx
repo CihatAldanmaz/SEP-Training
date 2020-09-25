@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function InputArea(props) {
     const [inputText, setInputText] = useState("");
+    
     function handleInputChange(event) {
         const newValue = event.target.value;
         setInputText(newValue);

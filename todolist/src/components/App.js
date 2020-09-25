@@ -3,7 +3,6 @@ import ToDoItem from './TodoItem';
 import InputArea from './InputArea';
 
 function App() {
-
   const [items, setItems] = useState([]);
 
   function addItem(inputText) {
