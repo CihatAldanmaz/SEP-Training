@@ -1,8 +1,8 @@
 import React from 'react';
 
-function TodoItem(){
+function TodoItem({onClick, todo}){
     return(
-        <h1>TodoItem</h1>
+        <li>{todo.title}</li>
     )
 }
 
