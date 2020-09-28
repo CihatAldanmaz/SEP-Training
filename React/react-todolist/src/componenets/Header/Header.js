@@ -1,8 +1,18 @@
 import React from 'react';
+import Logo from '../Logo/Logo';
+import './Header.css';
 
 class Header extends React.Component {
   render() {
-    return <header>Header</header>;
+    return (
+      <div className="header-list">
+        <Logo></Logo>
+        <nav className="nav">
+          <a>DashBoard</a>
+          <a>TodoList</a>
+        </nav>
+      </div>
+    );
   }
 }
 

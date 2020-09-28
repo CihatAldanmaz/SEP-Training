@@ -1,13 +1,58 @@
 import React from 'react';
 import './TodoList.css';
 import TodoItem from './TodoItem/TodoItem';
+import { getAllTodos, deleteTodo, addTodo } from '../../apis/TodoAPI';
+import { Todo } from '../../model/Todo';
 
 class TodoList extends React.Component {
   state = {
-    todolist: [
-      { id: 0, userId: 1, title: 'buy a book', completed: false },
-      { id: 1, userId: 2, title: 'buy a car', completed: false },
-    ],
+    inputText: '',
+    todolist: [],
+  };
+
+  handleRemoveTodo = (id) => {
+    // deleteTodo(id)
+    //   .then((data) => {
+    //     this.setState({
+    //       todolist: this.state.todolist.filter((todo) => todo.id !== id),
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.warn(err);
+    //   });
+  };
+
+  handlerRemove = (event) => {
+    // event delegation
+    if (event.target.className === 'btn-remove') {
+      const id = event.target.id;
+      deleteTodo(+id)
+        .then((data) => {
+          this.setState({
+            todolist: this.state.todolist.filter((todo) => +todo.id !== +id),
+          });
+        })
+        .catch((err) => {
+          console.warn(err);
+        });
+    }
+  };
+  handleInputOnChange = (event) => {
+    this.setState({ inputText: event.target.value });
+  };
+  handleInputKeyUp = (event) => {
+    if (event.key === 'Enter') {
+      const useId = 1;
+      const title = this.state.inputText;
+      const completed = false;
+      const newTodo = new Todo(useId, title, completed);
+      addTodo(newTodo).then((data) => {
+        this.setState({
+          inputText: '',
+          todolist: [data, ...this.state.todolist],
+        });
+      });
+    }
   };
 
   render() {
@@ -20,14 +65,29 @@ class TodoList extends React.Component {
           type="text"
           className="todolist__input"
           placeholder="What are you going to do?"
+          onChange={this.handleInputOnChange}
+          onKeyUp={this.handleInputKeyUp}
+          value={this.state.inputText}
         />
-        <ul className="todolist__content">
+        <ul className="todolist__content" onClick={this.handlerRemove}>
           {this.state.todolist.map((todo) => (
-            <TodoItem key={todo.id} todo={todo}></TodoItem>
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              removeTodo={this.handleRemoveTodo}
+            ></TodoItem>
           ))}
         </ul>
       </section>
     );
+  }
+
+  componentDidMount() {
+    getAllTodos().then((data) => {
+      this.setState({
+        todolist: data,
+      });
+    });
   }
 }
 
