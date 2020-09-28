@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.nameInput, .pswInput, .buttons, .agreement {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+input, button {
+    padding: 20px;
+    margin: 5px 0 22px 0;
+    border: 1px solid gray;
+    border-radius: 6px;
+}
+
+::-webkit-input-placeholder {
+    font-size: 1.5em;
+}
+  ::-moz-placeholder {
+    font-size: 1.5em;
+
+  }
+  :-ms-input-placeholder {
+    font-size: 1.5em;
+
+  }
+  ::placeholder, button {
+    font-size: 1.5em;
+
+  }
+
+input[type=text], input[type=password], button {
+    width: 48%;
+}
+
+input[type=tel], input[type=email] {
+    width: 50%;
+}
+
+input:focus {
+    border-color: rgb(78, 211, 255);
+}
+
+
+label {
+    font-weight: bold;
+}
+
+button {
+    color: white;
+}
+
+span {
+    background-color: rgb(47, 112, 197);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(1, 151, 201);
+}
+
+.registerbtn {
+    background-color: rgb(47, 112, 197);
+}
+
+.signinbtn {
+    background-color: rgb(10, 177, 10);
+}
