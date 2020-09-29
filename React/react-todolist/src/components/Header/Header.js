@@ -4,12 +4,13 @@ import './Header.css';
 
 class Header extends React.Component {
   render() {
+    const { handleChangeActivePage } = this.props;
     return (
       <div className="header-list">
         <Logo></Logo>
         <nav className="nav">
-          <a>DashBoard</a>
-          <a>TodoList</a>
+          <a onClick={() => handleChangeActivePage('Dashboard')}>Dashboard</a>
+          <a onClick={() => handleChangeActivePage('TodoList')}>TodoList</a>
         </nav>
       </div>
     );
