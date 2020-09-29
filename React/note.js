@@ -11,5 +11,5 @@
  * tree shaking | Rollup.js
  * sourceMap
  * imutableJs
- *
+ * HOC vs Render Props
  */
