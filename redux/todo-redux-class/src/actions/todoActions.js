@@ -33,7 +33,7 @@ export const deleteTodo = (todoId) => dispatch => {
       })
       .then((res) => res.json())
     //   .then(data => console.log('data: ' + data))
-      .then(todo => dispatch({
+      .then(() => dispatch({
           type: DELETE_TODO,
           payload: todoId
       }))

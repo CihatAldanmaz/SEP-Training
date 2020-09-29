@@ -2,77 +2,67 @@ import React, {Component} from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-import {useSelector, useDispatch} from 'react-redux';
-import {addTodo} from './actions';
+import NavBar from './components/NavBar';
+import DashBoard from './components/DashBoard';
+import WithTodos from './components/withTodos/withTodos';
+import { deleteTodo, addTodo } from './apis/TodoApi';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: "",
-      todoList: [],
-      errMsg: ""
+      isDashBoardclicked: true,
+      idTodoClicked: false
     };
   }
 
-  handleChange = (event) => {
-    const name = event.target.name;
-    const value= event.target.value;
-    this.setState({ [name] : value });
-  }
-
-  handleSubmit = (event) => {
-    const {todo, todoList} = this.state;
-    if(todo === "") {
-      event.preventDefault();
-      this.setState({errMsg: "Todo Cannot be blank"});
-      return;
-    }
-    event.preventDefault();
-    let todoId;
-    if(todoList.length > 0) {
-      todoId = (todoList[todoList.length - 1].id) + 1; 
-    } else {
-      todoId = 1;
-    }
-    const todoItem = {
-      id: todoId,
-      body: todo
-    }
-    let newList = todoList;
-    newList.push(todoItem);
-    this.setState({ 
-      todoList: newList,
-      todo: "",
-      errMsg: ""
-    });
-  }
-
-  deleteTodo = (id) => {
-    const {todoList} = this.state;
-    const newTodoList = todoList.filter(
-      (todo) => +todo.id !== +id
-    )
+  handleDashBoardClick = () => {
     this.setState({
-      todoList: newTodoList
+      isDashBoardclicked: true,
+      isTodoclicked: false
     })
-  };
+  }
+
+  handleTodoClick = () => {
+    this.setState({
+      isDashBoardclicked: false,
+      isTodoclicked: true
+    })
+  }
 
   render() {
-    const {todoList, errMsg} = this.state;
+    const {isDashBoardclicked, isTodoclicked} = this.state;
       return (
       <div className="App">
-        <header>
-          <h1>Todo App</h1>
-        </header>
+        <NavBar handleDashBoardClick={this.handleDashBoardClick} handleTodoClick={this.handleTodoClick}/>
+        
         <main>
-          <TodoForm 
-            handleChange={this.handleChange} 
-            handleSubmit={this.handleSubmit} 
-            todo={this.state.todo}
-          />
-          <p>{errMsg}</p>
-          <TodoList todoList={todoList} deleteTodo={this.deleteTodo}/>
+          {
+            isDashBoardclicked &&
+            <WithTodos 
+              renderHeader={(title) => <h1>{title}</h1>}
+              render={(addTodo, deleteTodo, todoList) => (
+                <DashBoard todoList={todoList}/>
+              )} 
+            />
+          }
+
+          {
+            isTodoclicked && 
+            <>
+              <header>
+                <h1>Todo App</h1>
+              </header>
+              {/* <WithTodos render={(addTodo, deleteTodo, todoList) => (
+                <TodoForm addTodo={addTodo} />
+              )}/> */}
+              <WithTodos render={(addTodo, deleteTodo, todoList) => (
+                <TodoList addTodo={addTodo} deleteTodo={deleteTodo} todoList={todoList}/>
+              )}/>
+              
+            </>
+          }
+          
         </main>
         
       </div>

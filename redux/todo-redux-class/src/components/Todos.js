@@ -14,10 +14,6 @@ class Todos extends Component {
         }
     }
 
-    // deleteTodo(todoId) {
-    //     this.props.deleteTodo(todoId);
-    // }
-
     render() {
         const {todos} = this.props;
         return (

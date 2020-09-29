@@ -2,8 +2,7 @@ import {FETCH_TODOS, NEW_TODO, DELETE_TODO} from '../actions/types';
 
 const initialState = {
     items: [],
-    item: {},
-    // deleteItem: {}
+    item: {}
 }
 
 export default function(state = initialState, action) {
