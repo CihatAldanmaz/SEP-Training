@@ -4,6 +4,7 @@ import Layout from './components/Layout/Layout';
 import TodoList from './components/TodoList/TodoList';
 import Dashborad from './components/Dashboard/Dashboard';
 import { withTodos } from './hoc/withTodos';
+import TodoListRender from './components/RenderProps/TodoListRender';
 class App extends React.Component {
   state = {
     activePage: 'TodoList',
@@ -19,10 +20,14 @@ class App extends React.Component {
     let content = null;
     switch (this.state.activePage) {
       case 'Dashboard':
-        content = <Dashborad></Dashborad>;
+        content = <TodoListRender render={(HandleAddTodo, handleRemoveTodo, todolist) =>
+        (<Dashborad todolist={todolist}/>)
+        }/>;
         break;
       case 'TodoList':
-        content = <TodoList></TodoList>;
+        content = <TodoListRender render={(HandleAddTodo, handleRemoveTodo, todolist) =>
+          (<TodoList HandleAddTodo={HandleAddTodo} handleRemoveTodo={handleRemoveTodo} todolist={todolist}/>)
+          }/>;
         break;
       default:
         break;

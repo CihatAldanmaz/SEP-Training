@@ -18,7 +18,6 @@ class Dashboard extends React.Component {
   }
 }
 
-const NewDashboard = withTodos(Dashboard);
-console.log(NewDashboard);
-
-export default NewDashboard;
+// const NewDashboard = withTodos(Dashboard);
+// export default NewDashboard;
+export default Dashboard;
