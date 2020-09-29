@@ -3,15 +3,14 @@ import Logo from '../Logo/Logo';
 import './Header.css';
 
 class Header extends React.Component {
-
   render() {
-    const {handleChangeActivePage} = this.props;
+    const { handleChangeActivePage } = this.props;
     return (
       <div className="header-list">
         <Logo></Logo>
         <nav className="nav">
-          <p onClick={()=>handleChangeActivePage("Dashboard")}>DashBoard</p>
-          <p onClick={()=>handleChangeActivePage("Todolist")}>TodoList</p>
+          <a onClick={() => handleChangeActivePage('Dashboard')}>Dashboard</a>
+          <a onClick={() => handleChangeActivePage('TodoList')}>TodoList</a>
         </nav>
       </div>
     );
