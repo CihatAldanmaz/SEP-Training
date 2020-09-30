@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import WithTodosData from './components/WithTodosData/WithTodosData';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function Title(props) {
+  return <h1>{props.title}</h1>;
+}
+
+function Title2(props) {
+  return <h4>{props.title}</h4>;
+}
+// class RenderPropsTest extends React.Component {
+//   render() {
+//     return (
+//       <WithTodosData
+//         render={(title) => <Title2 title={title}></Title2>}
+//       ></WithTodosData>
+//     );
+//   }
+// }
+
+ReactDOM.render(<App />, document.getElementById('root'));
