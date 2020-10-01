@@ -890,3 +890,13 @@ function randomTimer() {
 // async await
 
 // IIFE
+
+// class App {
+//   state = { title: 'My App' };
+//   render() {
+//     return 'hello';
+//   }
+// }
+
+// const app = new App();
+// console.log(app.render());
