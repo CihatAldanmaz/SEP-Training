@@ -2,7 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import ReduxCounterApp from './myRedux/ReduxCounterApp';
+import ReduxCounterApp, {
+  TestCounterApp,
+  MyContext,
+} from './myRedux/ReduxCounterApp';
+// import { Provider } from 'react-redux';
+import { Provider } from './MyReactRedux/MyReactRedux';
+
+import { store } from './myRedux/myRedux';
 
 import WithTodosData from './components/WithTodosData/WithTodosData';
 
@@ -23,4 +30,28 @@ function Title2(props) {
 //   }
 // }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class Myapp extends React.Component {
+  state = {
+    remove: false,
+  };
+
+  render() {
+    return (
+      <Provider store={store}>
+        <ReduxCounterApp name="patrick" />
+        {this.state.remove ? null : <ReduxCounterApp />}
+        <button
+          onClick={() => {
+            this.setState({
+              remove: true,
+            });
+          }}
+        >
+          Remove Second Counter
+        </button>
+      </Provider>
+    );
+  }
+}
+
+ReactDOM.render(<Myapp></Myapp>, document.getElementById('root'));

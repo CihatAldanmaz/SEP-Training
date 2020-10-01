@@ -48,14 +48,17 @@ export const actionCreater = {
 };
 
 // reducer | pure function : no side effect , same input same output, data imutable
-const initialState = 0;
+const initialState = {
+  counter: 100,
+  title: 'Counter',
+};
 
 function counterReducer(state = initialState, action) {
   switch (action.type) {
     case INCREMENT:
-      return state + 1;
+      return { ...state, counter: state.counter + 1 };
     case DECREMENT:
-      return state - 1;
+      return { ...state, counter: state.counter - 1 };
     default:
       return state;
   }
@@ -79,9 +82,16 @@ const createStore = (reducerFn) => {
         listenerFn();
       });
     }
+    console.log('dispatch, newState:', state);
   };
   const subscribe = (listenerFn) => {
     subscribeListeners.push(listenerFn);
+    console.log('subscribeListeners', subscribeListeners);
+
+    return () => {
+      subscribeListeners.splice(subscribeListeners.indexOf(listenerFn), 1);
+      console.log('unsubscribe', subscribeListeners);
+    };
   };
   return {
     getState,
