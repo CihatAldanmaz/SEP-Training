@@ -57,3 +57,19 @@ Todo list with vanilla React: https://codesandbox.io/s/react-todolist-nrze6
 ### Day 13 (09/24/2020)
 
 Todo list with React and Redux: https://codesandbox.io/s/redux-todo-sihqv
+
+### Day 14 (09/25/2020)
+
+Keep learning React
+
+### Day 15 (09/28/2020)
+
+Higher-order component
+
+### Day 16 (09/29/2020)
+
+render props
+
+### Day 17 (09/30/2020)
+
+Todo list with React, Redux and Redux-Thunk: https://codesandbox.io/s/redux-thunk-todo-czrg7
