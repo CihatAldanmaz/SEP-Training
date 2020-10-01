@@ -18,6 +18,13 @@ class Counter extends React.Component {
         counter: preState.counter + 1,
       };
     });
+
+    // this.setState({
+    //   counter: this.state.couter + 1,
+    // });
+    // this.setState({
+    //   counter: this.state.couter + 1,
+    // });
     // console.log('setState 2');
 
     // this.setState((preState) => {

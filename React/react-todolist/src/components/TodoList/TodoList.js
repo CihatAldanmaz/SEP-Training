@@ -3,40 +3,40 @@ import './TodoList.css';
 import TodoItem from './TodoItem/TodoItem';
 import { getAllTodos, deleteTodo, addTodo } from '../../apis/TodoAPI';
 import { Todo } from '../../model/Todo';
+import { withTodos } from '../../hoc/withTodos';
 
 class TodoList extends React.Component {
   state = {
     inputText: '',
-    todolist: [],
   };
 
-  handleRemoveTodo = (id) => {
-    // deleteTodo(id)
-    //   .then((data) => {
-    //     this.setState({
-    //       todolist: this.state.todolist.filter((todo) => todo.id !== id),
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     console.warn(err);
-    //   });
-  };
+  // handleRemoveTodo = (id) => {
+  //   // deleteTodo(id)
+  //   //   .then((data) => {
+  //   //     this.setState({
+  //   //       todolist: this.state.todolist.filter((todo) => todo.id !== id),
+  //   //     });
+  //   //   })
+  //   //   .catch((err) => {
+  //   //     console.warn(err);
+  //   //   });
+  // };
 
-  handlerRemove = (event) => {
-    // event delegation
-    if (event.target.className === 'btn-remove') {
-      const id = event.target.id;
-      deleteTodo(+id)
-        .then((data) => {
-          this.setState({
-            todolist: this.state.todolist.filter((todo) => +todo.id !== +id),
-          });
-        })
-        .catch((err) => {
-          console.warn(err);
-        });
-    }
-  };
+  // handlerRemove = (event) => {
+  //   // event delegation
+  //   if (event.target.className === 'btn-remove') {
+  //     const id = event.target.id;
+  //     deleteTodo(+id)
+  //       .then((data) => {
+  //         this.setState({
+  //           todolist: this.state.todolist.filter((todo) => +todo.id !== +id),
+  //         });
+  //       })
+  //       .catch((err) => {
+  //         console.warn(err);
+  //       });
+  //   }
+  // };
   handleInputOnChange = (event) => {
     this.setState({ inputText: event.target.value });
   };
@@ -46,16 +46,17 @@ class TodoList extends React.Component {
       const title = this.state.inputText;
       const completed = false;
       const newTodo = new Todo(useId, title, completed);
-      addTodo(newTodo).then((data) => {
-        this.setState({
-          inputText: '',
-          todolist: [data, ...this.state.todolist],
-        });
+      const { HandleAddTodo } = this.props;
+      HandleAddTodo(newTodo);
+      this.setState({
+        inputText: '',
       });
     }
   };
 
   render() {
+    const { todolist, handleRemoveTodo } = this.props;
+
     return (
       <section className="todolist">
         <header className="todolist__header">
@@ -69,26 +70,20 @@ class TodoList extends React.Component {
           onKeyUp={this.handleInputKeyUp}
           value={this.state.inputText}
         />
-        <ul className="todolist__content" onClick={this.handlerRemove}>
-          {this.state.todolist.map((todo) => (
+        <ul className="todolist__content">
+          {todolist.map((todo) => (
             <TodoItem
               key={todo.id}
               todo={todo}
-              removeTodo={this.handleRemoveTodo}
+              removeTodo={() => handleRemoveTodo(todo.id)}
             ></TodoItem>
           ))}
         </ul>
       </section>
     );
   }
-
-  componentDidMount() {
-    getAllTodos().then((data) => {
-      this.setState({
-        todolist: data,
-      });
-    });
-  }
 }
 
 export default TodoList;
+
+// export default withTodos(TodoList);
