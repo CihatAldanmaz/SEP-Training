@@ -16,6 +16,7 @@
  * Redux: state management tool
  * Flux: archecture pattern
  *
+ * Context vs Prpos vs state
  */
 
 // let state = {
