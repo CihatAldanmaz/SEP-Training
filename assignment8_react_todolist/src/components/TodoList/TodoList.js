@@ -10,33 +10,6 @@ class TodoList extends React.Component {
     inputText: '',
   };
 
-  // handleRemoveTodo = (id) => {
-  //   // deleteTodo(id)
-  //   //   .then((data) => {
-  //   //     this.setState({
-  //   //       todolist: this.state.todolist.filter((todo) => todo.id !== id),
-  //   //     });
-  //   //   })
-  //   //   .catch((err) => {
-  //   //     console.warn(err);
-  //   //   });
-  // };
-
-  // handlerRemove = (event) => {
-  //   // event delegation
-  //   if (event.target.className === 'btn-remove') {
-  //     const id = event.target.id;
-  //     deleteTodo(+id)
-  //       .then((data) => {
-  //         this.setState({
-  //           todolist: this.state.todolist.filter((todo) => +todo.id !== +id),
-  //         });
-  //       })
-  //       .catch((err) => {
-  //         console.warn(err);
-  //       });
-  //   }
-  // };
   handleInputOnChange = (event) => {
     this.setState({ inputText: event.target.value });
   };
@@ -84,5 +57,6 @@ class TodoList extends React.Component {
   }
 }
 
-// export default withTodos(TodoList);
 export default TodoList;
+
+// export default withTodos(TodoList);

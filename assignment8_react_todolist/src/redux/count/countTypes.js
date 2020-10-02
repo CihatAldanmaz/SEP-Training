@@ -1,0 +1,1 @@
+const DELETE_ITEM = 'DELETE ITEM';

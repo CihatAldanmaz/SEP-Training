@@ -4,7 +4,7 @@ import Layout from './components/Layout/Layout';
 import TodoList from './components/TodoList/TodoList';
 import Dashborad from './components/Dashboard/Dashboard';
 import { withTodos } from './hoc/withTodos';
-import TodoListRender from './components/RenderProps/TodoListRender';
+import WidthTodoData from './components/WithTodosData/WithTodosData';
 class App extends React.Component {
   state = {
     activePage: 'TodoList',
@@ -20,14 +20,27 @@ class App extends React.Component {
     let content = null;
     switch (this.state.activePage) {
       case 'Dashboard':
-        content = <TodoListRender render={(HandleAddTodo, handleRemoveTodo, todolist) =>
-        (<Dashborad todolist={todolist}/>)
-        }/>;
+        content = (
+          <WidthTodoData
+            renderHeader={(headerTitle) => <header>{headerTitle}</header>}
+            render={(removeTodo, addTodo, todolist) => (
+              <Dashborad todolist={todolist}></Dashborad>
+            )}
+          ></WidthTodoData>
+        );
         break;
       case 'TodoList':
-        content = <TodoListRender render={(HandleAddTodo, handleRemoveTodo, todolist) =>
-          (<TodoList HandleAddTodo={HandleAddTodo} handleRemoveTodo={handleRemoveTodo} todolist={todolist}/>)
-          }/>;
+        content = (
+          <WidthTodoData>
+            {(removeTodo, addTodo, todolist) => (
+              <TodoList
+                todolist={todolist}
+                handleRemoveTodo={removeTodo}
+                HandleAddTodo={addTodo}
+              ></TodoList>
+            )}
+          </WidthTodoData>
+        );
         break;
       default:
         break;
