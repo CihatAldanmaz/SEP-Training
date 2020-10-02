@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {fetchTodos, deleteTodo} from '../actions/todoActions';
 
-class Todos extends Component {
+class TodoList extends Component {
     componentDidMount() {
         this.props.fetchTodos();
     }
@@ -21,18 +21,17 @@ class Todos extends Component {
                 <ul>
                     {
                         todos.map((todo) => (
-                            <li key={todo.id}>{todo.title} - <button onClick={() => this.props.deleteTodo(todo.id)}>Delete</button></li>
+                            <li key={todo.id}>{todo.title} - 
+                            <button onClick={() => this.props.deleteTodo(todo.id)}>Delete</button></li>
                         ))
                     }  
                 </ul>
-                
-
             </div>
         )
     }
 }
 
-Todos.propTypes = {
+TodoList.propTypes = {
     fetchTodos: PropTypes.func.isRequired,
     todos: PropTypes.array.isRequired,
     newTodo: PropTypes.object,
@@ -44,4 +43,4 @@ const mapStateToProps = state => ({
     newTodo: state.todos.item
 })
 
-export default connect(mapStateToProps, {fetchTodos, deleteTodo})(Todos);
+export default connect(mapStateToProps, {fetchTodos, deleteTodo})(TodoList);

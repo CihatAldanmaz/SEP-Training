@@ -6,8 +6,8 @@ export const fetchTodos = () => dispatch => {
     // .then(data => console.log(data))
     .then(todos => 
         dispatch({
-        type: FETCH_TODOS,
-        payload: todos
+            type: FETCH_TODOS,
+            payload: todos
         })
     );
 };
@@ -19,7 +19,7 @@ export const createTodo = (todoData) => dispatch => {
             headers: {
             "Content-type": "application/json; charset=UTF-8"
             }
-        })
+        }) 
         .then(res => res.json())
         .then(todo => dispatch({
             type: NEW_TODO,
