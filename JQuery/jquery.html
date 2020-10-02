@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <title>JQuery</title>
+    <style>
+      #button-container {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <button class="continue">Button</button>
+    <button class="continue">Button</button> -->
+
+    <p id="banner-message">Hidden Message</p>
+    <div id="button-container">
+      <button>Show banner message</button>
+    </div>
+
+    <script>
+      // CDN : content delivery network
+      // console.log($);
+      class MyJQuery {
+        static ajax() {
+          console.log('ajax');
+        }
+        constructor(selector) {
+          // store the elements based on the selector
+          if ((selector === document) | (selector === window)) {
+            this.elements = [selector];
+          } else {
+            this.elements = document.querySelectorAll(selector);
+          }
+        }
+        html(template) {
+          // set InnerHTML for the elements stored in the instance
+          this.elements.forEach((element) => {
+            element.innerHTML = template;
+          });
+          return this;
+        }
+        on(evenType, cb) {
+          this.elements.forEach((element) => {
+            element.addEventListener(evenType, cb);
+          });
+          return this;
+        }
+        show() {
+          this.elements.forEach((element) => {
+            element.style.removeProperty('display');
+          });
+          return this;
+        }
+        hide() {
+          this.elements.forEach((element) => {
+            element.style.display = 'none';
+          });
+          return this;
+        }
+      }
+      const $$ = function (selector) {
+        return new MyJQuery(selector);
+      };
+
+      //   $$('button.continue').html('<h1>Hello</h1>');
+
+      var hiddenBox = $$('#banner-message').html('New hidden message').hide();
+      $$('#button-container button').on('click', function (event) {
+        hiddenBox.show();
+      });
+      //   $$(window).on('click', () => {
+      //     alert('click');
+      //   });
+
+      $$.ajax = function (options) {
+        fetch(options.url)
+          .then((data) => data.json())
+          .then((data) => {
+            options.success(data);
+          });
+      };
+
+      const options = {
+        url: 'https://jsonplaceholder.typicode.com/todos/1',
+        success: function (result) {
+          hiddenBox.html('<strong>' + result.title + '</strong>');
+        },
+      };
+      $$.ajax(options);
+    </script>
+  </body>
+</html>
