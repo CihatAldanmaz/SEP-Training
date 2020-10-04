@@ -1,0 +1,50 @@
+import React, { useState } from 'react';
+import ToDoItem from './TodoItem';
+import InputArea from './InputArea';
+
+function TodoList() {
+    const [items, setItems] = useState([]);
+
+    function addItem(inputText) {
+      setItems((prevItems) => {
+        return [...prevItems, inputText];
+      });
+    }
+  
+    function deleteItem(id) {
+      setItems((prevItems) => {
+        return prevItems.filter(
+          (item, index) => {
+            return index !== id;
+          }
+        )
+      });
+    }
+    return(
+        <div className="main-container">
+        <div className="heading">
+          <h1>To-Do List</h1>
+        </div>
+        <InputArea 
+          onAdd={addItem}
+        />
+        <div>
+          <ul>
+            {items.map((todoItem, index) => {
+              return <ToDoItem 
+                  key={index}
+                  id={index}
+                  text={todoItem}
+                  // passing a func to a child component using props
+                  onChecked={deleteItem}
+                />
+            })}
+          </ul>
+        </div>
+      </div>
+    );
+
+
+}
+
+export default TodoList;
