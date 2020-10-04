@@ -3,11 +3,9 @@ import React from 'react';
 class TodoItem extends React.Component{
   render(){
     return(
-      <div className=''>
         <li>
-           TodoItem component
+           {this.props.title} <button id={this.props.id} className="removerBtn" onClick={(e)=> this.props.remove(e.target.id) }>X</button>
         </li>
-      </div>
     );
   };
 };
