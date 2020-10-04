@@ -31,7 +31,7 @@ body{
 }
 
 .todolist_container{
-  margin-top: 20px;
+  margin-top: var(--heading-height);
   height: calc(100vh - var(--heading-height));
   background-color: wheat;
   padding-top: calc( 2 * var(--heading-height));
