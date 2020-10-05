@@ -13,8 +13,8 @@ class Header extends React.Component {
       <div className="header-list">
         <Logo></Logo>
         <nav className="nav">
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to="/todolist">TodoList</Link>
+          <MyLink to="/dashboard">Dashboard</MyLink>
+          <MyLink to="/todolist">TodoList</MyLink>
           <MyLink to="/home">HOME</MyLink>
           <MyLink to="/about">About</MyLink>
         </nav>

@@ -52,7 +52,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Layout handleChangeActivePage={this.handleChangeActivePage}>
-          <Route exact path="/todolist">
+          <MyRoute exact path="/todolist">
             <WidthTodoData>
               {(removeTodo, addTodo, todolist) => (
                 <TodoList
@@ -62,15 +62,15 @@ class App extends React.Component {
                 ></TodoList>
               )}
             </WidthTodoData>
-          </Route>
-          <Route exact path="/dashboard">
+          </MyRoute>
+          <MyRoute exact path="/dashboard">
             <WidthTodoData
               renderHeader={(headerTitle) => <header>{headerTitle}</header>}
               render={(removeTodo, addTodo, todolist) => (
                 <Dashborad todolist={todolist}></Dashborad>
               )}
             ></WidthTodoData>
-          </Route>
+          </MyRoute>
           <MyRoute exact path="/home" component={Home}></MyRoute>
           <MyRoute exact path="/about" render={() => <About></About>}></MyRoute>
         </Layout>

@@ -2,6 +2,21 @@ import React from 'react';
 
 const MyRouteInstances = [];
 
+function routerRegister(routeInstance) {
+  MyRouteInstances.push(routeInstance);
+
+  const hanldePopstate = () => {
+    routeInstance.forceUpdate();
+  };
+  window.addEventListener('popstate', hanldePopstate);
+  return function unRegister() {
+    MyRouteInstances = MyRouteInstances.filter(
+      (instance) => instance !== routeInstance
+    );
+    window.removeEventListener(hanldePopstate);
+  };
+}
+
 const pathMatch = (path, exact) => {
   const locationPath = window.location.pathname;
   if (exact) {
@@ -28,11 +43,13 @@ export class MyRoute extends React.Component {
     return null;
   }
 
+  componentWillUnmount() {
+    console.log('unmount');
+    this.unRegister();
+  }
+
   componentDidMount() {
-    MyRouteInstances.push(this);
-    window.addEventListener('popstate', () => {
-      this.forceUpdate();
-    });
+    this.unRegister = routerRegister(this);
   }
 }
 
