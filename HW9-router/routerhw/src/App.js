@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Dashboard from './components/Dashboard';
+import TodoList from './components/TodoList';
+
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <nav>
+            <ul>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/todolist">TodoList</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Switch>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/todolist">
+              <TodoList />
+            </Route>
+          </Switch>
+
+        </header>
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
