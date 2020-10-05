@@ -1,7 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from "react-jss";
-import TodoContainer from './todo-Container/App-todoContainer'
+import Frame from './frame/app.frame'
 import { createUseStyles } from "react-jss";
+import { BrowserRouter as Router } from 'react-router-dom';
 const theme = {
   backgroundColor: "transparent",
   color: "white"
@@ -9,18 +10,18 @@ const theme = {
 const App = () => {
   const classes = useStyle();
   return (
-    
+    <Router>
       <ThemeProvider theme={theme}>
-        <TodoContainer></TodoContainer>
+        <Frame></Frame>
       </ThemeProvider>
-    
+    </Router>
   );
 }
 
 const useStyle = createUseStyles({
-  appRoot : {
-    height : "100vh",
-    width : '100vw',
+  appRoot: {
+    height: "100vh",
+    width: '100vw',
   }
 })
 

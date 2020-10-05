@@ -29,8 +29,21 @@ const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
       return state
   }
 }
+
+const userAuth = (state={logged:false, logError:null}, action) => {
+  switch (action.type) {
+    case 'REGISTER_SUCCESS':
+      console.log("REGISTER_SUCCESS")
+      return {...state,logged:true}
+    case 'REGISTER_FAIL':
+      return {...state,logError:action.error}
+    default:
+      return state
+  }
+}
   
 export default combineReducers({
   todos,
-  visibilityFilter
+  visibilityFilter,
+  userAuth
 })

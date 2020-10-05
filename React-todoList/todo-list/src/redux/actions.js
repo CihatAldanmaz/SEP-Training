@@ -21,4 +21,20 @@ const VisibilityFilters = {
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
 
-export {VisibilityFilters,toggleTodo,setVisibilityFilter,addTodo}
+const registerSuccess = {
+  type: 'REGISTER_SUCCESS'
+}
+
+const registerFail = (err)=>({
+  type: 'REGISTER_Fail',
+  error: err
+})
+
+export {
+  VisibilityFilters,
+  toggleTodo,
+  setVisibilityFilter,
+  addTodo,
+  registerSuccess,
+  registerFail
+}

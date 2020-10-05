@@ -11,13 +11,12 @@ import Avatar from '@material-ui/core/Avatar';
 import WorkIcon from '@material-ui/icons/Work';
 import { emphasize } from "@material-ui/core/styles/colorManipulator";
 
-const TodoList = ({ todos, toggleTodo, promps}) => {
-    console.log(promps);
+const TodoList = ({ todos, toggleTodo, finishedTodos, promps}) => {
     const classes = useStyles({
         backgroundColor: "transparent",
         hoverBackgroundColor: "#757575"
     });
-    console.log("todolist", todos);
+    todos = todos? todos:finishedTodos;
     return (
         <div className={classes.container}>
         <List className={classes.root}>
@@ -45,12 +44,13 @@ const TodoList = ({ todos, toggleTodo, promps}) => {
 const useStyles = makeStyles((theme) =>
     ({
         container:{
+            position:"absolute",
             borderRadius :"4px",
             boxSizing:"border-box",
-            height: "200px",
+            height: "calc(100% - 1rem)",
             overflow: 'scroll',
-            width: "80%",
-            padding: "2rem",
+            width: "calc(100% - 1rem)",
+            padding: "0.2rem",
             border:"thin solid rgba(0, 0, 0, 0.23)" 
         },
         root: {

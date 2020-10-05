@@ -8,7 +8,6 @@ import { createUseStyles,useTheme } from "react-jss";
 const TodoInput = ({ addTodo }) => {
     const theme = useTheme();
     const classes = useStyles({ theme });
-    console.log(classes);
     const [input, setInput] = useState();
     return (
         <div className={classes.container}>
@@ -21,7 +20,7 @@ const TodoInput = ({ addTodo }) => {
                 onKeyUp={(event) => {
                     if (event.key == "Enter") {
                         addTodo(event.target.value);
-                        event.target.value = ''
+                        setInput('');
                     }
                 }}
                 onChange={(event => {
@@ -48,11 +47,13 @@ const useStyles = createUseStyles({
         alignItems: 'center',
         justifyContent: 'center',
         width: "100%",
+        height: "30%",
         padding: 20,
         background: ({ theme }) => theme.backgroundColor,
     },
     input: {
         width:"70%",
+        height: "80%",
         font: {
             size: 40,
             weight: 900
