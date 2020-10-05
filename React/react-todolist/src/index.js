@@ -54,4 +54,4 @@ class Myapp extends React.Component {
   }
 }
 
-ReactDOM.render(<Myapp></Myapp>, document.getElementById('root'));
+ReactDOM.render(<App></App>, document.getElementById('root'));

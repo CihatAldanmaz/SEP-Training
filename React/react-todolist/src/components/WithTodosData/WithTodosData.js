@@ -57,10 +57,10 @@ class WithTodosData extends React.Component {
     }
 
     return (
-      <>
+      <React.Fragment>
         {header}
         {content}
-      </>
+      </React.Fragment>
     );
   }
 }
