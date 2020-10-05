@@ -3,6 +3,8 @@ import Logo from '../Logo/Logo';
 import './Header.css';
 import TodosCount from '../TodosCount/TodosCount';
 import WithTodosData from '../WithTodosData/WithTodosData';
+import { Link } from 'react-router-dom';
+import { MyLink } from '../../MyRouter/MyRouter';
 
 class Header extends React.Component {
   render() {
@@ -11,18 +13,10 @@ class Header extends React.Component {
       <div className="header-list">
         <Logo></Logo>
         <nav className="nav">
-          <a
-            href="www.google.com"
-            onClick={() => handleChangeActivePage('Dashboard')}
-          >
-            Dashboard
-          </a>
-          <a
-            href="www.google.com"
-            onClick={() => handleChangeActivePage('TodoList')}
-          >
-            TodoList
-          </a>
+          <Link to="/dashboard">Dashboard</Link>
+          <Link to="/todolist">TodoList</Link>
+          <MyLink to="/home">HOME</MyLink>
+          <MyLink to="/about">About</MyLink>
         </nav>
         <WithTodosData>
           {(_, __, todolist) => <TodosCount todolist={todolist}></TodosCount>}
