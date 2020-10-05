@@ -11,8 +11,18 @@ class Header extends React.Component {
       <div className="header-list">
         <Logo></Logo>
         <nav className="nav">
-          <a onClick={() => handleChangeActivePage('Dashboard')}>Dashboard</a>
-          <a onClick={() => handleChangeActivePage('TodoList')}>TodoList</a>
+          <a
+            href="www.google.com"
+            onClick={() => handleChangeActivePage('Dashboard')}
+          >
+            Dashboard
+          </a>
+          <a
+            href="www.google.com"
+            onClick={() => handleChangeActivePage('TodoList')}
+          >
+            TodoList
+          </a>
         </nav>
         <WithTodosData>
           {(_, __, todolist) => <TodosCount todolist={todolist}></TodosCount>}
