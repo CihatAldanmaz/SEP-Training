@@ -1,51 +1,47 @@
 import React from 'react';
 import { store } from './myRedux';
 import { actionCreater } from './myRedux';
+// import { connect } from 'react-redux';
+import { connect } from '../MyReactRedux/MyReactRedux';
 
-class CounterTest extends React.Component {
-  state = {
-    counter: store.getState(),
-  };
-  render() {
-    return <h1>CounterTest: {this.state.counter}</h1>;
-  }
-
-  componentDidMount() {
-    store.subscribe(() => {
-      this.setState({
-        counter: store.getState(),
-      });
-    });
-  }
-}
+export const MyContext = React.createContext('');
 
 class ReduxCounterApp extends React.Component {
-  state = {
-    counter: store.getState(),
-  };
-
   handleIncreament = () => {
     alert('CHANGE!!!');
-    store.dispatch(actionCreater.incrementDelay());
+    this.props.increment();
   };
 
-  componentDidMount() {
-    store.subscribe(() => {
-      this.setState({
-        counter: store.getState(),
-      });
-    });
-  }
-
   render() {
+    console.log('props from connect', this.props);
+    const { counter } = this.props;
     return (
       <div>
-        <h1>Counter: {this.state.counter}</h1>
+        <h1>Counter: {counter}</h1>
         <button onClick={this.handleIncreament}>increment</button>
-        <CounterTest></CounterTest>
       </div>
     );
   }
 }
+const mapStateToProps = (state /*, ownProps*/) => {
+  return {
+    counter: state.counter,
+    title: state.title,
+    hello: state.hello,
+  };
+};
 
-export default ReduxCounterApp;
+const mapDispatchToProps = (dispatch /*, ownProps*/) => {
+  return {
+    increment: () => dispatch(actionCreater.increment()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxCounterApp);
+
+export class TestCounterApp extends React.Component {
+  static contextType = MyContext;
+  render() {
+    return <h1>TestAPp</h1>;
+  }
+}
